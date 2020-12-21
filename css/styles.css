@@ -7,6 +7,10 @@
     padding: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 p {
     font-size: 14px;
     font-weight: 100;
@@ -57,7 +61,7 @@ p {
 
 .workflow-header {
     width: 100%;
-    height: 90%;
+    height: 88vh;
     position: relative;
     min-height: 620px;
     z-index: -1;
@@ -173,7 +177,7 @@ brown {
     padding: 15px;
     margin: 5px 0px;
     box-shadow: -1px 1px 12px rgba(148,114,100, 0.3);
-    transition: {width, height} 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .card-animate {
@@ -334,6 +338,63 @@ brown {
     font-size: 22px;
 }
 
+/* Buttons */
+.btn-container {
+    position: relative;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline;
+    position: relative;
+    padding: 0;
+}
+
+.btn::before {
+  content: attr(data-title);
+  display: inline-block;
+  padding: 12px 15px;
+  border: 0px solid white;
+  border-radius: 7px;
+  outline: none;
+  text-align: center;
+  color: rgba(148, 114, 100, 1.0);
+  background-color: white;
+  box-shadow: 4px 4px 11px 0px rgba(32, 32, 32, 0.5);
+  transition: all 0.5s ease-in-out;
+}
+
+.btn::after {
+  content: attr(data-title);
+  padding: 12px 15px;
+  position: absolute;
+  display: block;
+  top: -14px;
+  left: 0px;
+  border: 0px solid white;
+  border-radius: 7px;
+  outline: none;
+  text-align: center;
+  color: white;
+  background-color: rgba(148, 114, 100, 1.0);
+  clip: rect(0px, 0px, 200px, 0px);
+  transition: all 0.5s ease-in-out;
+}
+
+.btn:hover:before {
+    background-color: rgb(148,114,100);
+}
+
+.btn:hover:after {
+  clip: rect(0px, 200px, 200px, 0px);
+  cursor: pointer;
+}
+
+
 /* RESPONSIVE */
 
 /* 
@@ -345,6 +406,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     position: absolute;
     bottom: -20px;
     left: -50px;
+    z-index: -1;
 }
 
  
@@ -392,8 +454,14 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
 @media (max-width: 991px) {
 
+    .side-img {
+        max-width: 250px;
+        z-index: unset!important;
+    }
+
     .workflow-header {
         min-height: 610px;
+        height: 100vh;
     }
 
     .navbar-collapse {

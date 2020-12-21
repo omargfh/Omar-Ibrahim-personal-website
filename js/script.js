@@ -2,9 +2,13 @@
 {
 
 window.onload = function() {
+    headerControl("onload");
     document.querySelector('.navbar-toggler').onclick = function() {
-        headerControl("onload");
+        headerControl("onclick");
     };
+    document.querySelector('#btn-learn-more').onclick = function() {
+
+    }
     showElements('#section-2', 'card');
     showElements('#section-3-nav', 'timeline');
     showElements('#section-1-nav', 'section-1');
@@ -12,6 +16,7 @@ window.onload = function() {
 };
 
 window.onresize = function() {
+    headerControl("onload");
     changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
 }
 
@@ -68,9 +73,10 @@ function changeText(el, wd, lg, sm) {
 }
 
 function headerControl(n) {
-    if (n === "onload") {
+    if (n === "onclick") {
         document.querySelector('.navbar-bg').classList.toggle('hidden');
         document.querySelector('#ch-pic').classList.remove('ch-pic-transit');
+        document.querySelector('#btn-learn-more-content').classList.toggle('btn');
         if (window.innerWidth < 991) {
             document.querySelector('.header-flex').classList.toggle('visible-desktop');
         }
@@ -78,10 +84,17 @@ function headerControl(n) {
             document.querySelector('.header-flex').classList.remove('hidden');
         }
     }
+    else if (n === "onload") {
+        let header = document.querySelector('.workflow-header');
+        let img = document.querySelector('#img-bg'); 
+        let header_height = img.clientHeight - 82;
+        header.style.height = parseInt(header_height) + "px";
+    }
     else if (n === "onscroll") {
         document.querySelector('.navbar-bg').classList.add('hidden');
         document.querySelector('#navbarSupportedContent').classList.remove('show');
         document.querySelector('.header-flex').classList.remove('visible-desktop');
         document.querySelector('#ch-pic').classList.add('ch-pic-transit');
+        document.querySelector('#btn-learn-more-content').classList.add('btn');
     }
 }
