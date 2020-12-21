@@ -70,6 +70,7 @@ function changeText(el, wd, lg, sm) {
 function headerControl(n) {
     if (n === "onload") {
         document.querySelector('.navbar-bg').classList.toggle('hidden');
+        document.querySelector('#ch-pic').classList.remove('ch-pic-transit');
         if (window.innerWidth < 991) {
             document.querySelector('.header-flex').classList.toggle('visible-desktop');
         }
@@ -81,5 +82,6 @@ function headerControl(n) {
         document.querySelector('.navbar-bg').classList.add('hidden');
         document.querySelector('#navbarSupportedContent').classList.remove('show');
         document.querySelector('.header-flex').classList.remove('visible-desktop');
+        document.querySelector('#ch-pic').classList.add('ch-pic-transit');
     }
 }

@@ -116,13 +116,16 @@ p {
     font-size: 20px;
 }
 
+.ch-pic-transit {
+    transition: all 0.5s ease-in-out;
+}
+
 #ch-pic {
     margin: 30px 0px;
     width: 280px;
     height: 280px;
     border-radius: 50%;
     border: 15px solid rgba(82, 53, 36, 0.64);
-    transition: all 0.5s ease-in-out;
 }
 
 #ch-pic:hover {
