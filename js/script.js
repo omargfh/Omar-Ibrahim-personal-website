@@ -1,30 +1,25 @@
 (function (window)
 {
 
-showElements('#section-2', 'card');
-showElements('#section-3-nav', 'timeline');
-showElements('#section-1-nav', 'section-1');
-changeRightDown();
-
-window.onresize = function() {
-    changeRightDown();
-}
-
 window.onload = function() {
     document.querySelector('.navbar-toggler').onclick = function() {
-        document.querySelector('.navbar-bg').classList.toggle('hidden');
-        if (window.innerWidth < 656) {
-            document.querySelector('.header-flex').classList.toggle('hidden');
-        }
-        else {
-            document.querySelector('.header-flex').classList.remove('hidden');
-        }
+        headerControl("onload");
     };
-    window.onscroll = function(){
-        showElements('#section-2', 'card');
-        showElements('#section-3-nav', 'timeline');
-        showElements('#section-1-nav', 'section-1');
-    };
+    showElements('#section-2', 'card');
+    showElements('#section-3-nav', 'timeline');
+    showElements('#section-1-nav', 'section-1');
+    changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
+};
+
+window.onresize = function() {
+    changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
+}
+
+window.onscroll = function(){
+    showElements('#section-2', 'card');
+    showElements('#section-3-nav', 'timeline');
+    showElements('#section-1-nav', 'section-1');
+    headerControl("onscroll");
 };
 
 })(window);
@@ -50,8 +45,8 @@ function showElements(check, el) {
         let elements = document.getElementsByClassName(el);
         for (let i = 0; i < elements.length; i++)
         {
-            if (elements[i].classList.contains('hidden')){
-            elements[i].classList.toggle('hidden');
+            if (elements[i].classList.contains('visible-mobile')){
+            elements[i].classList.toggle('visible-mobile');
             let string = el + '-animate';
             elements[i].classList.toggle(string);
             }
@@ -62,11 +57,29 @@ function showElements(check, el) {
     }
 }
 
-function changeRightDown() {
-    if (window.innerWidth <= 767) {
-        document.querySelector('#right-down').innerHTML = "If you look down, you can see a picture of me during the last STEM Model UN!";
+function changeText(el, wd, lg, sm) {
+    let docref = document.querySelector(el);
+    if (window.innerWidth <= wd) {
+        docref.innerHTML = sm;
     }
     else {
-        document.querySelector('#right-down').innerHTML = "To the right, you can see a picture of me during the last STEM Model UN!";
+        docref.innerHTML = lg;
+    }
+}
+
+function headerControl(n) {
+    if (n === "onload") {
+        document.querySelector('.navbar-bg').classList.toggle('hidden');
+        if (window.innerWidth < 991) {
+            document.querySelector('.header-flex').classList.toggle('visible-desktop');
+        }
+        else {
+            document.querySelector('.header-flex').classList.remove('hidden');
+        }
+    }
+    else if (n === "onscroll") {
+        document.querySelector('.navbar-bg').classList.add('hidden');
+        document.querySelector('#navbarSupportedContent').classList.remove('show');
+        document.querySelector('.header-flex').classList.remove('visible-desktop');
     }
 }

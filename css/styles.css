@@ -18,13 +18,20 @@ p {
     visibility: hidden;
 }
 
-.force-hidden {
+.visible-mobile {
     visibility: hidden;
 }
 
+.visible-desktop {
+    visibility: visible;
+}
+
 @media (max-width: 767px) {
-    .hidden {
+    .visible-mobile {
         visibility: unset!important;
+    }
+    .visible-desktop {
+        visibility: hidden;
     }
 }
 
@@ -45,7 +52,7 @@ p {
 }
 
 .bg-size {
-    width: fit-content;
+    width: auto;
 }
 
 .workflow-header {
@@ -127,51 +134,6 @@ p {
     max-height: 50px;
 }
 
-@media (max-width: 991px) {
-    .navbar-collapse {
-        position: absolute;
-        top: 75px;
-        right: 0;
-        width: 140px;
-        margin: 30px;
-        text-align: right;
-    }
-
-    .navbar-bg {
-        background-color: #2b1813;
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        width: 190px;
-        opacity: 0.8;
-        animation: slide-in 2s forwards;
-    }
-
-    .header-flex h1 {
-        font-size: 20px;
-    }
-    
-    .header-flex h2 {
-        font-size: 16px;
-    }
-
-    #ch-pic {
-        width: 220px;
-        height: 220px;
-    }
-
-    #ch-pic:hover {
-        width: 250px;
-        height: 250px;
-    }
-
-    @keyframes slide-in {
-        from {width: 0px;}
-        to {width: 190px;}
-    }
-}
-
 /* sections */
 
 brown {
@@ -208,7 +170,7 @@ brown {
     padding: 15px;
     margin: 5px 0px;
     box-shadow: -1px 1px 12px rgba(148,114,100, 0.3);
-    transition: all 0.5s ease-in-out;
+    transition: {width, height} 0.5s ease-in-out;
 }
 
 .card-animate {
@@ -220,6 +182,7 @@ brown {
 .card:hover {
     box-shadow: 1px 1px 10px rgba(148,114,100, 1.0);
 }
+
 /* 
 .section-1-animate {
     animation: fade-in 1s ease-in-out;
@@ -273,6 +236,11 @@ brown {
     position: relative;
 }
 
+.event h3 {
+    font-size: 1.2rem;
+    hyphens: auto;
+}
+
 .event:last-of-type { 
       padding-bottom: 0;
       margin-bottom: 0; 
@@ -286,12 +254,12 @@ brown {
 }
 
 .event::before {
-      left: -217.5px;    
+      left: -193px;    
       color: fade(white, 40%);    
       content: attr(data-date);
       text-align: right;
       font-weight: 100;    
-      font-size: 0.9em;
+      font-size: 0.7em;
       min-width: 120px;
       font-family: 'PT Sans', sans-serif;;
 }
@@ -361,4 +329,110 @@ brown {
 .icon {
     display: inline;
     font-size: 22px;
+}
+
+/* RESPONSIVE */
+
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+
+.side-img {
+    position: absolute;
+    bottom: -20px;
+    left: -50px;
+}
+
+ 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+    .side-img {
+        left: -80px;
+    }
+
+    #img-books {
+        visibility: hidden;
+    }
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+    .event h3 {
+        font-size: 1.7rem;
+    }
+
+    .event::before {
+        font-size: 0.9em;
+    }
+ 
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+ 
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    .side-img {
+        
+        left: -179px;  
+    }
+
+    #img-books {
+        visibility: visible;
+    }
+}
+
+/* Mobiles and Tablets only */
+
+@media (max-width: 991px) {
+
+    .workflow-header {
+        min-height: 610px;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 75px;
+        right: 0;
+        width: 140px;
+        margin: 30px;
+        text-align: right;
+    }
+
+    .navbar-bg {
+        background-color: #2b1813;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 190px;
+        opacity: 0.8;
+        animation: slide-in 2s forwards;
+    }
+
+    .header-flex h1 {
+        font-size: 20px;
+    }
+    
+    .header-flex h2 {
+        font-size: 16px;
+    }
+
+    #ch-pic {
+        width: 220px;
+        height: 220px;
+    }
+
+    #ch-pic:hover {
+        width: 250px;
+        height: 250px;
+    }
+
+    @keyframes slide-in {
+        from {width: 0px;}
+        to {width: 190px;}
+    }
 }
