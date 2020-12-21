@@ -87,7 +87,7 @@ function headerControl(n) {
     else if (n === "onload") {
         let header = document.querySelector('.workflow-header');
         let img = document.querySelector('#img-bg'); 
-        let header_height = img.clientHeight - 82;
+        let header_height = img.clientHeight;
         header.style.height = parseInt(header_height) + "px";
     }
     else if (n === "onscroll") {
@@ -96,5 +96,14 @@ function headerControl(n) {
         document.querySelector('.header-flex').classList.remove('visible-desktop');
         document.querySelector('#ch-pic').classList.add('ch-pic-transit');
         document.querySelector('#btn-learn-more-content').classList.add('btn');
+        let rect = document.querySelector('#img-bg').getBoundingClientRect();
+        if (rect.bottom <= 0)
+        {
+            document.querySelector('.navbar').classList.add('bg-light-onscroll');
+        }
+        else
+        {
+            document.querySelector('.navbar').classList.remove('bg-light-onscroll');
+        }
     }
 }

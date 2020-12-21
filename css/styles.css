@@ -18,6 +18,10 @@ p {
 
 /* General */
 
+.animate {
+    transition: all 0.5s ease-in-out;
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -53,6 +57,10 @@ p {
 
 .bg-light {
     background-color: transparent!important;
+}
+
+.bg-light-onscroll {
+    background-color: rgba(82, 53, 36, 1)!important;
 }
 
 .bg-size {
@@ -108,7 +116,8 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    position: relative;
+    top: 60px;
 }
 
 .header-flex h1 {
@@ -138,7 +147,7 @@ p {
 }
 
 #logo {
-    max-height: 50px;
+    max-height: 40px;
 }
 
 /* sections */
