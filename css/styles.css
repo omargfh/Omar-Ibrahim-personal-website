@@ -57,9 +57,10 @@ p {
 
 .workflow-header {
     width: 100%;
-    height: 88vh;
+    height: 0px;
+    height: 90vh;
     position: relative;
-    min-height: 610px;
+    min-height: 620px;
     z-index: -1;
 }
 
