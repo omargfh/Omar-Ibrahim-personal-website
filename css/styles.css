@@ -49,7 +49,7 @@ old-english {
     visibility: visible;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .visible-mobile {
         visibility: unset!important;
     }
@@ -206,11 +206,6 @@ brown {
     justify-content: center;
     align-items: center;
 }
-
-/* 
-.section-1-animate {
-    animation: fade-in 1s ease-in-out;
-} */
 
 #section-1 {
     position: relative;
@@ -451,9 +446,9 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     bottom: -20px;
     left: -50px;
     z-index: -1;
+    max-width: 250px;
 }
 
- 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {  
     .side-img {
@@ -488,8 +483,8 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {  
     .side-img {
-        
-        left: -20px;  
+        left: -20px; 
+        z-index: -1!important; 
     }
 
     #img-books {
@@ -505,13 +500,13 @@ No media query since this is the default in Bootstrap because it is "mobile firs
         font-size: 2rem;
     }
 
-    .side-img {
-        max-width: 250px;
-        z-index: unset!important;
-    }
-
     .timeline {
         max-width: 30%;
+    }
+
+    .side-img {
+        left: -20px; 
+        z-index: unset!important; 
     }
 
     .workflow-header {
