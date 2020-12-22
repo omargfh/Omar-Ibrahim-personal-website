@@ -18,6 +18,25 @@ window.onload = function() {
     showElements('#section-3-nav', 'timeline');
     showElements('#section-1-nav', 'section-1');
     changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
+    let popups = $('.pop-up-call').map(function() {
+        return this;
+    }).get();
+    for (let i = 0; i < popups.length; i++){
+        $(popups[i]).click(function() {
+            $.ajax({
+                type: 'GET',
+                url: popups[i].dataset.content,
+                timeout: 5000,
+                success: function(data) {
+                    $('#pop-up-content').html(data);
+                }
+            });
+            $('#pop-up').removeClass('hidden');
+        });
+    }
+    $('#pop-up-close').click(function() {
+        $('#pop-up').addClass('hidden');
+    });
 };
 
 window.onresize = function() {
@@ -41,7 +60,7 @@ function isElementInViewport (el) {
         el = el[0];
     }
 
-    var rect = el.getBoundingClientRect();
+    let rect = el.getBoundingClientRect();
     return (
         rect.top >= 0 &&
         rect.left >= 0 &&

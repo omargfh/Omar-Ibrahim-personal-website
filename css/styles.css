@@ -178,6 +178,64 @@ old-english {
     max-height: 38px!important;
 }
 
+/* Pop-ups */
+.pop-up ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.pop-up {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgba(32, 32, 32, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 1031;
+}
+
+.pop-up-window {
+  width: 90%;
+  height: 90%;
+  padding: 15px;
+  position: relative;
+  overflow-y: scroll;
+  scroll-bar-width: 0px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  box-shadow: 1px 1px 11px rgba(32, 32, 32, 0.5);
+}
+
+.pop-up-close {
+  font-family: 'Open Sans', arial, serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgb(140, 140, 140);
+  float: right;
+  cursor: pointer;
+}
+
+.pop-up-close {
+  display: block;
+}
+
+.pop-up-close:hover {
+  color: rgb(52, 52, 52);
+}
+
+.pop-up-content {
+  clear: both;
+}
+
+.pop-up-call:hover {
+  cursor: pointer;
+}
+
 /* sections */
 
 brown {
