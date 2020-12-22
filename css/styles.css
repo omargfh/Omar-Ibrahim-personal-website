@@ -26,11 +26,9 @@ bold {
     font-weight: bold;
 }
 
-old-english {
-    font-family: 'engrvrsoldeng_btregular', 'PT Sands', serif;
-    font-size: 2rem;
+brown {
+    color:rgb(148,114,100)!important;
 }
-
 /* General */
 
 .animate {
@@ -60,14 +58,22 @@ old-english {
 
 /* Header */
 
+/* Background Banner */
 .bg {
     position: absolute;
     width: 100%;
-    height: 100%;
-    min-height: 700px;  
     overflow: hidden;
     display: flex;
     justify-content: center;
+}
+
+.bg-regular {
+    height: 450px;
+}
+
+.bg-expand {
+    height: 100%;
+    min-height: 700px;  
 }
 
 .bg-light {
@@ -78,10 +84,14 @@ old-english {
     background-color: rgb(97, 68, 56)!important;
 }
 
-.bg-size {
+.inherit-bg {
+    background: url(/images/bg.jpg) repeat fixed top;
+}
+.bg-size-ex {
     width: auto;
 }
 
+/* Takes space of absolute object */
 .workflow-header {
     width: 100%;
     height: 88vh;
@@ -90,6 +100,12 @@ old-english {
     z-index: -1;
 }
 
+.workflow-header-rg {
+    min-height: 0px!important;
+    height: 450px!important;
+}
+
+/* Styles Navigation Bar */
 .navbar-expand-lg .navbar-nav .nav-link {
     color: white;
     opacity: 0.6;
@@ -121,10 +137,16 @@ old-english {
     padding: 5px 15px!important;
 }
 
-/* .navbar .nav-item {
-    font-size: 10px;
-} */
+#logo {
+    max-height: 45px;
+    transition: all 0.5s ease-in-out;
+}
 
+.logo-small {
+    max-height: 38px!important;
+}
+
+/* Style Head Banner Content */
 .header-flex {
     position: absolute;
     display: flex;
@@ -140,6 +162,7 @@ old-english {
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
     top: 60px;
 }
 
@@ -152,8 +175,9 @@ old-english {
     font-size: 20px;
 }
 
+/* Styles Head Picture */
 .ch-pic-transit {
-    transition: all 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
 #ch-pic {
@@ -165,17 +189,7 @@ old-english {
 }
 
 #ch-pic:hover {
-    width: 330px;
-    height: 330px;
-}
-
-#logo {
-    max-height: 45px;
-    transition: all 0.5s ease-in-out;
-}
-
-.logo-small {
-    max-height: 38px!important;
+    transform: scale(1.1);
 }
 
 /* Pop-ups */
@@ -221,11 +235,6 @@ old-english {
   animation-fill-mode: forwards;
 }
 
-@keyframes slide {
-  from {transform: translateY(-500px);opacity: 0.0;}
-  to {transform: translateY(0px); opacity: 1.0;}
-}
-
 .pop-up-close {
   font-family: 'Open Sans', arial, serif;
   font-size: 1.1rem;
@@ -251,25 +260,15 @@ old-english {
   cursor: pointer;
 }
 
+@keyframes slide {
+    from {transform: translateY(-500px);opacity: 0.0;}
+    to {transform: translateY(0px); opacity: 1.0;}
+  }
+  
 /* sections */
-
-brown {
-    color:rgb(148,114,100)!important;
-}
-
-.section h1 {
-    font-weight: bold!important;
-    color: rgb(148,114,100)!important;
-}
 
 .section-colored {
     background-color: #f8f8f8;
-}
-
-.section-2-holder {
-    min-height: 250px;
-    height: fit-content;
-    padding: 20px;
 }
 
 .section-flex {
@@ -280,10 +279,22 @@ brown {
     align-items: center;
 }
 
+.section h1 {
+    font-weight: bold!important;
+    color: rgb(148,114,100)!important;
+}
+
 #section-1 {
     position: relative;
 }
 
+.section-2-holder {
+    min-height: 250px;
+    height: fit-content;
+    padding: 20px;
+}
+
+/* Index-page Specific */
 #img-books {
     width: 350px;
 }
@@ -522,6 +533,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     max-width: 250px;
 }
 
+#pg-title {
+    height: 200px;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {  
     .side-img {
@@ -530,6 +545,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
     #img-books {
         visibility: hidden;
+    }
+
+    #pg-title {
+        height: 230px;
     }
 }
  
@@ -542,7 +561,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     .event::before {
         font-size: 0.9em;
     }
- 
+
+    #pg-title {
+        height: 300px;
+    }
 }
  
 /* Large devices (desktops, 992px and up) */

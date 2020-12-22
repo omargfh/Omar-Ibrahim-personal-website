@@ -4,10 +4,6 @@ $(document).ready(function () {
         interval: 5000
     });
 
-    $('.carousel-fast').carousel({
-        interval: 1000
-    });
-
     $(window).on('load', function() {
         headerControl("onload");
         showElements('#section-2', 'card');
@@ -127,7 +123,7 @@ function headerControl(n) {
         $('.header-flex').removeClass('visible-desktop');
         $('#ch-pic').addClass('ch-pic-transit');
         $('#btn-learn-more-content').addClass('btn');
-        let rect = $('#img-bg')[0].getBoundingClientRect();
+        let rect = $('.bg')[0].getBoundingClientRect();
         if (rect.bottom <= 100)
         {
             $('.navbar').addClass('bg-light-onscroll');
