@@ -1,14 +1,19 @@
 (function (window)
 {
 
+$('.carousel').carousel({
+    interval: 5000
+});
+
+$('carousel-fast').carousel({
+    interval: 1000
+});
+
 window.onload = function() {
     headerControl("onload");
     document.querySelector('.navbar-toggler').onclick = function() {
         headerControl("onclick");
     };
-    document.querySelector('#btn-learn-more').onclick = function() {
-
-    }
     showElements('#section-2', 'card');
     showElements('#section-3-nav', 'timeline');
     showElements('#section-1-nav', 'section-1');
@@ -97,13 +102,15 @@ function headerControl(n) {
         document.querySelector('#ch-pic').classList.add('ch-pic-transit');
         document.querySelector('#btn-learn-more-content').classList.add('btn');
         let rect = document.querySelector('#img-bg').getBoundingClientRect();
-        if (rect.bottom <= 0)
+        if (rect.bottom <= 100)
         {
             document.querySelector('.navbar').classList.add('bg-light-onscroll');
+            document.querySelector('#logo').classList.add('logo-small');
         }
         else
         {
             document.querySelector('.navbar').classList.remove('bg-light-onscroll');
+            document.querySelector('#logo').classList.remove('logo-small');
         }
     }
 }

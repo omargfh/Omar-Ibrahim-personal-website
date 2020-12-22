@@ -16,6 +16,21 @@ p {
     font-weight: 100;
 }
 
+thin {
+    font-size: inherit;
+    font-weight: normal!important;
+}
+
+bold {
+    font-size: inherit;
+    font-weight: bold;
+}
+
+old-english {
+    font-family: 'engrvrsoldeng_btregular', 'PT Sands', serif;
+    font-size: 2rem;
+}
+
 /* General */
 
 .animate {
@@ -102,6 +117,14 @@ p {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+.nav-bar .nav-bar-narrow {
+    padding: 5px 15px!important;
+}
+
+/* .navbar .nav-item {
+    font-size: 10px;
+} */
+
 .header-flex {
     position: absolute;
     display: flex;
@@ -147,7 +170,12 @@ p {
 }
 
 #logo {
-    max-height: 40px;
+    max-height: 45px;
+    transition: all 0.5s ease-in-out;
+}
+
+.logo-small {
+    max-height: 38px!important;
 }
 
 /* sections */
@@ -162,7 +190,7 @@ brown {
 }
 
 .section-colored {
-    background-color: #f0f0f0;
+    background-color: #f8f8f8;
 }
 
 .section-2-holder {
@@ -177,26 +205,6 @@ brown {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.card {
-    min-height: 200px;
-    height: fit-content;
-    background-color: white;
-    padding: 15px;
-    margin: 5px 0px;
-    box-shadow: -1px 1px 12px rgba(148,114,100, 0.3);
-    transition: all 0.5s ease-in-out;
-}
-
-.card-animate {
-    transform: scale(0.1);
-    animation-name: upscale;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
-.card:hover {
-    box-shadow: 1px 1px 10px rgba(148,114,100, 1.0);
 }
 
 /* 
@@ -221,6 +229,33 @@ brown {
     to {transform: scale(1);}
 }
 
+/* Cards */
+.card {
+    min-height: 200px;
+    height: fit-content;
+    background-color: white;
+    padding: 15px;
+    margin: 5px 0px;
+    box-shadow: -1px 1px 12px rgba(148,114,100, 0.3);
+    transition: all 0.5s ease-in-out;
+}
+
+.card-animate {
+    transform: scale(0.1);
+    animation-name: upscale;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.card:hover {
+    box-shadow: 1px 1px 10px rgba(148,114,100, 1.0);
+}
+
+/* Carousel */
+.container-carousel {
+    padding: 30px;
+    width: 100%;
+}
+
 /* Timeline by Alan Houser */
 .timeline {
   border-left: 4px solid rgb(148,114,100);
@@ -238,7 +273,7 @@ brown {
   list-style: none;
   text-align: left;  
   font-weight: 100;  
-  max-width: 30%;
+  max-width: 60%;
 }
 
 .timeline-animate {
@@ -444,7 +479,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
  
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
- 
+    .container-carousel {
+        padding: 50px;
+        width: 100%;
+    }
 }
  
 /* Extra large devices (large desktops, 1200px and up) */
@@ -463,9 +501,17 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
 @media (max-width: 991px) {
 
+    h1 {
+        font-size: 2rem;
+    }
+
     .side-img {
         max-width: 250px;
         z-index: unset!important;
+    }
+
+    .timeline {
+        max-width: 30%;
     }
 
     .workflow-header {
