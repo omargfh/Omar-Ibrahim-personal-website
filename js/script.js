@@ -1,57 +1,55 @@
-(function (window)
-{
+$(document).ready(function () {
 
-$('.carousel').carousel({
-    interval: 5000
-});
-
-$('.carousel-fast').carousel({
-    interval: 1000
-});
-
-window.onload = function() {
-    headerControl("onload");
-    document.querySelector('.navbar-toggler').onclick = function() {
-        headerControl("onclick");
-    };
-    showElements('#section-2', 'card');
-    showElements('#section-3-nav', 'timeline');
-    showElements('#section-1-nav', 'section-1');
-    changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
-    let popups = $('.pop-up-call').map(function() {
-        return this;
-    }).get();
-    for (let i = 0; i < popups.length; i++){
-        $(popups[i]).click(function() {
-            $.ajax({
-                type: 'GET',
-                url: popups[i].dataset.content,
-                timeout: 5000,
-                success: function(data) {
-                    $('#pop-up-content').html(data);
-                }
-            });
-            $('#pop-up').removeClass('hidden');
-        });
-    }
-    $('#pop-up-close').click(function() {
-        $('#pop-up').addClass('hidden');
+    $('.carousel').carousel({
+        interval: 5000
     });
-};
 
-window.onresize = function() {
-    headerControl("onload");
-    changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
-}
+    $('.carousel-fast').carousel({
+        interval: 1000
+    });
 
-window.onscroll = function(){
-    showElements('#section-2', 'card');
-    showElements('#section-3-nav', 'timeline');
-    showElements('#section-1-nav', 'section-1');
-    headerControl("onscroll");
-};
+    $(window).on('load', function() {
+        headerControl("onload");
+        showElements('#section-2', 'card');
+        showElements('#section-3-nav', 'timeline');
+        showElements('#section-1-nav', 'section-1');
+        changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
+        
+        $('.navbar-toggler').click(function() {
+            headerControl("onclick");
+        });
+        $('.pop-up-call').each(function(i, el){
+            $(el).click(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: el.dataset.content,
+                    timeout: 5000,
+                    success: function(data) {
+                        $('#pop-up-content').html(data);
+                    },
+                    complete: function() {
+                        $('#pop-up').removeClass('hidden');
+                    }
+                });           
+            });
+        });
+        $('#pop-up-close').click(function() {
+                $('#pop-up').addClass('hidden');
+        });
+    });
 
-})(window);
+    $(window).on('resize', function() {
+        headerControl("onload");
+        changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
+    });
+
+    $(window).on('scroll', function() {
+        showElements('#section-2', 'card');
+        showElements('#section-3-nav', 'timeline');
+        showElements('#section-1-nav', 'section-1');
+        headerControl("onscroll");
+    });
+});
 
 function isElementInViewport (el) {
 
@@ -87,7 +85,7 @@ function showElements(check, el) {
 }
 
 function changeText(el, wd, lg, sm) {
-    let docref = document.querySelector(el);
+    let docref = $(el)[0];
     if (window.innerWidth <= wd) {
         docref.innerHTML = sm;
     }
@@ -98,38 +96,38 @@ function changeText(el, wd, lg, sm) {
 
 function headerControl(n) {
     if (n === "onclick") {
-        document.querySelector('.navbar-bg').classList.toggle('hidden');
-        document.querySelector('#ch-pic').classList.remove('ch-pic-transit');
-        document.querySelector('#btn-learn-more-content').classList.toggle('btn');
+        $('.navbar-bg').toggleClass('hidden');
+        $('#ch-pic').removeClass('ch-pic-transit');
+        $('#btn-learn-more-content').toggleClass('btn');
         if (window.innerWidth < 991) {
-            document.querySelector('.header-flex').classList.toggle('visible-desktop');
+            $('.header-flex').toggleClass('visible-desktop');
         }
         else {
-            document.querySelector('.header-flex').classList.remove('hidden');
+            $('.header-flex').removeClass('hidden');
         }
     }
     else if (n === "onload") {
-        let header = document.querySelector('.workflow-header');
-        let img = document.querySelector('#img-bg'); 
+        let header = $('.workflow-header')[0];
+        let img = $('#img-bg')[0]; 
         let header_height = img.clientHeight;
         header.style.height = parseInt(header_height) + "px";
     }
     else if (n === "onscroll") {
-        document.querySelector('.navbar-bg').classList.add('hidden');
-        document.querySelector('#navbarSupportedContent').classList.remove('show');
-        document.querySelector('.header-flex').classList.remove('visible-desktop');
-        document.querySelector('#ch-pic').classList.add('ch-pic-transit');
-        document.querySelector('#btn-learn-more-content').classList.add('btn');
-        let rect = document.querySelector('#img-bg').getBoundingClientRect();
+        $('.navbar-bg').addClass('hidden');
+        $('#navbarSupportedContent').removeClass('show');
+        $('.header-flex').removeClass('visible-desktop');
+        $('#ch-pic').addClass('ch-pic-transit');
+        $('#btn-learn-more-content').addClass('btn');
+        let rect = $('#img-bg')[0].getBoundingClientRect();
         if (rect.bottom <= 100)
         {
-            document.querySelector('.navbar').classList.add('bg-light-onscroll');
-            document.querySelector('#logo').classList.add('logo-small');
+            $('.navbar').addClass('bg-light-onscroll');
+            $('#logo').addClass('logo-small');
         }
         else
         {
-            document.querySelector('.navbar').classList.remove('bg-light-onscroll');
-            document.querySelector('#logo').classList.remove('logo-small');
+            $('.navbar').removeClass('bg-light-onscroll');
+            $('#logo').removeClass('logo-small');
         }
     }
 }
