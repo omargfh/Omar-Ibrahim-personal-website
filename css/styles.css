@@ -204,11 +204,26 @@ old-english {
   padding: 15px;
   position: relative;
   overflow-y: scroll;
-  scroll-bar-width: 0px;
   border-radius: 15px;
   box-sizing: border-box;
   background-color: #f9f9f9;
   box-shadow: 1px 1px 11px rgba(32, 32, 32, 0.5);
+}
+
+.pop-up-window-animate {
+  animation: slide 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.pop-up-window-close-animate {
+  animation: slide 1s ease-in-out;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+  from {transform: translateY(-500px);opacity: 0.0;}
+  to {transform: translateY(0px); opacity: 1.0;}
 }
 
 .pop-up-close {

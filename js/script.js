@@ -28,13 +28,22 @@ $(document).ready(function () {
                         $('#pop-up-content').html(data);
                     },
                     complete: function() {
+                        $('#pop-up-window').addClass('pop-up-window-animate');
                         $('#pop-up').removeClass('hidden');
                     }
                 });           
             });
         });
         $('#pop-up-close').click(function() {
+            $('#pop-up-window').removeClass('pop-up-window-animate');
+            setTimeout(()=> {
+                $('#pop-up-window').addClass('pop-up-window-close-animate'); 
+            }, 200);
+            setTimeout(() =>{
+                $('#pop-up-content').html("");
+                $('#pop-up-window').removeClass('pop-up-window-close-animate');  
                 $('#pop-up').addClass('hidden');
+            }, 1200);
         });
     });
 
