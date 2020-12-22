@@ -489,7 +489,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 @media (min-width: 1200px) {  
     .side-img {
         
-        left: -179px;  
+        left: -20px;  
     }
 
     #img-books {
