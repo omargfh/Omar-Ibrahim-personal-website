@@ -26,40 +26,43 @@ $(document).ready(function() {
         // Image gallery (on "arts.html")
         $('.gallery-item').each(function(i, el) {
             $(el).mouseover(function() {
-                // Extract data
-                var src = this.innerHTML;
-                var update = $('.show-gallery-item-on-hover');
-                update.html("");
+                if ($(el).children().prop('naturalWidth') >= $(el).width()) {
+                    // Extract data
+                    var src = '<img src="' + $(el).children()[0].dataset.big + '" alt="gallery item">';
+                    var update = $('.show-gallery-item-on-hover');
+                    update.html("");
 
-                // Calculate new position
-                pos = $(el).offset();
-                pos.right = Math.round(pos.left + $(el).width());
-                pos.bottom = Math.round($(el).height() + pos.top);
-                pos.width = $(el).children().prop('naturalWidth');
-                pos.height = $(el).children().prop('naturalHeight');
-                pos.midY = (pos.top + pos.bottom) / 2;
-                pos.midX = (pos.left + pos.right) / 2;
-                pos.newY = pos.midY - pos.height / 2 >= 0 ?
-                    pos.midY - pos.height / 2 : 0;
-                pos.newX = Math.round(pos.right - $(window).width()) >= -20 ?
-                    pos.right - pos.width : pos.midX - pos.width / 2 >= 0 ?
-                    pos.midX - pos.width / 2 : 0;
+                    // Calculate new position
+                    pos = $(el).offset();
+                    pos.right = Math.round(pos.left + $(el).width());
+                    pos.bottom = Math.round($(el).height() + pos.top);
+                    pos.width = $(el).children().prop('naturalWidth');
+                    pos.height = $(el).children().prop('naturalHeight');
+                    pos.midY = (pos.top + pos.bottom) / 2;
+                    pos.midX = (pos.left + pos.right) / 2;
+                    pos.newY = pos.midY - pos.height / 2 >= 0 ?
+                        pos.midY - pos.height / 2 : 0;
+                    pos.newX = Math.round(pos.right - $(window).width()) >= -20 ?
+                        pos.right - pos.width : pos.midX - pos.width / 2 >= 0 ?
+                        pos.midX - pos.width / 2 : 0;
 
-                // Update elements
-                update.html(src);
-                update.css({
-                    top: pos.newY,
-                    left: pos.newX,
-                    zIndex: 10,
-                    boxShadow: "0px 0px 10px rgba(32, 32, 32, 0.6)",
-                    opacity: 0
-                });
-                update.animate({
-                    opacity: 1
-                }, 600);
-                setTimeout(() => {
-                    $('.show-gallery-item-on-hover').mouseleave();
-                }, 30000);
+                    // Update elements
+                    update.html(src);
+                    update.css({
+                        top: pos.newY,
+                        left: pos.newX,
+                        zIndex: 10,
+                        boxShadow: "0px 0px 10px rgba(32, 32, 32, 0.6)",
+                        opacity: 0
+                    });
+                    update.animate({
+                        opacity: 1
+                    }, 600);
+                    setTimeout(() => {
+                        $('.show-gallery-item-on-hover').mouseleave();
+                    }, 30000);
+                }
+
             });
             $('.show-gallery-item-on-hover').mouseleave(function(event) {
                 this.innerHTML = "";
