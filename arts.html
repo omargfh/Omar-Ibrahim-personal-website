@@ -18,10 +18,15 @@
 </head>
 
 <body>
-    <div id="pop-up" class="pop-up hidden">
+    <div id="pop-up" class="pop-up remove">
         <div id="pop-up-window" class="pop-up-window">
-            <div id="pop-up-close" class="pop-up-close">✕</div>
+            <div id="pop-up-close" class="pop-up-close remove">✕</div>
             <div id="pop-up-content" class="pop-up-content">
+            </div>
+            <div id="image-pop-up-div" class="section-flex image-display-div remove">
+                <div class="contain"><img src="" class="image-display" id="image-display" alt="pop up image">
+                    <div id="pop-up-close-image" class="pop-up-close close-image">✕</div>
+                </div>
             </div>
         </div>
     </div>
@@ -164,33 +169,35 @@
             </div>
         </div>
         <div class="gallery">
-            <div class="show-gallery-item-on-hover"></div>
+            <div class="pop-up-call" data-content="images/gallery-big/walter.png" data-type="image">
+                <div class="show-gallery-item-on-hover"></div>
+            </div>
             <div class="row no-gutters">
                 <div class="col-md">
                     <div class="gallery-item img-gradient">
-                        <img src="images/gallery-sm/walter.jpg" alt="placeholder" data-big="/images/gallery-big/walter.jpg">
+                        <img src="images/gallery-sm/walter.jpg" alt="placeholder" data-big="/images/gallery-big/walter.jpg" data-display="images/gallery-big/walter.png">
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="gallery-item">
-                        <img src="images/gallery-sm/comp.jpg" alt="placeholder" data-big="/images/gallery-big/comp.jpg">
+                        <img src="images/gallery-sm/comp.jpg" alt="placeholder" data-big="/images/gallery-big/comp.jpg" data-display="images/gallery-big/comp.png">
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="gallery-item">
-                        <img src="images/gallery-sm/csa.jpg" alt="placeholder" data-big="/images/gallery-big/csa.jpg">
+                        <img src="images/gallery-sm/csa.jpg" alt="placeholder" data-big="/images/gallery-big/csa.jpg" data-display="images/gallery-big/csa.png">
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="gallery-item">
-                        <img src="images/gallery-sm/walter.jpg" alt="placeholder">
+                        <img src="images/gallery-sm/dipper.jpg" alt="placeholder" data-big="/images/gallery-big/dipper.jpg" data-display="images/gallery-big/dipper.png">
                     </div>
                 </div>
             </div>
             <div class="row no-gutters">
                 <div class="col-md">
                     <div class="gallery-item">
-                        <img src="images/gallery-sm/walter.jpg" alt="placeholder">
+                        <img src="images/gallery-sm/doodles.jpg" alt="placeholder" data-big="/images/gallery-big/doodles.jpg" data-display="images/gallery-big/doodles.png">
                     </div>
                 </div>
                 <div class="col-md">

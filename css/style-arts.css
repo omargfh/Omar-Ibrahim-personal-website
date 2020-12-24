@@ -9,6 +9,34 @@ Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap because it is "mobile first"
 */
 
+.pop-up .image-display {
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.pop-up-window .image-display {
+    height: 90vh;
+    box-shadow: 1px 1px 11px rgba(32, 32, 32, 0.5);
+}
+
+.pop-up-window .image-display-div {
+    width: auto;
+}
+
+.pop-up-window .image-display-div .contain {
+    position: relative;
+    width: fit-content;
+}
+
+.pop-up-window .close-image {
+    position: absolute!important;
+    top: 0;
+    right: 0;
+    margin: 7px 10px;
+}
+
 
 /* Small devices (landscape phones, 576px and up) */
 
