@@ -70,6 +70,8 @@ $(document).ready(function() {
         $('.img-bar').each(function(i, el) {
             $(el).hover(function() {
                 data = el.dataset;
+                $('.img-bar').removeClass('active');
+                $(el).addClass('active');
                 $('#program').html(el.alt);
                 $('#years').html(data.years + "+ years");
                 $('#projects').html("Notable projects: " + data.prj);

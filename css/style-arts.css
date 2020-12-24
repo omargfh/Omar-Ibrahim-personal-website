@@ -9,17 +9,6 @@ Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap because it is "mobile first"
 */
 
-.icon-mini img {
-    width: 50px;
-    margin: 0px 10px 10px 0px;
-    opacity: 0.6;
-}
-
-.icon-mini img:hover,
-.active {
-    opacity: 1!important;
-}
-
 
 /* Small devices (landscape phones, 576px and up) */
 
