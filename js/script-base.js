@@ -5,6 +5,18 @@ $(document).ready(function() {
         interval: 5000
     });
 
+    $(window).on('scroll', function() {
+        $('.gallery-item').each(function(i, el) {
+            if (isElementInViewport(el)) {
+                $(el).addClass('gallery-item-hover');
+                console.log('hi');
+            } else {
+                $(el).removeClass('gallery-item-hover');
+                console.log('no');
+            }
+        });
+    });
+
     $(window).on('load', function() {
         // Check for scroll/resize statuses to update DOM
         $('.scroll-behavior').scroll();
