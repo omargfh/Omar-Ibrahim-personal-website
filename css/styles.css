@@ -93,7 +93,7 @@ brown {
 }
 
 .inherit-bg {
-    background: url(images/bg.jpg) repeat fixed top;
+    background: url(../images/bg.jpg) repeat fixed top;
 }
 
 .bg-size-ex {
