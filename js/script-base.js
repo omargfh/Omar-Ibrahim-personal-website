@@ -46,56 +46,55 @@ $(document).ready(function() {
                     update.html("");
                     $.ajax({
                         type: 'GET',
-                        url: $(el).children()[0].dataset.big,
-                        dataType: 'image/png',
-                        async: false,
-                        success: function(data) {},
-                        error: function(a, b) {}
-                    });
-                    update.html(src);
-                    setTimeout(() => {
-                        // Adjust preview dimensions (responsive)
-                        var nH = update.children().prop('naturalHeight');
-                        var nW = update.children().prop('naturalWidth');
-                        if (update.children().prop('naturalWidth') > 2 * $(el).width() && nW >= nH) {
-                            update.children().width(2 * $(el).width());
-                            update.children().height(nH * ((2 * $(el).width()) / nW));
-                        } else if (update.children().prop('naturalHeight') > 2 * $(el).width()) {
-                            update.children().height(2 * $(el).width());
-                            update.children().width(nW * ((2 * $(el).height()) / nH));
+                        url: "../" + $(el).children()[0].dataset.big,
+                        async: true,
+                        complete: function() {
+                            update.html(src);
+                            setTimeout(() => {
+                                // Adjust preview dimensions (responsive)
+                                var nH = update.children().prop('naturalHeight');
+                                var nW = update.children().prop('naturalWidth');
+                                if (update.children().prop('naturalWidth') > 2 * $(el).width() && nW >= nH) {
+                                    update.children().width(2 * $(el).width());
+                                    update.children().height(nH * ((2 * $(el).width()) / nW));
+                                } else if (update.children().prop('naturalHeight') > 2 * $(el).width()) {
+                                    update.children().height(2 * $(el).width());
+                                    update.children().width(nW * ((2 * $(el).height()) / nH));
+                                }
+
+                                // Calculate new position
+                                pos = $(el).parent().offset();
+                                pos.right = Math.round(pos.left + $(el).width());
+                                pos.bottom = Math.round($(el).height() + pos.top);
+                                pos.width = update.children().width() !== 0 ? update.children().width() : nW;
+                                pos.height = update.children().height() !== 0 ? update.children().height() : nH;
+                                pos.midY = (pos.top + pos.bottom) / 2;
+                                pos.midX = (pos.left + pos.right) / 2;
+                                pos.newY = Math.round(pos.midY - (pos.height / 2) - $('.navbar').offset().top) <= 72.5 ?
+                                    pos.top : pos.midY - pos.height / 2 >= 0 ?
+                                    pos.midY - pos.height / 2 : 0;
+                                pos.newX = Math.round(pos.right - $(window).width()) >= -20 ?
+                                    pos.right - pos.width : pos.midX - pos.width / 2 >= 0 ?
+                                    pos.midX - pos.width / 2 : 0;
+
+                                // Update elements
+                                update.parent()[0].dataset.content = $(el).children()[0].dataset.display;
+                                update.css({
+                                    top: pos.newY,
+                                    left: pos.newX,
+                                    zIndex: 10,
+                                    boxShadow: "0px 0px 10px rgba(32, 32, 32, 0.6)",
+                                    opacity: 0
+                                });
+                                update.animate({
+                                    opacity: 1
+                                }, 600);
+                                setTimeout(() => {
+                                    $('.show-gallery-item-on-hover').mouseleave();
+                                }, 30000);
+                            }, 50);
                         }
-
-                        // Calculate new position
-                        pos = $(el).parent().offset();
-                        pos.right = Math.round(pos.left + $(el).width());
-                        pos.bottom = Math.round($(el).height() + pos.top);
-                        pos.width = update.children().width() !== 0 ? update.children().width() : nW;
-                        pos.height = update.children().height() !== 0 ? update.children().height() : nH;
-                        pos.midY = (pos.top + pos.bottom) / 2;
-                        pos.midX = (pos.left + pos.right) / 2;
-                        pos.newY = Math.round(pos.midY - (pos.height / 2) - $('.navbar').offset().top) <= 72.5 ?
-                            pos.top : pos.midY - pos.height / 2 >= 0 ?
-                            pos.midY - pos.height / 2 : 0;
-                        pos.newX = Math.round(pos.right - $(window).width()) >= -20 ?
-                            pos.right - pos.width : pos.midX - pos.width / 2 >= 0 ?
-                            pos.midX - pos.width / 2 : 0;
-
-                        // Update elements
-                        update.parent()[0].dataset.content = $(el).children()[0].dataset.display;
-                        update.css({
-                            top: pos.newY,
-                            left: pos.newX,
-                            zIndex: 10,
-                            boxShadow: "0px 0px 10px rgba(32, 32, 32, 0.6)",
-                            opacity: 0
-                        });
-                        update.animate({
-                            opacity: 1
-                        }, 600);
-                        setTimeout(() => {
-                            $('.show-gallery-item-on-hover').mouseleave();
-                        }, 30000);
-                    }, 50);
+                    });
                 }
 
             });
