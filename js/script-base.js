@@ -9,10 +9,8 @@ $(document).ready(function() {
         $('.gallery-item').each(function(i, el) {
             if (isElementInViewport(el)) {
                 $(el).addClass('gallery-item-hover');
-                console.log('hi');
             } else {
                 $(el).removeClass('gallery-item-hover');
-                console.log('no');
             }
         });
     });
@@ -46,6 +44,14 @@ $(document).ready(function() {
                         opacity: 0
                     });
                     update.html("");
+                    $.ajax({
+                        type: 'GET',
+                        url: $(el).children()[0].dataset.big,
+                        dataType: 'image/png',
+                        async: false,
+                        success: function(data) {},
+                        error: function(a, b) {}
+                    });
                     update.html(src);
                     setTimeout(() => {
                         // Adjust preview dimensions (responsive)
@@ -58,7 +64,6 @@ $(document).ready(function() {
                             update.children().height(2 * $(el).width());
                             update.children().width(nW * ((2 * $(el).height()) / nH));
                         }
-                        console.log(nH, nW);
 
                         // Calculate new position
                         pos = $(el).parent().offset();
@@ -74,7 +79,6 @@ $(document).ready(function() {
                         pos.newX = Math.round(pos.right - $(window).width()) >= -20 ?
                             pos.right - pos.width : pos.midX - pos.width / 2 >= 0 ?
                             pos.midX - pos.width / 2 : 0;
-                        console.log(pos);
 
                         // Update elements
                         update.parent()[0].dataset.content = $(el).children()[0].dataset.display;
