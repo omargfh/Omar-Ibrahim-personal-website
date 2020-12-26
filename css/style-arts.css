@@ -14,27 +14,57 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     background-color: rgba(255, 255, 255, 0);
     box-shadow: none;
     border-radius: 0;
-}
-
-.pop-up-window .image-display {
-    height: 90vh;
-    box-shadow: 1px 1px 11px rgba(32, 32, 32, 0.5);
-}
-
-.pop-up-window .image-display-div {
-    width: auto;
-}
-
-.pop-up-window .image-display-div .contain {
+    width: 90%;
+    height: 90%;
     position: relative;
-    width: fit-content;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
 }
 
 .pop-up-window .close-image {
-    position: absolute!important;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.pop-up-window .group {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.pop-up-window .close-image .behance {
+    margin: 5px 0px 5px 5px;
+    font-family: 'Helvetica', serif;
+    font-weight: 800;
+    background-color: #053EFF;
+    color: white;
+}
+
+.pop-up-window .close-image .behance:hover {
+    background-color: white;
+    color: #053EFF;
+}
+
+.pop-up-window .close-image a {
+    color: unset;
+}
+
+.pop-up-window .close-image a:hover {
+    text-decoration: none;
+}
+
+.pop-up-window .close-image .flair-top {
+    bottom: 0;
+}
+
+.pop-up-window .close-image .flair-bottom {
+    bottom: unset;
     top: 0;
-    right: 0;
-    margin: 7px 10px;
 }
 
 

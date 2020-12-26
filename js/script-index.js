@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $('.carousel-fast').carousel({
         interval: 1000
     });

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     // Activate Carousel
     $('.carousel').carousel({
         interval: 5000
@@ -38,63 +37,68 @@ $(document).ready(function() {
             $(el).mouseover(function() {
                 if ($(el).children().prop('naturalWidth') >= $(el).width()) {
                     // Extract data
-                    var src = '<img src="' + $(el).children()[0].dataset.big + '" alt="gallery item">';
-                    var update = $('.show-gallery-item-on-hover');
-                    update.css({
-                        opacity: 0
-                    });
-                    update.html("");
-                    $.ajax({
-                        type: 'GET',
-                        url: "../" + $(el).children()[0].dataset.big,
-                        async: true,
-                        complete: function() {
-                            update.html(src);
-                            setTimeout(() => {
-                                // Adjust preview dimensions (responsive)
-                                var nH = update.children().prop('naturalHeight');
-                                var nW = update.children().prop('naturalWidth');
-                                if (update.children().prop('naturalWidth') > 2 * $(el).width() && nW >= nH) {
-                                    update.children().width(2 * $(el).width());
-                                    update.children().height(nH * ((2 * $(el).width()) / nW));
-                                } else if (update.children().prop('naturalHeight') > 2 * $(el).width()) {
-                                    update.children().height(2 * $(el).width());
-                                    update.children().width(nW * ((2 * $(el).height()) / nH));
+                    var image = new Image();
+                    image.src = $(el).children()[0].dataset.hover;
+                    image.onload = function() {
+                        var update = $('.show-gallery-item-on-hover');
+                        update.css({
+                            opacity: 0
+                        });
+                        update.html("");
+                        update.html(image);
+                        setTimeout(() => {
+                            // Adjust preview dimensions (responsive)
+                            var nH = update.children().prop('naturalHeight');
+                            var nW = update.children().prop('naturalWidth');
+                            if (update.children().prop('naturalWidth') > 2 * $(el).width() && nW >= nH) {
+                                update.children().width(2 * $(el).width());
+                                update.children().height(nH * ((2 * $(el).width()) / nW));
+                            } else if (update.children().prop('naturalHeight') > 2 * $(el).width()) {
+                                update.children().height(2 * $(el).width());
+                                update.children().width(nW * ((2 * $(el).height()) / nH));
+                            }
+
+                            // Calculate new position
+                            pos = $(el).parent().offset();
+                            pos.right = Math.round(pos.left + $(el).width());
+                            pos.bottom = Math.round($(el).height() + pos.top);
+                            pos.width = update.children().width() !== 0 ? update.children().width() : nW;
+                            pos.height = update.children().height() !== 0 ? update.children().height() : nH;
+                            pos.midY = (pos.top + pos.bottom) / 2;
+                            pos.midX = (pos.left + pos.right) / 2;
+                            pos.newY = Math.round(pos.midY - (pos.height / 2) - $('.navbar').offset().top) <= 72.5 ?
+                                pos.top : pos.midY - pos.height / 2 >= 0 ?
+                                pos.midY - pos.height / 2 : 0;
+                            pos.newX = Math.round(pos.right - $(window).width()) >= -20 ?
+                                pos.right - pos.width : pos.midX - pos.width / 2 >= 0 ?
+                                pos.midX - pos.width / 2 : 0;
+
+                            // Update elements
+                            update.each(function(i, up) {
+                                update = $(up);
+                                update.parent()[0].dataset.content = $(el).children()[0].dataset.popup;
+                                update.parent()[0].dataset.flairs = $(el).children()[0].dataset.flairs;
+                                if ($(el).children()[0].dataset.type === "XHTML") {
+                                    update.parent()[0].dataset.type = $(el).children()[0].dataset.type;
+                                } else {
+                                    update.parent()[0].dataset.type = "image";
                                 }
-
-                                // Calculate new position
-                                pos = $(el).parent().offset();
-                                pos.right = Math.round(pos.left + $(el).width());
-                                pos.bottom = Math.round($(el).height() + pos.top);
-                                pos.width = update.children().width() !== 0 ? update.children().width() : nW;
-                                pos.height = update.children().height() !== 0 ? update.children().height() : nH;
-                                pos.midY = (pos.top + pos.bottom) / 2;
-                                pos.midX = (pos.left + pos.right) / 2;
-                                pos.newY = Math.round(pos.midY - (pos.height / 2) - $('.navbar').offset().top) <= 72.5 ?
-                                    pos.top : pos.midY - pos.height / 2 >= 0 ?
-                                    pos.midY - pos.height / 2 : 0;
-                                pos.newX = Math.round(pos.right - $(window).width()) >= -20 ?
-                                    pos.right - pos.width : pos.midX - pos.width / 2 >= 0 ?
-                                    pos.midX - pos.width / 2 : 0;
-
-                                // Update elements
-                                update.parent()[0].dataset.content = $(el).children()[0].dataset.display;
-                                update.css({
-                                    top: pos.newY,
-                                    left: pos.newX,
-                                    zIndex: 10,
-                                    boxShadow: "0px 0px 10px rgba(32, 32, 32, 0.6)",
-                                    opacity: 0
-                                });
-                                update.animate({
-                                    opacity: 1
-                                }, 600);
-                                setTimeout(() => {
-                                    $('.show-gallery-item-on-hover').mouseleave();
-                                }, 30000);
-                            }, 50);
-                        }
-                    });
+                            });
+                            update.css({
+                                top: pos.newY,
+                                left: pos.newX,
+                                zIndex: 10,
+                                boxShadow: "0px 0px 10px rgba(32, 32, 32, 0.6)",
+                                opacity: 0
+                            });
+                            update.animate({
+                                opacity: 1
+                            }, 600);
+                            setTimeout(() => {
+                                $('.show-gallery-item-on-hover').mouseleave();
+                            }, 30000);
+                        }, 50);
+                    }
                 }
 
             });
@@ -123,8 +127,8 @@ $(document).ready(function() {
                     $('#pop-up').removeClass('remove');
                     $('#pop-up-window').addClass('pop-up-window-animate');
                     if (el.dataset.type === "XHTML") {
+                        $('#close-image').removeClass('close-image');
                         $('#pop-up-content').html('<div style="display: flex; flex: 100%; width: 100%; height: 100%; align-items: center; justify-content: center;"><img src="https://i.stack.imgur.com/oQ0tF.gif" width="40px" alt="load"></div>');
-                        $('#pop-up-close').removeClass('remove');
                         $.ajax({
                             type: 'GET',
                             url: el.dataset.content,
@@ -138,25 +142,70 @@ $(document).ready(function() {
                                 }, 1000)
                             }
                         });
+                        $(window).resize(function(event) {
+                            event.preventDefault();
+                            $('#pop-up-window').width("90%");
+                        });
+                        $(window).resize();
                     } else if (el.dataset.type === "image") {
-                        $('#pop-up-window').addClass('image-display');
-                        $('#image-pop-up-div').removeClass('remove');
-                        $('#image-display')[0].src = el.dataset.content;
+                        var img = new Image();
+                        img.src = el.dataset.content;
+                        $('#pop-up-window').addClass('image-display').css("background-image", "url(../" + el.dataset.content + ")");
+                        // Loop through flairs and append them
+                        console.log(el.dataset.content);
+                        if (el.dataset.flairs !== "") {
+                            var flairs = el.dataset.flairs.split(" ");
+                            flairs.forEach(function(el, i) {
+                                if (i % 2 == 0) {
+                                    $('.' + el).removeClass('remove');
+                                } else {
+                                    $('.group').removeClass('remove');
+                                    $('.' + flairs[i - 1]).children()[0].href = el;
+                                }
+                            });
+                        }
+                        // Adjusts placement of "X" button and other flairs
+                        img.onload = function() {
+                            $(window).resize(function(event) {
+                                var newWidth = img.width;
+                                var newHeight = img.height;
+                                if (img.height > 0.9 * $(window).height() && $(window).width() > 568) {
+                                    newWidth = img.width * (0.9 * $(window).height() / img.height);
+                                    $('#pop-up-window').width(newWidth);
+                                    if ($(window).width() < newWidth) {
+                                        $('#pop-up-window').width("90%");
+                                    }
+                                } else {
+                                    $('#pop-up-window').width("90%");
+                                }
+                                if (newWidth > 0.9 * $(window).width()) {
+                                    $('.flair').addClass('flair-bottom');
+                                } else {
+                                    $('.flair').removeClass('flair-bottom');
+                                }
+                            });
+                            $(window).resize();
+                        }
                     }
                 });
             });
-            $('.pop-up-close').click(function() {
+            $('#pop-up-close').click(function() {
+                // Remove the intro animation
                 $('#pop-up-window').removeClass('pop-up-window-animate');
+                // Animate the window close (delay for CSS render)
                 setTimeout(() => {
                     $('#pop-up-window').addClass('pop-up-window-close-animate');
                 }, 200);
                 setTimeout(() => {
-                    $('#pop-up-content').html("");
-                    $('#pop-up-window').removeClass('pop-up-window-close-animate');
-                    $('#pop-up-window').removeClass('image-display');
-                    $('#pop-up-close').addClass('remove');
-                    $('#image-pop-up-div').addClass('remove');
+                    // Hide pop-up from workflow
                     $('#pop-up').addClass('remove');
+                    // Remove content for XHTML pop-up calls
+                    $('#pop-up-content').html("");
+                    // Remove classes from window body
+                    $('#pop-up-window').removeClass('pop-up-window-close-animate').removeClass('image-display').width("90vh").css("background-image", "");
+                    // Hide flairs
+                    $('.flair').addClass('remove');
+                    $('#close-image').addClass('close-image');
                 }, 1200);
             });
         });
