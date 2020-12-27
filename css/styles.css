@@ -19,6 +19,10 @@ p {
     color: rgba(32, 32, 32, 0.8);
 }
 
+h2 {
+    color: rgb(148, 114, 100);
+}
+
 thin {
     font-size: inherit;
     font-weight: normal!important;
@@ -54,6 +58,10 @@ brown {
 
 .visible-desktop {
     visibility: visible;
+}
+
+.margin-5 {
+    margin: 5px 10px 5px 0px;
 }
 
 @media (max-width: 991px) {
@@ -238,7 +246,7 @@ brown {
     padding: 15px;
     position: relative;
     overflow-y: scroll;
-    border-radius: 15px;
+    border-radius: 5px;
     box-sizing: border-box;
     background-color: #f9f9f9;
     box-shadow: 1px 1px 11px rgba(32, 32, 32, 0.5);
@@ -309,13 +317,6 @@ brown {
     width: 100%;
 }
 
-.pop-up-window .group {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
 .pop-up-window .close-image .behance {
     margin: 5px 0px 5px 5px;
     font-family: 'Helvetica', serif;
@@ -327,6 +328,13 @@ brown {
 .pop-up-window .close-image .behance:hover {
     background-color: white;
     color: #053EFF;
+}
+
+.pop-up-window .group {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .pop-up-window .close-image a {
@@ -355,6 +363,17 @@ brown {
         transform: translateY(0px);
         opacity: 1.0;
     }
+}
+
+
+/* Owl Carousel */
+
+.owl-carousel .item {
+    opacity: 0.7;
+}
+
+.owl-carousel .item:hover {
+    opacity: 1;
 }
 
 
@@ -711,8 +730,35 @@ brown {
 }
 
 .btn:hover:after {
-    clip: rect(0px, 200px, 200px, 0px);
+    clip: rect(0px, 215px, 200px, 0px);
     cursor: pointer;
+}
+
+
+/* BUTTON SCROLL */
+
+.scroll-btn a {
+    color: white;
+    background-color: rgba(148, 118, 100, 1);
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    transition: all 1s ease-in-out;
+    box-shadow: 1px 1px 4px rgba(32, 32, 32, 0.2);
+    z-index: 1022;
+}
+
+.scroll-btn a:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: #947664;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px rgba(32, 32, 32, 0);
 }
 
 
@@ -806,6 +852,13 @@ h1 {
 /* Mobiles and Tablets only */
 
 @media (max-width: 991px) {
+    * h1 {
+        font-size: 1.7rem;
+        text-align: center;
+    }
+    * h2 {
+        text-align: center;
+    }
     .timeline {
         max-width: 30%;
     }

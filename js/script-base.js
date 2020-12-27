@@ -4,6 +4,26 @@ $(document).ready(function() {
         interval: 5000
     });
 
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        margin: 50,
+        center: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+
     $(window).on('scroll', function() {
         $('.gallery-item').each(function(i, el) {
             if (isElementInViewport(el)) {
@@ -21,6 +41,7 @@ $(document).ready(function() {
 
         // Smooth-scrolling
         $('.scroll').click(function(event) {
+            console.log(this);
             if (this.hash !== "") {
                 event.preventDefault();
                 var hash = this.hash;
@@ -151,7 +172,7 @@ $(document).ready(function() {
                     } else if (el.dataset.type === "image") {
                         var img = new Image();
                         img.src = el.dataset.content;
-                        $('#pop-up-window').addClass('image-display').css("background-image", "url(../" + el.dataset.content + ")");
+                        $('#pop-up-window').addClass('image-display').css("background-image", "url(./" + el.dataset.content + ")");
                         // Loop through flairs and append them
                         if (el.dataset.flairs !== "") {
                             var flairs = el.dataset.flairs.split(" ");

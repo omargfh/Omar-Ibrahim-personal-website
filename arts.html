@@ -12,12 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="js/plugins/owlcarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="js/plugins/owlcarousel/dist/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/style-banner-extend.css">
 </head>
 
 <body>
-    <div id="floating">
+    <!-- Contains floating views -->
+    <div id="section-float">
         <div id="pop-up" class="pop-up remove">
             <div id="pop-up-window" class="pop-up-window">
                 <div id="close-image" class="close-image">
@@ -33,7 +36,15 @@
         <div class="pop-up-call" data-type="image">
             <div class="show-gallery-item-on-hover"></div>
         </div>
+        <div id="scroll-up" class="scroll-btn">
+            <a href="#section-1" class="scroll">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                </svg>
+            </a>
+        </div>
     </div>
+    <!-- Header/banner -->
     <header id="section-0">
         <div class="bg bg-regular inherit-bg scroll-behavior">
         </div>
@@ -68,10 +79,11 @@
                 <img src="images/title-arts.png" alt="title of arts" id="pg-title" class="pg-title">
             </div>
         </div>
+        <div class="workflow-header workflow-header-rg" id="workflow-header">
+        </div>
     </header>
-    <div class="workflow-header workflow-header-rg" id="workflow-header">
-    </div>
-    <div id="section-1" class="section container-fluid">
+    <!-- First Section -->
+    <div id="section-1" class="section">
         <div class="container my-3 p-3">
             <div class="row">
                 <div class="col-md-6" align="justify">
@@ -90,6 +102,17 @@
                     </p>
                     <p>Enjoy a selection of my favorite works here.
                     </p>
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div class="row">
+                            <div class="d-flex justify-content-start" style="padding: 0px 15px 0 0;">
+                                <a href="https://www.behance.net/omargfh1" target="_blank">
+                                    <div class="btn-container" id="btn-cv">
+                                        <div class="btn" data-title="Check Bēhance"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <h1>
@@ -104,65 +127,93 @@
                     <div class="d-flex justify-content-center icon-mini">
                         <img class="img-bar" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects" data-exp="75" data-years="5" data-prj="Disney Bel-Masry, Advancit Promos">
                         <img class="img-bar" src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere Pro" data-exp="70" data-years="7" data-prj="School debate competition, Disney Bel-Masry">
+                        <!-- <img class="img-bar" src="images/blender.png" alt="Blender 3D" data-exp="65" data-years="2" data-prj="School Projects"> -->
                     </div>
                     <h4 id="program">Photoshop
-                        <h4>
-                            <div class="col-md-12">
-                                <div class="experience-bar">
-                                    <div class="experience-bar-after">
-                                    </div>
-                                </div>
-                                <p class="caption" id="years">7+ years
+                    </h4>
+                    <div class="col-md-12">
+                        <div class="experience-bar">
+                            <div class="experience-bar-after">
                             </div>
-                            <p class="caption" id="projects">Notable projects: Disney Bel-Masry, Mirus</p>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h1>Proudly Worked With</h1>
-                                </div>
-                                <div class="col-md-8">
-                                    <div id="contributions-0" class="carousel slide carousel-logo" data-ride="carousel">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img class="d-block w-100" src="images/contrib/ieee.png" alt="logo">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="images/contrib/tarina.png" alt="logo">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="images/contrib/mirus.png" alt="logo">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="images/contrib/disney.png" alt="logo">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="images/contrib/stem-mun.png" alt="logo">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" src="images/contrib/advancit.png" alt="logo">
-                                            </div>
-                                            <a class="carousel-control-prev" href="#contributions-0" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#contributions-0" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
+                        </div>
+                        <p class="caption" id="years">7+ years
+                    </div>
+                    <p class="caption" id="projects">Notable projects: Disney Bel-Masry, Mirus</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h1>Proudly Worked With</h1>
+                        </div>
+                        <div class="col-md-8">
+                            <div id="contributions-0" class="carousel slide carousel-logo" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" src="images/contrib/ieee.png" alt="logo">
+                                        <div class="carousel-caption d-none d-md-block">
                                         </div>
                                     </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="images/contrib/tarina.png" alt="logo">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="images/contrib/mirus.png" alt="logo">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="images/contrib/disney.png" alt="logo">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="images/contrib/stem-mun.png" alt="logo">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="images/contrib/advancit.png" alt="logo">
+                                    </div>
+                                    <a class="carousel-control-prev" href="#contributions-0" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#contributions-0" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Gallery Highlights -->
     <div id="section-2" class="section section-colored">
         <div class="container p-3">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Gallery</h1>
+                    <h1>Gall<thin>ery</thin>
+                    </h1>
+                </div>
+            </div>
+            <div class="buttons container-fluid">
+                <div class="row">
+                    <div class="d-flex justify-content-start" style="padding: 0px 15px 0 0;">
+                        <a href="#section-3" class="scroll">
+                            <div class="btn-container margin-5" id="btn-cv">
+                                <div class="btn" data-title="Social Media"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="d-flex justify-content-between" style="padding: 0 15px 0 0;">
+                        <a href="#section-6" class="scroll">
+                            <div class="btn-container margin-5" id="btn-highlights">
+                                <div class="btn" data-title="Magazine and Print"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="d-flex justify-content-end" style="padding: 0 15px 0 0;">
+                        <a href="#section-7" class="scroll">
+                            <div class="btn-container margin-5" id="btn-gallery">
+                                <div class="btn" data-title="Logofolio"></div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -213,11 +264,30 @@
             </div>
         </div>
     </div>
+    <!-- Gallery Social Media Highlights -->
     <div id="section-3" class="section">
         <div class="container p-3">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Social Media</h1>
+                    <h1>Social <thin>Media</thin></h1>
+                </div>
+            </div>
+            <div class="buttons container-fluid">
+                <div class="row">
+                    <div class="d-flex justify-content-start" style="padding: 0px 15px 0 0;">
+                        <a href="#section-4" class="scroll">
+                            <div class="btn-container margin-5" id="btn-cv">
+                                <div class="btn" data-title="AMOR - Love of Nature"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="d-flex justify-content-between" style="padding: 0 15px 0 0;">
+                        <a href="#section-5" class="scroll">
+                            <div class="btn-container margin-5" id="btn-highlights">
+                                <div class="btn" data-title="Disney Bel-Masry"></div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,11 +319,12 @@
             </div>
         </div>
     </div>
+    <!-- Gallery Social Media Amor -->
     <div id="section-4" class="section section-colored">
         <div class="container p-3">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>AMOR - An Environmentalism Group</h1>
+                    <h2>AMOR - An Environmentalism Group</h2>
                 </div>
             </div>
         </div>
@@ -284,6 +355,207 @@
                 </div>
                 <div class="col-md">
                     <div class="gallery-item img-gradient"> <img src="images/gallery-sm/h.jpg" alt="placeholder" data-hover="images/gallery-big/h.jpg" data-popup="images/gallery-big/h.png" data-flairs=""> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery Social Media Disney Bel-Masry -->
+    <div id="section-5" class="section">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Disney Bel-Masry</h2>
+                </div>
+            </div>
+        </div>
+        <div class="gallery">
+            <div class="row no-gutters">
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney1.jpg" alt="placeholder" data-hover="images/gallery-big/disney1.jpg" data-popup="images/gallery-big/disney1.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney10.jpg" alt="placeholder" data-hover="images/gallery-big/disney10.jpg" data-popup="images/gallery-big/disney10.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney11.jpg" alt="placeholder" data-hover="images/gallery-big/disney11.jpg" data-popup="images/gallery-big/disney11.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney12.jpg" alt="placeholder" data-hover="images/gallery-big/disney12.jpg" data-popup="images/gallery-big/disney12.png" data-flairs=""> </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney9.jpg" alt="placeholder" data-hover="images/gallery-big/disney9.jpg" data-popup="images/gallery-big/disney9.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney14.jpg" alt="placeholder" data-hover="images/gallery-big/disney14.jpg" data-popup="images/gallery-big/disney14.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney15.jpg" alt="placeholder" data-hover="images/gallery-big/disney15.jpg" data-popup="images/gallery-big/disney15.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney16.jpg" alt="placeholder" data-hover="images/gallery-big/disney16.jpg" data-popup="images/gallery-big/disney16.png" data-flairs=""> </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney17.jpg" alt="placeholder" data-hover="images/gallery-big/disney17.jpg" data-popup="images/gallery-big/disney17.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney18.jpg" alt="placeholder" data-hover="images/gallery-big/disney18.jpg" data-popup="images/gallery-big/disney18.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney19.jpg" alt="placeholder" data-hover="images/gallery-big/disney19.jpg" data-popup="images/gallery-big/disney19.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney2.jpg" alt="placeholder" data-hover="images/gallery-big/disney2.jpg" data-popup="images/gallery-big/disney2.png" data-flairs=""> </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney20.jpg" alt="placeholder" data-hover="images/gallery-big/disney20.jpg" data-popup="images/gallery-big/disney20.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney21.jpg" alt="placeholder" data-hover="images/gallery-big/disney21.jpg" data-popup="images/gallery-big/disney21.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney22.jpg" alt="placeholder" data-hover="images/gallery-big/disney22.jpg" data-popup="images/gallery-big/disney22.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney23.jpg" alt="placeholder" data-hover="images/gallery-big/disney23.jpg" data-popup="images/gallery-big/disney23.png" data-flairs=""> </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney24.jpg" alt="placeholder" data-hover="images/gallery-big/disney24.jpg" data-popup="images/gallery-big/disney24.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney25.jpg" alt="placeholder" data-hover="images/gallery-big/disney25.jpg" data-popup="images/gallery-big/disney25.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney3.jpg" alt="placeholder" data-hover="images/gallery-big/disney3.jpg" data-popup="images/gallery-big/disney3.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney4.jpg" alt="placeholder" data-hover="images/gallery-big/disney4.jpg" data-popup="images/gallery-big/disney4.png" data-flairs=""> </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney5.jpg" alt="placeholder" data-hover="images/gallery-big/disney5.jpg" data-popup="images/gallery-big/disney5.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney6.jpg" alt="placeholder" data-hover="images/gallery-big/disney6.jpg" data-popup="images/gallery-big/disney6.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney7.jpg" alt="placeholder" data-hover="images/gallery-big/disney7.jpg" data-popup="images/gallery-big/disney7.png" data-flairs=""> </div>
+                </div>
+                <div class="col-md">
+                    <div class="gallery-item img-gradient"> <img src="images/gallery-sm/disney8.jpg" alt="placeholder" data-hover="images/gallery-big/disney8.jpg" data-popup="images/gallery-big/disney8.png" data-flairs=""> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Logofolio -->
+    <div id="section-6" class="section section-colored">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Magazine and Print</h1>
+                    <p>Click on any to view full document</p>
+                </div>
+            </div>
+        </div>
+        <div class="gallery">
+            <div class="row no-gutters">
+                <div class="col-md">
+                    <a href="files/Creative-Writing-Portfolio.pdf" target="_blank">
+                        <div class="gallery-item img-gradient"> <img src="images/gallery-sm/cw.jpg" alt="placeholder" data-hover="images/gallery-big/cw.jpg" data-popup="../ajax/Creative-Writing-Portfolio.html" data-flairs="" data-type="XHTML"> </div>
+                    </a>
+                </div>
+                <div class="col-md">
+                    <a href="files/Physics-Magazine.pdf" target="_blank">
+                        <div class="gallery-item img-gradient"> <img src="images/gallery-sm/phymag.jpg" alt="placeholder" data-hover="images/gallery-big/phymag.jpg" data-type="XHTML" data-popup="../ajax/Physics-Magazine.html" data-flairs=""> </div>
+                    </a>
+                </div>
+                <div class="col-md">
+                    <a href="files/Capstone3.pdf" target="_blank">
+                        <div class="gallery-item img-gradient"> <img src="images/gallery-sm/capstone3.jpg" alt="placeholder" data-hover="images/gallery-big/capstone3.jpg" data-type="XHTML" data-popup="../ajax/capstone3.html" data-flairs=""> </div>
+                    </a>
+                </div>
+                <div class="col-md">
+                    <a href="files/capstone1.pdf" target="_blank">
+                        <div class="gallery-item img-gradient"> <img src="images/gallery-sm/capstone1.jpg" alt="placeholder" data-hover="images/gallery-big/capstone1.jpg" data-type="XHTML" data-popup="../ajax/capstone1.html" data-flairs=""> </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Logo Localization -->
+    <div id="section-7" class="section">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Logo<thin>folio</thin></h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="images/logo-carousel/Saint-Merry-Delegation.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/Amor.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/disney-en.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/disney-ar.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/workshopia.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/quillology.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/funday.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/chromate.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/birdhouse.png">
+                </div>
+            </div>
+        </div>
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Logo Localization</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <img src="images/logo-carousel/tslop.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/showman.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/coco.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/hannahmontana.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/frozen.png">
+                </div>
+                <div class="item">
+                    <img src="images/logo-carousel/bambi.png">
                 </div>
             </div>
         </div>
@@ -379,10 +651,16 @@
             </div>
         </div>
     </footer>
-    <!-- jQuery (Bootstrap JS plugins depend on it) -->
+
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Owl Carousel -->
+    <script src="js/plugins/owlcarousel/dist/owl.carousel.min.js"></script>
+    <!-- Common jQuery/JS -->
     <script src="js/script-base.js"></script>
     <script src="js/script-tmp.js"></script>
 </body>
