@@ -154,7 +154,6 @@ $(document).ready(function() {
                         $.ajax({
                             type: 'GET',
                             url: el.dataset.content,
-                            timeout: 5000,
                             success: function(data) {
                                 $('#pop-up-content').html(data);
                             },
