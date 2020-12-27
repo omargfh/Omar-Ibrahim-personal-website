@@ -128,6 +128,10 @@ brown {
 
 /* Styles Navigation Bar */
 
+.header-flex h2 {
+    color: white!important;
+}
+
 .navbar-expand-lg .navbar-nav .nav-link {
     color: white;
     opacity: 0.6;
@@ -744,16 +748,17 @@ brown {
     width: fit-content;
     border-radius: 10px;
     position: fixed;
-    right: 25px;
-    bottom: 25px;
-    transition: all 1s ease-in-out;
+    right: 30px;
+    bottom: 30px;
+    transition: all 1s cubic-bezier(.09, .68, .13, 1.38);
     box-shadow: 1px 1px 4px rgba(32, 32, 32, 0.2);
     z-index: 1022;
 }
 
 .scroll-btn a:hover {
-    transform: scale(1.1);
-    background-color: white;
+    transform: scale(1.4);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
     color: #947664;
     padding: 10px;
     width: fit-content;
@@ -763,6 +768,11 @@ brown {
 
 
 /* RESPONSIVE */
+
+.center-mobile {
+    -webkit-box-pack: center!important;
+    justify-content: center!important;
+}
 
 
 /* 
@@ -833,6 +843,10 @@ h1 {
     .icon-text-sm p {
         font-size: 14px;
     }
+    .center-mobile {
+        -webkit-box-pack: unset!important;
+        justify-content: unset!important;
+    }
 }
 
 
@@ -852,12 +866,17 @@ h1 {
 /* Mobiles and Tablets only */
 
 @media (max-width: 991px) {
-    * h1 {
-        font-size: 1.7rem;
-        text-align: center;
-    }
+    * h1,
     * h2 {
         text-align: center;
+    }
+    * h1 {
+        font-size: 1.7rem;
+    }
+    .footer h1,
+    .footer h2,
+    .footer p {
+        text-align: left;
     }
     .timeline {
         max-width: 30%;
