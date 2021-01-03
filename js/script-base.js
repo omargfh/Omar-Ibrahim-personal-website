@@ -4,26 +4,6 @@ $(document).ready(function() {
         interval: 5000
     });
 
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        margin: 50,
-        center: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 5
-            }
-        }
-    })
-
     $(window).on('scroll', function() {
         $('.gallery-item').each(function(i, el) {
             if (isElementInViewport(el)) {
