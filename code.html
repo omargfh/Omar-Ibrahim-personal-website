@@ -17,15 +17,33 @@
 </head>
 
 <body>
-    <div id="pop-up" class="pop-up hidden">
-        <div id="pop-up-window" class="pop-up-window">
-            <div id="pop-up-close" class="pop-up-close">✕</div>
-            <div id="pop-up-content" class="pop-up-content">
+    <!-- Contains floating views -->
+    <div id="section-float">
+        <div id="pop-up" class="pop-up remove">
+            <div id="pop-up-window" class="pop-up-window">
+                <div id="close-image" class="close-image">
+                    <div id="pop-up-close" class="pop-up-flair pop-up-close">✕</div>
+                    <div class="group flair">
+                        <div id="behance" class="pop-up-flair behance remove"><a href="#" target="_blank">Bē</a></div>
+                    </div>
+                </div>
+                <div id="pop-up-content" class="pop-up-content">
+                </div>
             </div>
+        </div>
+        <div class="pop-up-call" data-type="image">
+            <div class="show-gallery-item-on-hover"></div>
+        </div>
+        <div id="scroll-up" class="scroll-btn scroll-green">
+            <a href="#section-0" class="scroll">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                </svg>
+            </a>
         </div>
     </div>
     <header id="section-0">
-        <div class="bg bg-regular inherit-bg scroll-behavior">
+        <div class="bg bg-regular bg-code scroll-behavior">
         </div>
         <nav class="navbar nav-bar-narrow navbar-expand-lg navbar-light fixed-top bg-light animate" style="padding: 5px 15px;">
             <a class="navbar-brand" href="index.html">
@@ -54,16 +72,36 @@
         </nav>
         <div class="header-flex">
             <div class="header-column-flex">
-                <img src="images/pic.jpg" alt="picture of Omar" id="ch-pic">
+                <img src="images/pic.jpg" alt="picture of Omar" id="ch-pic" class="img-green">
                 <img src="images/title-code.png" alt="title of arts" id="pg-title" class="pg-title">
             </div>
         </div>
+        <div class="workflow-header workflow-header-rg" id="workflow-header">
+        </div>
     </header>
-    <div class="workflow-header workflow-header-rg" id="workflow-header">
+    <div id="section-1" class="section">
+        <div class="container-fluid my-3 p-3">
+            <div class="row justify-content-center">
+                <div class="col-md-6 align-items-center d-flex flex-column">
+                    <h1><span class="style style-fn">printf</span><span class="style style-punct">(</span><span class="style style-string">"Hello, world!"</span><span class="style style-punct">);</span></h1>
+                    <p align="justify">
+                        With computer coding, I feel like Houdini. My stage is my laptop monitor as I active Browser Sync or Visual Studio Code. W it is a printf("Hello, world!"); from my first computer science course or a complicated 400-line code to create an advance spell-checker
+                        at minimal runtime in C, every line of code has a tangible effect. Although many find coding boring, I find it as fascinating as every refresh or run command I use to see my code growing before my eyes.
+                    </p>
+                    <p align="justify">
+                        I started programming in early 2018 (or what I call programming at least). Before that, I have been an amused wanderer looking behind glass or just a tip-toe dancer sinking the tips of my toes in before rushing them out quickly (and I did that a lot).
+                        My first programming language was C++ from an online blog, followed by basics of C online (I know, weird timeline). However, my first actual experience, that of 2018, was with Javascript on Code Academy and Khan Academy, followed
+                        by Swift through CodeWithChris YouTube channel. Watching Swift content exposed me to the ideas of model-view-control patters, libraries, frameworks, UI design, handling events, and creativity of design.
+                    </p>
+                    <p align="justify">
+                        Now, I work with HTML, CSS, Javascript, Python, C, C++, MySql, PHP, and more. So, welcome friend to the stage of The Great Houdini.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-
     <footer>
-        <div class="container-fluid bg-black footer">
+        <div class="container-fluid bg-black footer bg-green">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">

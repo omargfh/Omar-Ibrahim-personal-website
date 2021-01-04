@@ -767,6 +767,74 @@ brown {
 }
 
 
+/* Coding (on code.html) */
+
+.bg-code {
+    background: url(../images/code.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.bg-code-darker {
+    background: url(../images/code-dk.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+.bg-code-darker h1,
+.bg-code-darker p,
+.bg-code h1,
+.bg-code p {
+    color: white!important;
+}
+
+.text-green {
+    color: rgb(3, 14, 10)!important;
+}
+
+.text-white {
+    color: white!important;
+}
+
+.img-green {
+    border: 15px solid rgba(120, 180, 150, 0.64)!important;
+}
+
+.bg-green {
+    background: rgba(8, 28, 21, 1)!important;
+}
+
+.scroll-green a {
+    background: rgb(3, 14, 10);
+}
+
+.scroll-green:hover a {
+    background-color: rgba(255, 255, 255, 0.767);
+    color: rgba(8, 28, 21, 1);
+}
+
+
+/* Stylng Code */
+
+.style {
+    font-size: inherit;
+}
+
+.style-var {
+    color: rgba(246, 131, 15, 1)!important;
+}
+
+.style-string {
+    color: rgb(14, 146, 140)!important;
+}
+
+.style-fn {
+    color: rgba(187, 34, 5, 1)!important;
+}
+
+.style-punct {
+    color: rgba(210, 211, 201)!important;
+}
+
+
 /* RESPONSIVE */
 
 .center-mobile {

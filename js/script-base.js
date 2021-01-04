@@ -285,6 +285,9 @@ function headerControl(n, m) {
         let rect = $('.bg')[0].getBoundingClientRect();
         if (rect.bottom <= 100) {
             $('.navbar').addClass('bg-light-onscroll');
+            if (window.location.pathname === "/code.html") {
+                $('.navbar').addClass('bg-green');
+            }
             if (m === "index") {
                 $('#logo').addClass('logo-small');
             } else {
@@ -296,6 +299,7 @@ function headerControl(n, m) {
             $('#logo')[0].src = "images/logo-sm-wh.png";
             $('#logo').css("max-height", "45px");
             $('.navbar').removeClass('bg-light-onscroll');
+            $('.navbar').removeClass('bg-green');
             $('#logo').removeClass('logo-small');
         }
     }
