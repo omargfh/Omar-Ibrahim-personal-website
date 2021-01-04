@@ -1,0 +1,941 @@
+* {
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* 
+html {
+    scroll-behavior: smooth;
+} */
+
+p {
+    font-size: 14px;
+    font-weight: 100;
+    color: rgba(32, 32, 32, 0.8);
+}
+
+h2 {
+    color: rgb(148, 114, 100);
+}
+
+thin {
+    font-size: inherit;
+    font-weight: normal!important;
+}
+
+bold {
+    font-size: inherit;
+    font-weight: bold;
+}
+
+brown {
+    color: rgb(148, 114, 100)!important;
+}
+
+
+/* General */
+
+.animate {
+    transition: all 0.5s ease-in-out;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.remove {
+    display: none!important;
+}
+
+.visible-mobile {
+    visibility: hidden;
+}
+
+.visible-desktop {
+    visibility: visible;
+}
+
+.margin-5 {
+    margin: 5px 10px 5px 0px;
+}
+
+@media (max-width: 991px) {
+    .visible-mobile {
+        visibility: unset!important;
+    }
+}
+
+
+/* Header */
+
+
+/* Background Banner */
+
+.bg {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.bg-regular {
+    height: 450px;
+}
+
+.bg-expand {
+    height: 100%;
+    min-height: 700px;
+}
+
+.bg-light {
+    background-color: transparent!important;
+}
+
+.bg-light-onscroll {
+    background-color: rgb(97, 68, 56)!important;
+}
+
+.inherit-bg {
+    background: url(../images/bg.jpg) repeat fixed top;
+}
+
+.bg-size-ex {
+    width: auto;
+}
+
+
+/* Takes space of absolute object */
+
+.workflow-header {
+    width: 100%;
+    height: 88vh;
+    position: relative;
+    min-height: 620px;
+    z-index: -1;
+}
+
+.workflow-header-rg {
+    min-height: 0px!important;
+    height: 450px!important;
+}
+
+
+/* Styles Navigation Bar */
+
+.header-flex h2 {
+    color: white!important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    color: white;
+    opacity: 0.6;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: #f5f5f5;
+    opacity: 1;
+}
+
+.navbar-expand-lg .navbar-nav .active .nav-link {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.navbar-light .navbar-toggler {
+    background-color: #b69d8c;
+    opacity: 0.8;
+    clip-path: circle(35%);
+}
+
+.navbar-light .navbar-toggler-icon {
+    width: 25px;
+    margin: 2px;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-bar .nav-bar-narrow {
+    padding: 5px 15px!important;
+}
+
+#logo {
+    max-height: 45px;
+    transition: all 0.5s ease-in-out;
+}
+
+.logo-small {
+    max-height: 38px!important;
+}
+
+
+/* Style Head Banner Content */
+
+.header-flex {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.header-column-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    top: 60px;
+}
+
+.header-flex h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.header-flex h2 {
+    font-size: 20px;
+}
+
+
+/* Styles Head Picture */
+
+.ch-pic-transit {
+    transition: transform 0.5s ease-in-out;
+}
+
+#ch-pic {
+    margin: 30px 0px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 15px solid rgba(82, 53, 36, 0.64);
+}
+
+#ch-pic:hover {
+    transform: scale(1.1);
+}
+
+
+/* Pop-ups */
+
+.pop-up ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.pop-up {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(32, 32, 32, 0.7);
+    width: 100%;
+    height: 100%;
+    z-index: 1031;
+}
+
+.pop-up-window {
+    width: 90%;
+    height: 90%;
+    padding: 15px;
+    position: relative;
+    overflow-y: scroll;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    box-shadow: 1px 1px 11px rgba(32, 32, 32, 0.5);
+}
+
+.pop-up-window-animate {
+    animation: slide 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.pop-up-window-close-animate {
+    animation: slide 1s ease-in-out;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+}
+
+.pop-up-flair {
+    font-family: 'PT Sans', arial, serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(140, 140, 140);
+    background-color: rgba(32, 32, 32, 0.1);
+    cursor: pointer;
+    display: sticky;
+    padding: 0px 6px 0px 5px;
+    border-radius: 4px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.pop-up-flair:hover {
+    color: white;
+    background-color: rgba(148, 114, 100);
+}
+
+.pop-up-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.pop-up-content {
+    margin-top: 24px;
+    clear: both;
+}
+
+.pop-up-call:hover {
+    cursor: pointer;
+}
+
+.pop-up .image-display {
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    border-radius: 0;
+    width: 90%;
+    height: 90%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+}
+
+.pop-up-window .close-image {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.pop-up-window .close-image .behance {
+    margin: 5px 0px 5px 5px;
+    font-family: 'Helvetica', serif;
+    font-weight: 800;
+    background-color: #053EFF;
+    color: white;
+}
+
+.pop-up-window .close-image .behance:hover {
+    background-color: white;
+    color: #053EFF;
+}
+
+.pop-up-window .group {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.pop-up-window .close-image a {
+    color: unset;
+}
+
+.pop-up-window .close-image a:hover {
+    text-decoration: none;
+}
+
+.pop-up-window .close-image .flair-top {
+    bottom: 0;
+}
+
+.pop-up-window .close-image .flair-bottom {
+    bottom: unset;
+    top: 0;
+}
+
+@keyframes slide {
+    from {
+        transform: translateY(-500px);
+        opacity: 0.0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1.0;
+    }
+}
+
+
+/* Owl Carousel */
+
+.owl-carousel .item {
+    opacity: 0.7;
+}
+
+.owl-carousel .item:hover {
+    opacity: 1;
+}
+
+
+/* sections */
+
+.section-colored {
+    background-color: #f8f8f8;
+}
+
+.section-flex {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section h1 {
+    font-weight: bold!important;
+    color: rgb(148, 114, 100)!important;
+}
+
+#section-1 {
+    position: relative;
+}
+
+.section-2-holder {
+    min-height: 250px;
+    height: fit-content;
+    padding: 20px;
+}
+
+
+/* Index-page Specific */
+
+#img-books {
+    width: 350px;
+}
+
+#side-pic {
+    width: 100%;
+}
+
+@keyframes upscale {
+    from {
+        transform: scale(0.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+
+/* Image Gallery */
+
+.gallery {
+    padding-bottom: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.show-gallery-item-on-hover {
+    position: absolute;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: rgb(0, 0, 0);
+    background: -moz-radial-gradient(circle, rgba(0, 0, 0, 0.31976540616246496) 0%, rgba(0, 0, 0, 0.7567401960784313) 100%);
+    background: -webkit-radial-gradient(circle, rgba(0, 0, 0, 0.31976540616246496) 0%, rgba(0, 0, 0, 0.7567401960784313) 100%);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.31976540616246496) 0%, rgba(0, 0, 0, 0.7567401960784313) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+}
+
+
+/* Cards */
+
+.card {
+    min-height: 200px;
+    height: fit-content;
+    background-color: white;
+    padding: 15px;
+    margin: 5px 0px;
+    box-shadow: -1px 1px 12px rgba(148, 114, 100, 0.3);
+    transition: all 0.5s ease-in-out;
+}
+
+.card-animate {
+    transform: scale(0.1);
+    animation-name: upscale;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.card:hover {
+    box-shadow: 1px 1px 10px rgba(148, 114, 100, 1.0);
+}
+
+
+/* Carousel */
+
+.container-carousel {
+    padding: 30px;
+    width: 100%;
+}
+
+
+/* Timeline by Alan Houser */
+
+.timeline {
+    border-left: 4px solid rgb(148, 114, 100);
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    background: fade(white, 3%);
+    color: fade(white, 80%);
+    font-family: 'PT Sans', sans-serif;
+    ;
+    margin: 50px auto;
+    letter-spacing: 0.5px;
+    position: relative;
+    line-height: 1.4em;
+    font-size: 1.03em;
+    padding: 50px;
+    list-style: none;
+    text-align: left;
+    font-weight: 100;
+    max-width: 60%;
+}
+
+.timeline-animate {
+    animation: fade-in 1s ease-in-out;
+}
+
+.event {
+    border-bottom: 1px dashed fade(white, 10%);
+    padding-bottom: (25px);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.event h3 {
+    font-size: 1.2rem;
+    hyphens: auto;
+}
+
+.event:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+}
+
+.event::before,
+.event::after {
+    position: absolute;
+    display: block;
+    top: 0;
+}
+
+.event::before {
+    left: -193px;
+    color: fade(white, 40%);
+    content: attr(data-date);
+    text-align: right;
+    font-weight: 100;
+    font-size: 0.7em;
+    min-width: 120px;
+    font-family: 'PT Sans', sans-serif;
+    ;
+}
+
+.event::after {
+    box-shadow: 0 0 0 4px rgb(148, 114, 100);
+    left: -57.85px;
+    background: white;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
+    top: 5px;
+}
+
+@keyframes fade-in {
+    from {
+        transform: scale(0.1);
+        opacity: 0.0
+    }
+    to {
+        transform: scale(1.0);
+        opacity: 1.0
+    }
+}
+
+
+/* Footer */
+
+.bg-black {
+    background-color: rgb(97, 68, 56);
+    min-height: 200px;
+    padding: 20px;
+}
+
+.footer p,
+.carousel-item p {
+    color: white;
+}
+
+.footer {
+    color: white;
+}
+
+.footer h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.footer ul {
+    margin-top: 10px;
+}
+
+.footer li {
+    list-style: none;
+    display: inline;
+    padding: 0px 10px 0px 0px;
+}
+
+.footer a {
+    color: rgba(255, 255, 255, 0.767);
+}
+
+.footer a:hover,
+.footer a:focus {
+    color: white;
+}
+
+.footer p {
+    display: inline;
+}
+
+.icon {
+    display: inline;
+    font-size: 22px;
+}
+
+.icon-text {
+    margin: 3px;
+}
+
+
+/* Hover Icons */
+
+.icon-mini img {
+    width: 50px;
+    height: 50px;
+    margin: 0px 10px 10px 0px;
+    opacity: 0.6;
+}
+
+.icon-mini img:hover,
+.active {
+    opacity: 1!important;
+}
+
+.experience-bar {
+    width: "100%";
+    height: 15px;
+    background-color: rgba(148, 114, 100, 0.6);
+    border-radius: 15px;
+    position: relative;
+}
+
+.experience-bar-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    border-radius: 15px;
+    width: 0%;
+    opacity: 1;
+    background-color: rgba(108, 74, 60, 1);
+    transition: all 1s ease-in-out;
+}
+
+.caption {
+    font-size: 12px;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+
+/* Buttons */
+
+.btn-container {
+    position: relative;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline;
+    position: relative;
+    padding: 0;
+}
+
+.btn::before {
+    content: attr(data-title);
+    display: inline-block;
+    padding: 12px 15px;
+    border: 0px solid white;
+    border-radius: 7px;
+    outline: none;
+    text-align: center;
+    color: rgba(148, 114, 100, 1.0);
+    background-color: white;
+    box-shadow: 4px 4px 11px 0px rgba(32, 32, 32, 0.5);
+    transition: all 0.5s ease-in-out;
+}
+
+.btn::after {
+    content: attr(data-title);
+    padding: 12px 15px;
+    position: absolute;
+    display: block;
+    top: -14px;
+    left: 0px;
+    border: 0px solid white;
+    border-radius: 7px;
+    outline: none;
+    text-align: center;
+    color: white;
+    background-color: rgba(148, 114, 100, 1.0);
+    clip: rect(0px, 0px, 200px, 0px);
+    transition: all 0.5s ease-in-out;
+}
+
+.btn:hover:before {
+    background-color: rgb(148, 114, 100);
+}
+
+.btn:hover:after {
+    clip: rect(0px, 215px, 200px, 0px);
+    cursor: pointer;
+}
+
+
+/* BUTTON SCROLL */
+
+.scroll-btn a {
+    color: white;
+    background-color: rgba(148, 118, 100, 1.2);
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    transition: all 0.9s cubic-bezier(.09, .68, .13, 1.94);
+    box-shadow: 1px 1px 4px rgba(32, 32, 32, 0.2);
+    z-index: 1022;
+}
+
+.scroll-btn a:hover {
+    transform: scale(1.2);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 1);
+    color: #947664;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px rgba(32, 32, 32, 0);
+}
+
+
+/* RESPONSIVE */
+
+.center-mobile {
+    -webkit-box-pack: center!important;
+    justify-content: center!important;
+}
+
+
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+
+h1 {
+    font-size: 10vw;
+}
+
+.side-img {
+    position: absolute;
+    bottom: -20px;
+    left: -50px;
+    z-index: -1;
+    max-width: 250px;
+}
+
+#pg-title {
+    height: 200px;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .side-img {
+        left: -80px;
+    }
+    #img-books {
+        visibility: hidden;
+    }
+    #pg-title {
+        height: 230px;
+    }
+    .icon-text-sm p {
+        font-size: 0.59rem;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+
+@media (min-width: 768px) {
+    .event h3 {
+        font-size: 1.7rem;
+    }
+    .event::before {
+        font-size: 0.9em;
+    }
+    #pg-title {
+        height: 300px;
+    }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .container-carousel {
+        padding: 50px;
+        width: 100%;
+    }
+    .icon-text-sm p {
+        font-size: 14px;
+    }
+    .center-mobile {
+        -webkit-box-pack: unset!important;
+        justify-content: unset!important;
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    .side-img {
+        left: -20px;
+        z-index: -1!important;
+    }
+    #img-books {
+        visibility: visible;
+    }
+}
+
+
+/* Mobiles and Tablets only */
+
+@media (max-width: 991px) {
+    * h1,
+    * h2 {
+        text-align: center;
+    }
+    * h1 {
+        font-size: 1.7rem;
+    }
+    .footer h1,
+    .footer h2,
+    .footer p {
+        text-align: left;
+    }
+    .timeline {
+        max-width: 30%;
+    }
+    .side-img {
+        left: -20px;
+        z-index: unset!important;
+    }
+    .workflow-header {
+        min-height: 610px;
+        height: 100vh;
+    }
+    .navbar-collapse {
+        position: absolute;
+        top: 75px;
+        right: 0;
+        width: 140px;
+        margin: 30px;
+        text-align: right;
+    }
+    .navbar-bg {
+        background-color: #2b1813;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 190px;
+        opacity: 0.8;
+        animation: slide-in 2s forwards;
+    }
+    .header-flex h1 {
+        font-size: 20px;
+    }
+    .header-flex h2 {
+        font-size: 16px;
+    }
+    #ch-pic {
+        width: 220px;
+        height: 220px;
+    }
+    #ch-pic:hover {
+        width: 250px;
+        height: 250px;
+    }
+    @keyframes slide-in {
+        from {
+            width: 0px;
+        }
+        to {
+            width: 190px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .gallery-item-hover::after {
+        content: none;
+    }
+    .visible-desktop {
+        visibility: hidden;
+    }
+}
