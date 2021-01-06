@@ -21,7 +21,6 @@ $(document).ready(function() {
 
         // Smooth-scrolling
         $('.scroll').click(function(event) {
-            console.log(this);
             if (this.hash !== "") {
                 event.preventDefault();
                 var hash = this.hash;

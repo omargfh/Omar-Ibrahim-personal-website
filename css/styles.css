@@ -445,6 +445,21 @@ brown {
 }
 
 
+/* Image Inline */
+
+.img-inline img {
+    display: inline;
+    height: 50px;
+    opacity: 0.7;
+    margin: 0 5px;
+    padding: 2px;
+}
+
+.img-inline img:hover {
+    opacity: 1;
+}
+
+
 /* Index-page Specific */
 
 #img-books {
@@ -893,6 +908,11 @@ brown {
     background-size: cover;
 }
 
+.bg-code-projects {
+    background: url(../images/code-prj.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
 .bg-code-darker h1,
 .bg-code-darker p,
 .bg-code h1,
@@ -905,7 +925,9 @@ brown {
     color: rgb(4, 51, 34)!important;
 }
 
-.text-white {
+.text-white,
+.text-white~h1,
+.section .text-white {
     color: white!important;
 }
 
