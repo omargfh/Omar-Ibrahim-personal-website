@@ -208,6 +208,15 @@ $(document).ready(function() {
                     $('#close-image').addClass('close-image');
                 }, 1200);
             });
+            // Add change-on-hover effect
+            $('.change-on-hover').each(function(i, el) {
+                $(el).mouseover(function() {
+                    this.children[0].src = this.children[0].src.replace(".png", "-hover.png");
+                });
+                $(el).mouseleave(function() {
+                    this.children[0].src = this.children[0].src.replace("-hover.png", ".png");
+                });
+            });
         });
     });
 });
