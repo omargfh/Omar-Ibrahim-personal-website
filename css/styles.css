@@ -44,6 +44,10 @@ brown {
     transition: all 0.5s ease-in-out;
 }
 
+.animate-1s {
+    transition: all 1.5s ease;
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -770,7 +774,7 @@ brown {
 /* Coding (on code.html) */
 
 .bg-code {
-    background: url(../images/code.jpg) no-repeat fixed center;
+    background: url(../images/code.jpg) no-repeat fixed bottom center;
     background-size: cover;
 }
 
@@ -1005,5 +1009,12 @@ h1 {
     }
     .visible-desktop {
         visibility: hidden;
+    }
+}
+
+@media (max-width: 577px) {
+    .bg-code {
+        background: url(../images/code.jpg) no-repeat fixed bottom center;
+        background-size: cover;
     }
 }
