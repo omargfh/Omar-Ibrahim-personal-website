@@ -271,10 +271,6 @@ function headerControl(n, m) {
             let header_height = img.clientHeight;
             header.style.height = parseInt(header_height) + "px";
         }
-        if (window.location.pathname === "/code.html") {
-            $('.bg').addClass('bg-code');
-            $('#ch-pic').addClass('img-green');
-        }
     } else if (n === "onscroll") {
         // Controls responsive behavior to scrolling
         $('.navbar-bg').addClass('hidden');

@@ -774,7 +774,7 @@ brown {
 /* Coding (on code.html) */
 
 .bg-code {
-    background: url(../images/code.jpg) no-repeat fixed bottom center;
+    background: url(../images/code.jpg) no-repeat fixed center;
     background-size: cover;
 }
 
@@ -799,7 +799,7 @@ brown {
 }
 
 .img-green {
-    border: 15px solid rgba(120, 180, 150, 0.64)!important;
+    border: 15px solid rgb(78 121 94 / 64%)!important;
 }
 
 .bg-green {
