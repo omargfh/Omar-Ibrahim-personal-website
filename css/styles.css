@@ -584,7 +584,7 @@ brown {
     height: 100%;
     font-size: 100px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: -webkit-linear-gradient(180deg, #00229f, #00faff 80%);
+    background: -webkit-linear-gradient(90deg, #ece9e6, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: white;
@@ -610,7 +610,7 @@ brown {
     top: 0;
     left: 0;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.6;
     z-index: 100;
 }
 
