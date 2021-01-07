@@ -369,10 +369,16 @@ function headerControl(n, m) {
         }
         // Controls color and logo of banner
         let rect = $('.bg')[0].getBoundingClientRect();
-        if (rect.bottom <= 100) {
+        var j = 400;
+        if (m === "index") {
+            j = 650;
+        }
+        if (rect.bottom <= j) {
+            var scroll = $('.scroll');
             navbar.addClass('bg-light-onscroll');
             if (window.location.pathname === "/code.html") {
                 navbar.addClass('bg-green');
+                // scroll.fadeTo("fast", 1);
             }
             if (m === "index") {
                 logo.addClass('logo-small');

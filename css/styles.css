@@ -905,29 +905,35 @@ brown {
 
 .bg-code {
     background: url(../images/code.jpg) no-repeat fixed center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 .bg-code-darker {
     background: url(../images/code-dk.jpg) no-repeat fixed center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 .bg-code-projects {
     background: url(../images/code-prj.jpg) no-repeat fixed center;
+}
+
+.bg-code,
+.bg-code-projects,
+.bg-code-darker {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-@media (max-width: 375px) {}
+@media (max-width: 375px) {
+    .bg-code,
+    .bg-code-projects,
+    .bg-code-darker {
+        -webkit-background-size: scroll!important;
+        -moz-background-size: scroll!important;
+        -o-background-size: scroll!important;
+        background-size: scroll!important;
+    }
+}
 
 .bg-code-darker h1,
 .bg-code-darker p,
@@ -961,7 +967,7 @@ brown {
 
 .scroll-green:hover a {
     background-color: rgba(255, 255, 255, 0.767);
-    color: rgba(8, 28, 21, 1);
+    color: rgb(34, 58, 102);
 }
 
 
