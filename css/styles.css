@@ -412,7 +412,7 @@ brown {
 }
 
 .section-green {
-    background-color: #1c2427;
+    background-color: #045762;
 }
 
 .section-clip {
@@ -610,7 +610,7 @@ brown {
     top: 0;
     left: 0;
     background-color: black;
-    opacity: 0.6;
+    opacity: 0.5;
     z-index: 100;
 }
 
@@ -932,15 +932,15 @@ brown {
 }
 
 .img-green {
-    border: 15px solid rgb(78 121 94 / 64%)!important;
+    border: 15px solid rgb(62 99 76 / 74%)!important;
 }
 
 .bg-green {
-    background: rgba(8, 28, 21, 1)!important;
+    background: #385d61!important;
 }
 
 .scroll-green a {
-    background: rgb(3, 14, 10);
+    background: #02292e;
 }
 
 .scroll-green:hover a {
