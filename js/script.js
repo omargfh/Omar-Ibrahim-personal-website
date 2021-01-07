@@ -1,4 +1,69 @@
 $(document).ready(function() {
+    // Custom script for (index.html) and pages other than (index.html)
+    if (window.location.pathname !== "/index.html") {
+        if (window.location.pathname === "/arts.html") {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                margin: 50,
+                center: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+        }
+
+        $(window).on('load', function() {
+            headerControl("onload");
+            $('.navbar-toggler').click(function() {
+                headerControl("onclick");
+            });
+        });
+
+        $(window).on('resize', function() {
+            headerControl("onload");
+        });
+
+        $(window).on('scroll', function() {
+            headerControl("onscroll");
+        });
+    } else {
+        $(document).ready(function() {
+            $('.carousel-fast').carousel({
+                interval: 1000
+            });
+
+            $(window).on('load', function() {
+                headerControl("onload", "index");
+                $('.navbar-toggler').click(function() {
+                    headerControl("onclick", "index");
+                });
+            });
+
+            $(window).on('resize', function() {
+                headerControl("onload", "index");
+                changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
+            });
+
+            $(window).on('scroll', function() {
+                headerControl("onscroll", "index");
+                showElements('#section-2', 'card');
+                showElements('#section-3-nav', 'timeline');
+                showElements('#section-1-nav', 'section-1');
+            });
+        });
+    }
+
     // Activate Carousel
     $('.carousel').carousel({
         interval: 5000
@@ -16,6 +81,7 @@ $(document).ready(function() {
     });
 
     $(window).on('load', function() {
+
         // Check for scroll/resize statuses to update DOM
         $('.scroll-behavior').scroll();
         $('.resize-behvior').resize();
