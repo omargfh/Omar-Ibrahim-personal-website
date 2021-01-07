@@ -915,26 +915,6 @@ brown {
     background: url(../images/code-prj.jpg) no-repeat fixed center;
 }
 
-.bg-code,
-.bg-code-projects,
-.bg-code-darker {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-@media (max-width: 576px) {
-    .bg-code,
-    .bg-code-projects,
-    .bg-code-darker {
-        -webkit-background-size: unset!important;
-        -moz-background-size: unset!important;
-        -o-background-size: unset!important;
-        background-size: unset!important;
-    }
-}
-
 .bg-code-darker h1,
 .bg-code-darker p,
 .bg-code h1,
