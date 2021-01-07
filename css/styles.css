@@ -918,6 +918,14 @@ brown {
     background-size: cover;
 }
 
+@media (max-width: 375px) {
+    .bg-code,
+    .bg-code-darker,
+    .bg-code-projects {
+        background-attachment: scroll!important;
+    }
+}
+
 .bg-code-darker h1,
 .bg-code-darker p,
 .bg-code h1,
