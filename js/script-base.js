@@ -6,10 +6,11 @@ $(document).ready(function() {
 
     $(window).on('scroll', function() {
         $('.gallery-item').each(function(i, el) {
+            el = $(el);
             if (isElementInViewport(el)) {
-                $(el).addClass('gallery-item-hover');
+                el.addClass('gallery-item-hover');
             } else {
-                $(el).removeClass('gallery-item-hover');
+                el.removeClass('gallery-item-hover');
             }
         });
     });
@@ -34,11 +35,12 @@ $(document).ready(function() {
 
         // Image gallery (on "arts.html")
         $('.gallery-item').each(function(i, el) {
-            $(el).mouseover(function() {
-                if ($(el).children().prop('naturalWidth') >= $(el).width()) {
+            el = $(el);
+            el.mouseover(function() {
+                if (el.children().prop('naturalWidth') >= el.width()) {
                     // Extract data
                     var image = new Image();
-                    image.src = $(el).children()[0].dataset.hover;
+                    image.src = el.children()[0].dataset.hover;
                     image.onload = function() {
                         var update = $('.show-gallery-item-on-hover');
                         update.each(function(i, up) {
@@ -52,18 +54,18 @@ $(document).ready(function() {
                                 // Adjust preview dimensions (responsive)
                                 var nH = update.children().prop('naturalHeight');
                                 var nW = update.children().prop('naturalWidth');
-                                if (update.children().prop('naturalWidth') > 2 * $(el).width() && nW >= nH) {
-                                    update.children().width(2 * $(el).width());
-                                    update.children().height(nH * ((2 * $(el).width()) / nW));
-                                } else if (update.children().prop('naturalHeight') > 2 * $(el).width()) {
-                                    update.children().height(2 * $(el).width());
-                                    update.children().width(nW * ((2 * $(el).height()) / nH));
+                                if (update.children().prop('naturalWidth') > 2 * el.width() && nW >= nH) {
+                                    update.children().width(2 * el.width());
+                                    update.children().height(nH * ((2 * el.width()) / nW));
+                                } else if (update.children().prop('naturalHeight') > 2 * el.width()) {
+                                    update.children().height(2 * el.width());
+                                    update.children().width(nW * ((2 * el.height()) / nH));
                                 }
 
                                 // Calculate new position
-                                pos = $(el).parent().offset();
-                                pos.right = Math.round(pos.left + $(el).width());
-                                pos.bottom = Math.round($(el).height() + pos.top);
+                                pos = el.parent().offset();
+                                pos.right = Math.round(pos.left + el.width());
+                                pos.bottom = Math.round(el.height() + pos.top);
                                 pos.width = update.children().width() !== 0 ? update.children().width() : nW;
                                 pos.height = update.children().height() !== 0 ? update.children().height() : nH;
                                 pos.midY = (pos.top + pos.bottom) / 2;
@@ -77,10 +79,10 @@ $(document).ready(function() {
 
                                 // Update elements
 
-                                update.parent()[0].dataset.content = $(el).children()[0].dataset.popup;
-                                update.parent()[0].dataset.flairs = $(el).children()[0].dataset.flairs;
-                                if ($(el).children()[0].dataset.type === "XHTML") {
-                                    update.parent()[0].dataset.type = $(el).children()[0].dataset.type;
+                                update.parent()[0].dataset.content = el.children()[0].dataset.popup;
+                                update.parent()[0].dataset.flairs = el.children()[0].dataset.flairs;
+                                if (el.children()[0].dataset.type === "XHTML") {
+                                    update.parent()[0].dataset.type = el.children()[0].dataset.type;
                                 } else {
                                     update.parent()[0].dataset.type = "image";
                                 }
@@ -110,10 +112,11 @@ $(document).ready(function() {
 
         // DOM Manipulation based on hover
         $('.img-bar').each(function(i, el) {
-            $(el).hover(function() {
+            var el_dom = $(el);
+            el_dom.hover(function() {
                 data = el.dataset;
                 $('.img-bar').removeClass('active');
-                $(el).addClass('active');
+                el_dom.addClass('active');
                 $('#program').html(el.alt);
                 $('#years').html(data.years + "+ years");
                 $('#projects').html("Notable projects: " + data.prj);
@@ -123,34 +126,38 @@ $(document).ready(function() {
         $('#img-active').mouseover();
         // Pop-ups
         $(function() {
+            var popupcontent = $("#pop-up-content");
+            var popupwindow = $("#pop-up-window");
+            var popupclose = $("#pop-up-close");
+            var flair = $('.flair');
             $('.pop-up-call').each(function(i, el) {
                 $(el).click(function() {
                     $('#pop-up').removeClass('remove');
-                    $('#pop-up-window').addClass('pop-up-window-animate');
+                    popupwindow.addClass('pop-up-window-animate');
                     if (el.dataset.type === "XHTML") {
                         $('#close-image').removeClass('close-image');
-                        $('#pop-up-content').html('<div style="display: flex; flex: 100%; width: 100%; height: 100%; align-items: center; justify-content: center;"><img src="https://i.stack.imgur.com/oQ0tF.gif" width="40px" alt="load"></div>');
+                        popupcontent.html('<div style="display: flex; flex: 100%; width: 100%; height: 100%; align-items: center; justify-content: center;"><img src="https://i.stack.imgur.com/oQ0tF.gif" width="40px" alt="load"></div>');
                         $.ajax({
                             type: 'GET',
                             url: el.dataset.content,
                             success: function(data) {
-                                $('#pop-up-content').html(data);
+                                popupcontent.html(data);
                             },
                             error: function(a, b) {
                                 setTimeout(() => {
-                                    $('#pop-up-close').click();
+                                    popupclose.click();
                                 }, 1000)
                             }
                         });
                         $(window).resize(function(event) {
                             event.preventDefault();
-                            $('#pop-up-window').width("90%");
+                            popupwindow.width("90%");
                         });
                         $(window).resize();
                     } else if (el.dataset.type === "image") {
                         var img = new Image();
                         img.src = el.dataset.content;
-                        $('#pop-up-window').addClass('image-display').css("background-image", "url(./" + el.dataset.content + ")");
+                        popupwindow.addClass('image-display').css("background-image", "url(./" + el.dataset.content + ")");
                         // Loop through flairs and append them
                         if (el.dataset.flairs !== "") {
                             var flairs = el.dataset.flairs.split(" ");
@@ -170,17 +177,17 @@ $(document).ready(function() {
                                 var newHeight = img.height;
                                 if (img.height > 0.9 * $(window).height() && $(window).width() > 568) {
                                     newWidth = img.width * (0.9 * $(window).height() / img.height);
-                                    $('#pop-up-window').width(newWidth);
+                                    popupwindow.width(newWidth);
                                     if ($(window).width() < newWidth) {
-                                        $('#pop-up-window').width("90%");
+                                        popupwindow.width("90%");
                                     }
                                 } else {
-                                    $('#pop-up-window').width("90%");
+                                    popupwindow.width("90%");
                                 }
                                 if (newWidth > 0.9 * $(window).width()) {
-                                    $('.flair').addClass('flair-bottom');
+                                    flair.addClass('flair-bottom');
                                 } else {
-                                    $('.flair').removeClass('flair-bottom');
+                                    flair.removeClass('flair-bottom');
                                 }
                             });
                             $(window).resize();
@@ -188,22 +195,22 @@ $(document).ready(function() {
                     }
                 });
             });
-            $('#pop-up-close').click(function() {
+            popupclose.click(function() {
                 // Remove the intro animation
-                $('#pop-up-window').removeClass('pop-up-window-animate');
+                popupwindow.removeClass('pop-up-window-animate');
                 // Animate the window close (delay for CSS render)
                 setTimeout(() => {
-                    $('#pop-up-window').addClass('pop-up-window-close-animate');
+                    popupwindow.addClass('pop-up-window-close-animate');
                 }, 200);
                 setTimeout(() => {
                     // Hide pop-up from workflow
                     $('#pop-up').addClass('remove');
                     // Remove content for XHTML pop-up calls
-                    $('#pop-up-content').html("");
+                    popupcontent.html("");
                     // Remove classes from window body
-                    $('#pop-up-window').removeClass('pop-up-window-close-animate').removeClass('image-display').width("90vh").css("background-image", "");
+                    popupwindow.removeClass('pop-up-window-close-animate').removeClass('image-display').width("90vh").css("background-image", "");
                     // Hide flairs
-                    $('.flair').addClass('remove');
+                    flair.addClass('remove');
                     $('#close-image').addClass('close-image');
                 }, 1200);
             });
@@ -261,16 +268,21 @@ function changeText(el, wd, lg, sm) {
 }
 
 function headerControl(n, m) {
+    var navbar = $('.navbar');
+    var navbarbg = $('.navbar-bg');
+    var chpic = $('#ch-pic');
+    var headerflex = $('header-flex');
+    var logo = $('#logo');
     if (n === "onclick") {
-        $('.navbar-bg').toggleClass('hidden');
+        navbarbg.toggleClass('hidden');
         if (m === "index") {
-            $('#ch-pic').removeClass('ch-pic-transit');
+            chpic.removeClass('ch-pic-transit');
             $('#btn-learn-more-content').toggleClass('btn');
         }
         if (window.innerWidth < 991) {
-            $('.header-flex').toggleClass('visible-desktop');
+            headerflex.toggleClass('visible-desktop');
         } else {
-            $('.header-flex').removeClass('hidden');
+            headerflex.removeClass('hidden');
         }
     } else if (n === "onload") {
         if (m === "index") {
@@ -281,34 +293,34 @@ function headerControl(n, m) {
         }
     } else if (n === "onscroll") {
         // Controls responsive behavior to scrolling
-        $('.navbar-bg').addClass('hidden');
+        navbarbg.addClass('hidden');
         $('#navbarSupportedContent').removeClass('show');
-        $('.header-flex').removeClass('visible-desktop');
+        headerflex.removeClass('visible-desktop');
         // Controls special behavior on index page
         if (m === "index") {
-            $('#ch-pic').addClass('ch-pic-transit');
+            chpic.addClass('ch-pic-transit');
             $('#btn-learn-more-content').addClass('btn');
         }
         // Controls color and logo of banner
         let rect = $('.bg')[0].getBoundingClientRect();
         if (rect.bottom <= 100) {
-            $('.navbar').addClass('bg-light-onscroll');
+            navbar.addClass('bg-light-onscroll');
             if (window.location.pathname === "/code.html") {
-                $('.navbar').addClass('bg-green');
+                navbar.addClass('bg-green');
             }
             if (m === "index") {
-                $('#logo').addClass('logo-small');
+                logo.addClass('logo-small');
             } else {
-                URI = "images/title-" + $('#logo')[0].dataset.alt + ".png";
-                $('#logo')[0].src = URI;
-                $('#logo').css("max-height", "50px");
+                URI = "images/title-" + logo[0].dataset.alt + ".png";
+                logo[0].src = URI;
+                logo.css("max-height", "50px");
             }
         } else {
-            $('#logo')[0].src = "images/logo-sm-wh.png";
-            $('#logo').css("max-height", "45px");
-            $('.navbar').removeClass('bg-light-onscroll');
-            $('.navbar').removeClass('bg-green');
-            $('#logo').removeClass('logo-small');
+            logo[0].src = "images/logo-sm-wh.png";
+            logo.css("max-height", "45px");
+            navbar.removeClass('bg-light-onscroll');
+            navbar.removeClass('bg-green');
+            logo.removeClass('logo-small');
         }
     }
 }
