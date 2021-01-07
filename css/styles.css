@@ -885,7 +885,6 @@ brown {
     color: white;
     background-color: rgba(148, 118, 100, 1.2);
     padding: 10px;
-    width: fit-content;
     border-radius: 10px;
     position: fixed;
     right: 30px;
@@ -901,7 +900,6 @@ brown {
     background-color: rgba(255, 255, 255, 1);
     color: #947664;
     padding: 10px;
-    width: fit-content;
     border-radius: 5px;
     box-shadow: 1px 1px 4px rgba(32, 32, 32, 0);
 }
