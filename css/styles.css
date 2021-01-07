@@ -1166,10 +1166,3 @@ h1 {
         visibility: hidden;
     }
 }
-
-@media (max-width: 577px) {
-    .bg-code {
-        background: url(../images/code.jpg) no-repeat fixed bottom center;
-        background-size: cover;
-    }
-}
