@@ -924,14 +924,14 @@ brown {
     background-size: cover;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 576px) {
     .bg-code,
     .bg-code-projects,
     .bg-code-darker {
-        -webkit-background-size: scroll!important;
-        -moz-background-size: scroll!important;
-        -o-background-size: scroll!important;
-        background-size: scroll!important;
+        -webkit-background-size: unset!important;
+        -moz-background-size: unset!important;
+        -o-background-size: unset!important;
+        background-size: unset!important;
     }
 }
 
