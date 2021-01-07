@@ -904,15 +904,15 @@ brown {
 /* Coding (on code.html) */
 
 .bg-code {
-    background: url(../images/code.jpg) no-repeat fixed center;
+    background: url(../images/code.jpg) repeat fixed center;
 }
 
 .bg-code-darker {
-    background: url(../images/code-dk.jpg) no-repeat fixed center;
+    background: url(../images/code-dk.jpg) repeat fixed center;
 }
 
 .bg-code-projects {
-    background: url(../images/code-prj.jpg) no-repeat fixed center;
+    background: url(../images/code-prj.jpg) repeat fixed center;
 }
 
 .bg-code-darker h1,
