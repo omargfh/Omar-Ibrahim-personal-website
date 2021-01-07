@@ -98,6 +98,7 @@ brown {
 
 .bg-regular {
     height: 450px;
+    background-color: rgb(140, 140, 140);
 }
 
 .bg-expand {
@@ -904,7 +905,7 @@ brown {
 /* Coding (on code.html) */
 
 .bg-code {
-    background: url(../images/code.jpg) repeat fixed top;
+    background: url(../images/code.jpg) repeat fixed center;
 }
 
 .bg-code-darker {
