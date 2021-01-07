@@ -904,7 +904,7 @@ brown {
 /* Coding (on code.html) */
 
 .bg-code {
-    background: url(../images/code.jpg) repeat fixed center;
+    background: url(../images/code.jpg) repeat fixed top;
 }
 
 .bg-code-darker {
