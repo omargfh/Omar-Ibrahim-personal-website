@@ -78,13 +78,27 @@ $(document).ready(function() {
                 el.removeClass('gallery-item-hover');
             }
         });
+        // Uncolor (depends on jQuery plugin colormatrix)
+        $('.color').each(function(i, el) {
+            var color = $(el);
+            if (isElementInViewport(color)) {
+                color.removeClass('grayscale');
+            }
+        });
+        // Hides scroll botton
+        var scrollbtn = $('.scroll-btn');
+        if ($(document).scrollTop() >= 385) {
+            scrollbtn.removeClass('hidden');
+        } else {
+            scrollbtn.addClass('hidden');
+        }
     });
 
     $(window).on('load', function() {
-
         // Check for scroll/resize statuses to update DOM
         $('.scroll-behavior').scroll();
         $('.resize-behvior').resize();
+        $('.color').scroll();
 
         // Smooth-scrolling
         $('.scroll').click(function(event) {

@@ -864,6 +864,10 @@ brown {
     cursor: pointer;
 }
 
+.btn-green::before {
+    color: #02112e;
+}
+
 .btn-green::after {
     background: #141E30;
     /* fallback for old browsers */
@@ -877,6 +881,7 @@ brown {
 /* BUTTON SCROLL */
 
 .scroll-btn a {
+    transform: scale(0.7);
     color: white;
     background-color: rgba(148, 118, 100, 1.2);
     padding: 10px;
@@ -884,14 +889,14 @@ brown {
     border-radius: 10px;
     position: fixed;
     right: 30px;
-    bottom: 30px;
+    bottom: 20px;
     transition: all 0.9s cubic-bezier(.09, .68, .13, 1.94);
     box-shadow: 1px 1px 4px rgba(32, 32, 32, 0.2);
     z-index: 1022;
 }
 
 .scroll-btn a:hover {
-    transform: scale(1.2);
+    transform: scale(0.9);
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 1);
     color: #947664;
@@ -923,9 +928,9 @@ brown {
     color: white!important;
 }
 
-.text-green,
 .text-green h1 {
-    color: rgb(4, 51, 34)!important;
+    color: #30475e!important;
+    font-size: 1.5rem;
 }
 
 .text-white,
@@ -963,7 +968,7 @@ brown {
 }
 
 .style-string {
-    color: rgb(14, 82, 146)!important;
+    color: #30475e!important;
 }
 
 .style-fn {
