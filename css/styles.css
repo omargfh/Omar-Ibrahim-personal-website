@@ -864,7 +864,12 @@ brown {
 }
 
 .btn-green::after {
-    background-color: rgb(4, 51, 34);
+    background: #141E30;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
@@ -932,15 +937,15 @@ brown {
 }
 
 .img-green {
-    border: 15px solid rgb(62 99 76 / 74%)!important;
+    border: 15px solid #1a2642b8!important;
 }
 
 .bg-green {
-    background: #385d61!important;
+    background: #1a2642!important;
 }
 
 .scroll-green a {
-    background: #02292e;
+    background: #02112e;
 }
 
 .scroll-green:hover a {
@@ -960,7 +965,7 @@ brown {
 }
 
 .style-string {
-    color: rgb(14, 146, 140)!important;
+    color: rgb(14, 82, 146)!important;
 }
 
 .style-fn {
