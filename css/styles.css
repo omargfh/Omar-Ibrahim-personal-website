@@ -624,6 +624,16 @@ brown {
 }
 
 
+/* Particles.js */
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+
 /* Carousel */
 
 .container-carousel {
@@ -948,6 +958,13 @@ brown {
 
 .border-end {
     border-right: 2px solid rgb(218, 218, 218);
+}
+
+@media (max-width: 767px) {
+    .border-end {
+        border-right: 0px;
+        border-bottom: 2px solid rgb(218, 218, 218);
+    }
 }
 
 .img-green {
