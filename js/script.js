@@ -366,11 +366,12 @@ function showElements(check, el) {
         for (let i = 0; i < elements.length; i++) {
             if (elements[i].classList.contains('visible-mobile')) {
                 elements[i].classList.toggle('visible-mobile');
-                let string = el + '-animate';
+                var string = el + '-animate';
                 elements[i].classList.toggle(string);
             } else {
                 break;
             }
+            setTimeout(() => { elements[i].classList.toggle(string) }, 900);
         }
     }
 }

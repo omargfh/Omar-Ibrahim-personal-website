@@ -545,6 +545,13 @@ brown {
 
 .card:hover {
     box-shadow: 1px 1px 10px rgba(148, 114, 100, 1.0);
+    background-color: rgb(148, 114, 100)!important;
+    transform: scale(1.05) rotate(0.7deg);
+}
+
+.card:hover brown,
+.card:hover p {
+    color: white!important;
 }
 
 .card-container {
