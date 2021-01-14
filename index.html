@@ -27,13 +27,32 @@
 </head>
 
 <body>
-    <div id="pop-up" class="pop-up hidden">
-        <div id="pop-up-window" class="pop-up-window">
-            <div id="pop-up-close" class="pop-up-close">✕</div>
-            <div id="pop-up-content" class="pop-up-content">
+    <!-- Contains floating views -->
+    <div id="section-float">
+        <div id="pop-up" class="pop-up remove">
+            <div id="pop-up-window" class="pop-up-window">
+                <div id="close-image" class="close-image">
+                    <div id="pop-up-close" class="pop-up-flair pop-up-close">✕</div>
+                    <div class="group flair">
+                        <div id="behance" class="pop-up-flair behance remove"><a href="#" target="_blank">Bē</a></div>
+                    </div>
+                </div>
+                <div id="pop-up-content" class="pop-up-content">
+                </div>
             </div>
         </div>
+        <div class="pop-up-call" data-type="image">
+            <div class="show-gallery-item-on-hover"></div>
+        </div>
+        <div id="scroll-up" class="scroll-btn">
+            <a href="#section-0" class="scroll">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                </svg>
+            </a>
+        </div>
     </div>
+    <!-- Header -->
     <header id="section-0">
         <div class="bg bg-expand scroll-behavior">
             <img src="images/bg.jpg" alt="picture of library" class="bg-size-ex" id="img-bg">
@@ -76,8 +95,10 @@
                 </a>
             </div>
         </div>
+        <div class="workflow-header" id="workflow-header"></div>
+
     </header>
-    <div class="workflow-header" id="workflow-header"></div>
+    <!-- Bio -->
     <div id="section-1" class="section section-1 scroll-behavior container-fluid">
         <div class="container my-3 p-3">
             <div class="row">
@@ -124,6 +145,24 @@
             <img src="images/books.png" id="img-books" alt="image of books">
         </div>
     </div>
+    <!-- Numbers -->
+    <div id="numbers p-3" class="section inherit-bg">
+        <div class="container d-flex justify-content-center my-3 p-3 text-white">
+            <div class="text-center p-5 border-end">
+                <h1 class="count count-float" data-step="0.1">4.0</h1>
+                <h6>GPA</h6>
+            </div>
+            <div class="text-center p-5 border-end">
+                <h1 class="count" data-step="1">35</h1>
+                <h6>ACT Composite</h6>
+            </div>
+            <div class="text-center p-5">
+                <h1 class="count" data-step="1">118</h1>
+                <h6>TOEFL iBT</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Cards -->
     <div id="section-2" class="section section-colored container-fluid my-3 p-3">
         <div class="row">
             <div class="col-md-12">
@@ -210,6 +249,7 @@
             </div>
         </div>
     </div>
+    <!-- Highlights -->
     <div id="section-3" class="section">
         <div class="container">
             <div class="row">
@@ -253,6 +293,7 @@
             </div>
         </div>
     </div>
+    <!-- Gallery -->
     <div id="section-4" class="section section-colored container-fluid">
         <div class="container container-carousel">
             <div class="row">
@@ -423,6 +464,7 @@
             </div>
         </div>
     </div>
+    <!-- Footer -->
     <footer>
         <div class="container-fluid bg-black footer">
             <div class="container">
