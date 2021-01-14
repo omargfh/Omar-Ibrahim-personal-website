@@ -1016,6 +1016,10 @@ h1 {
     max-width: 250px;
 }
 
+#side-pic {
+    border-radius: 10px;
+}
+
 #pg-title {
     height: 200px;
 }
