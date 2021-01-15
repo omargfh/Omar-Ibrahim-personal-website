@@ -732,6 +732,10 @@ brown {
     transform: scale(1.1);
 }
 
+.event:hover::before {
+    color: rgb(148, 114, 100)
+}
+
 .event:last-of-type {
     padding-bottom: 0;
     margin-bottom: 0;
@@ -1260,7 +1264,8 @@ h1 {
         text-align: left;
     }
     .timeline {
-        max-width: 30%;
+        max-width: 50%;
+        transform: translateX(18%);
     }
     .side-img {
         left: -20px;
