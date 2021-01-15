@@ -195,6 +195,10 @@ i.fas {
     transform: scale(0.8);
 }
 
+div#navbarSupportedContent {
+    width: 165px;
+}
+
 #logo {
     max-height: 45px;
     transition: all 0.5s ease-in-out;
@@ -1325,7 +1329,7 @@ h1 {
             width: 0px;
         }
         to {
-            width: 190px;
+            width: 210px;
         }
     }
 }
