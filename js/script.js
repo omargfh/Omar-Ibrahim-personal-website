@@ -37,7 +37,7 @@ $(document).ready(function() {
         });
     } else {
         $('.carousel-fast').carousel({
-            interval: 1000
+            interval: 5000
         });
 
         headerControl("onload", "index");

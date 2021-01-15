@@ -409,6 +409,27 @@ brown {
 }
 
 
+/* Carousel */
+
+.carousel-item.img-hover:hover {
+    transform: scale(1.5);
+}
+
+.carousel-control-prev-icon {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTEyIDBjLTYuNjI3IDAtMTIgNS4zNzMtMTIgMTJzNS4zNzMgMTIgMTIgMTIgMTItNS4zNzMgMTItMTItNS4zNzMtMTItMTItMTJ6bS0xLjU2OCAxOC4wMDVsLTEuNDE0LTEuNDE1IDQuNTc0LTQuNTktNC41NzQtNC41NzkgMS40MTQtMS40MTYgNS45ODggNS45OTUtNS45ODggNi4wMDV6IiBpZD0ic3ZnXzEiIGNsYXNzPSJzZWxlY3RlZCIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIi8+PC9nPjwvc3ZnPg==);
+    background-size: contain;
+    color: white;
+    transform: rotate(180deg);
+    filter: brightness(200%);
+}
+
+.carousel-control-next-icon {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiLz48ZyBjbGFzcz0iY3VycmVudExheWVyIiBzdHlsZT0iIj48dGl0bGU+TGF5ZXIgMTwvdGl0bGU+PHBhdGggZD0iTTEyIDBjLTYuNjI3IDAtMTIgNS4zNzMtMTIgMTJzNS4zNzMgMTIgMTIgMTIgMTItNS4zNzMgMTItMTItNS4zNzMtMTItMTItMTJ6bS0xLjU2OCAxOC4wMDVsLTEuNDE0LTEuNDE1IDQuNTc0LTQuNTktNC41NzQtNC41NzkgMS40MTQtMS40MTYgNS45ODggNS45OTUtNS45ODggNi4wMDV6IiBpZD0ic3ZnXzEiIGNsYXNzPSJzZWxlY3RlZCIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIxIi8+PC9nPjwvc3ZnPg==);
+    background-size: contain;
+    color: white;
+}
+
+
 /* sections */
 
 .section {
@@ -491,7 +512,7 @@ brown {
 /* Index-page Specific */
 
 #img-books {
-    width: 280px;
+    width: 200px;
 }
 
 #side-pic {
@@ -762,7 +783,9 @@ brown {
 /* Footer */
 
 .bg-black {
-    background-color: rgb(97, 68, 56);
+    background: url(../images/pt.png), rgb(97, 68, 56);
+    background-size: contain;
+    background-position: right;
     min-height: 200px;
     padding: 20px;
 }
@@ -1081,6 +1104,7 @@ h1 {
 }
 
 .img-hover p {
+    color: #202020;
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -1134,6 +1158,14 @@ h1 {
 
 .adjust-corners::before {
     border-radius: 10px;
+}
+
+.adjust-size::before {
+    transform: scale(1);
+}
+
+.adjust-size:hover::before {
+    transform: scale(1);
 }
 
 #pg-title {
@@ -1203,6 +1235,7 @@ h1 {
     }
     #img-books {
         visibility: visible;
+        width: 250px;
     }
     .bg-code {
         background-position: center;
