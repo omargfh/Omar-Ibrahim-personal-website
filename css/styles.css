@@ -111,7 +111,14 @@ brown {
 }
 
 .bg-light-onscroll {
-    background-color: rgb(97, 68, 56)!important;
+    background: url(../images/pt.png), rgb(91, 70, 61);
+    background: url(../images/pt.png), -moz-linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
+    background: url(../images/pt.png), -webkit-linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
+    background: url(../images/pt.png), linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#5b463d", endColorstr="#947264", GradientType=1);
+    box-shadow: 0px 4px 11px #00000085;
+    background-position-x: right;
+    background-repeat: no-repeat;
 }
 
 .inherit-bg {
@@ -433,6 +440,11 @@ brown {
     color: rgb(148, 114, 100)!important;
 }
 
+.section .title::after {
+    content: "";
+    display: inline-block;
+}
+
 .section-green *,
 .section-green h1,
 .white {
@@ -454,6 +466,13 @@ brown {
 }
 
 
+/* Count */
+
+.count {
+    display: inline-block;
+}
+
+
 /* Image Inline */
 
 .img-inline img {
@@ -472,7 +491,7 @@ brown {
 /* Index-page Specific */
 
 #img-books {
-    width: 350px;
+    width: 280px;
 }
 
 #side-pic {
@@ -545,7 +564,7 @@ brown {
 
 .card:hover {
     box-shadow: 1px 1px 10px rgba(148, 114, 100, 1.0);
-    background-color: rgb(148, 114, 100)!important;
+    background: url(../images/pt.png), rgb(148, 114, 100)!important;
     transform: scale(1.05) rotate(0.7deg);
 }
 
@@ -685,6 +704,11 @@ brown {
 .event h3 {
     font-size: 1.2rem;
     hyphens: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.event:hover h3 {
+    transform: scale(1.1);
 }
 
 .event:last-of-type {
@@ -979,7 +1003,13 @@ brown {
 }
 
 .bg-green {
-    background: #1a2642!important;
+    background: url(../images/pt.png), rgb(15, 26, 52);
+    background: url(../images/pt.png), -moz-linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
+    background: url(../images/pt.png), -webkit-linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
+    background: url(../images/pt.png), linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#0f1a34", endColorstr="#36466a", GradientType=1);
+    background-position-x: right;
+    background-repeat: no-repeat;
 }
 
 .scroll-green a {
@@ -1041,6 +1071,68 @@ h1 {
 }
 
 #side-pic {
+    border-radius: 10px;
+}
+
+.img-hover {
+    position: relative;
+    transition: all 1s ease-in-out;
+    text-align: center;
+}
+
+.img-hover p {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    width: 80%;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(calc(-50%)) translateY(calc(40%));
+}
+
+.img-hover:hover p {
+    transform: translateX(calc(-50%)) translateY(calc(10%));
+    opacity: 1;
+}
+
+.img-hover::before {
+    content: "";
+    display: inline-block;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.767);
+    transition: all 0.5s ease-in-out;
+    transform: scale(1);
+}
+
+.img-hover:hover::before {
+    opacity: 0.8;
+    transform: scale(0.95);
+}
+
+.img-hover h1 {
+    color: #202020!important;
+    font-size: 20px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(calc(-50%)) translateY(calc(-140%));
+}
+
+.img-hover:hover h1 {
+    transform: translateX(calc(-50%)) translateY(calc(-100%));
+    opacity: 1;
+}
+
+.adjust-corners::before {
     border-radius: 10px;
 }
 
