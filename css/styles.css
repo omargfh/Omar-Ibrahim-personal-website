@@ -191,6 +191,10 @@ brown {
     padding: 5px 15px!important;
 }
 
+i.fas {
+    transform: scale(0.8);
+}
+
 #logo {
     max-height: 45px;
     transition: all 0.5s ease-in-out;
