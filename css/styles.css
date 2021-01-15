@@ -716,8 +716,7 @@ brown {
 }
 
 .event {
-    border-bottom: 1px dashed fade(white, 10%);
-    padding-bottom: (25px);
+    padding-bottom: 20px;
     margin-bottom: 50px;
     position: relative;
 }
@@ -1266,6 +1265,16 @@ h1 {
     .timeline {
         max-width: 50%;
         transform: translateX(18%);
+    }
+    @keyframes fade-in {
+        from {
+            transform: scale(0.1) translateX(18%);
+            opacity: 0.0
+        }
+        to {
+            transform: scale(1.0) translateX(18%);
+            opacity: 1.0
+        }
     }
     .side-img {
         left: -20px;
