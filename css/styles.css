@@ -688,6 +688,10 @@ div#navbarSupportedContent {
     top: 0;
 }
 
+.particles-header {
+    height: 450px!important;
+}
+
 
 /* Carousel */
 
