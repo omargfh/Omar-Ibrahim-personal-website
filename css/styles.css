@@ -1159,6 +1159,7 @@ h1.text-shadow {
 
 .section-quote {
     height: 100px;
+    overflow: hidden;
     /* background-color: black; */
 }
 
