@@ -1606,12 +1606,14 @@ svg.bi.bi-caret-down-fill:hover {
 }
 
 .unexpanded {
-    height: 1000px;
+    max-height: 1000px;
+    height: auto;
     overflow: hidden;
+    transition: max-height 1s ease-in-out;
 }
 
 .expanded {
-    height: fit-content;
+    max-height: 10000px;
 }
 
 
