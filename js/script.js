@@ -44,7 +44,6 @@ $(document).ready(function() {
         $('.navbar-toggler').click(function() {
             headerControl("onclick", "index");
         });
-
         $(window).on('resize', function() {
             headerControl("onload", "index");
             changeText("#right-down", 767, "To the right, you can see a picture of me during the last STEM Model UN!", "If you look down, you can see a picture of me during the last STEM Model UN!");
@@ -128,6 +127,70 @@ $(document).ready(function() {
     $('.count').scroll();
 
 
+    // Projects Carousel
+    $('.projects-control').click(function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+            var action = $(this).data("slide");
+            var selector = "." + this.hash.replace("#", "");
+            var active = ".projects-active";
+            var changes = [selector + "-image", selector + "-item"]
+            changes.forEach(function(change, i) {
+                _el = $(change + active);
+                if (action == "next") {
+                    change = _el.next(".projects-variables").length == 0 ? $($(change).get(0)) : _el.next(change);
+                } else {
+                    change = _el.prev(".projects-variables").length == 0 ? $($(change).last()) : _el.prev(change);
+                }
+                if (change.length !== 0) {
+                    if (i === 0) {
+                        // Exectue Animation on Image
+                        if (_el.children().is("video")) {
+                            _el.children()[0].pause();
+                        }
+                        animate(_el, change, action);
+                    } else {
+                        // Instantly change side text
+                        _el.animate({ opacity: 0 }, 500, "swing", function() {
+                            _el.removeClass(active.replace(".", ""));
+                            change.addClass(active.replace(".", "")).css("opacity", "0").animate({ opacity: 1 }, 500, "swing");
+                        });
+                    }
+                }
+            });
+
+            function animate(_el, change, action) {
+                // Make both items active
+                _el.addClass(active.replace(".", ""));
+                change.addClass(active.replace(".", ""));
+                // Check for the direction
+                if (action == "next") {
+                    // Make object absolute and animated
+                    _el.addClass("absolute projects-animate");
+                    // Return everything to normal
+                    setTimeout(() => {
+                        _el.removeClass("absolute projects-animate projects-animate-reverse");
+                        _el.removeClass(active.replace(".", ""));
+                    }, 600);
+                } else {
+                    // Make object absolute and animated
+                    change.addClass("absolute projects-animate-reverse");
+                    // Return everything to normal
+                    setTimeout(() => {
+                        change.removeClass("absolute projects-animate-reverse projects-animate");
+                        _el.removeClass(active.replace(".", ""));
+                    }, 1000);
+                }
+                if (change.children().is("video")) {
+                    change.children()[0].load();
+                    change.children()[0].currentTime = 1;
+                    setTimeout(() => {
+                        change.children()[0].play();
+                    }, 500);
+                }
+            }
+        }
+    });
 
     // Smooth-scrolling
     $('.scroll').click(function(event) {
