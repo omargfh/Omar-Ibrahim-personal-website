@@ -1628,7 +1628,7 @@ svg.bi.bi-caret-down-fill:hover {
 .form-control-sm {
     background-color: rgb(235, 235, 235);
     border: 1px solid #6b3217;
-    border-radius: 1px;
+    border-radius: 4px;
     font-weight: normal;
     height: 50px;
 }
