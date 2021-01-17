@@ -1622,6 +1622,57 @@ svg.bi.bi-caret-down-fill:hover {
 }
 
 
+/* Forms */
+
+.form-control,
+.form-control-sm {
+    background-color: rgb(235, 235, 235);
+    border: 1px solid #6b3217;
+    border-radius: 1px;
+    font-weight: normal;
+    height: 50px;
+}
+
+.form-green {
+    background-color: rgb(15, 26, 52);
+    border: 1px solid #484892;
+}
+
+.form-control:focus,
+.form-control-sm:focus {
+    background: white;
+    border: 1px solid rgb(204, 116, 78);
+    box-shadow: 0 0 0 0.2rem rgba(255, 81, 0, 0.25);
+    color: black;
+    font-weight: normal;
+}
+
+.form-green:focus {
+    background: #3a3a63;
+    border: 1px solid #4747ff;
+    color: ghostwhite;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.message {
+    height: 250px;
+}
+
+select {
+    color: #6c757d;
+    width: calc(100% - 198px);
+    margin: 0 0 0 15px;
+}
+
+select.form-green {
+    color: #6c757d;
+}
+
+option {
+    font-weight: normal;
+}
+
+
 /* Extra large devices (large desktops, 1200px and up) */
 
 @media (min-width: 1200px) {

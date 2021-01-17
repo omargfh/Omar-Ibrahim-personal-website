@@ -328,28 +328,28 @@
                                     <h1>2019</h1>
                                     <p>EducationUSA: College Fair Cairo 2019</p>
                                     <img class="d-block w-100" src="images/carousel/1.jpg" alt="First slide">
-                                </div> 
+                                </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="img-hover adjust-size">
                                     <h1>2020</h1>
                                     <p>Closing of STEM Model United Nations '20</p>
                                     <img class="d-block w-100" src="images/carousel/2.jpg" alt="Second slide">
-                                </div>    
+                                </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="img-hover adjust-size">
                                     <h1>2019</h1>
                                     <p>STEM Local Hack Day</p>
                                     <img class="d-block w-100" src="images/carousel/3.jpg" alt="Third slide">
-                                </div>    
+                                </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="img-hover adjust-size">
                                     <h1>2019</h1>
                                     <p>Closing of TEDxYouth@MaadiSTEM</p>
                                     <img class="d-block w-100" src="images/carousel/4.jpg" alt="Fourth slide">
-                                </div> 
+                                </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="img-hover adjust-size">
@@ -549,9 +549,36 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h1>DISCLAIMER</h1>
-                        <p>This website is originally created as the assignment 'homepage' for HarvardX CS50. Do NOT use this as a valid source of information about the person in question and accuracy of information is not guaranteed nor attempted in any
-                            way. The creator holds no liabilty for the use of data and content mentioned above.</p>
+                        <h1>Leave a comment!</h1>
+                        <form action="https://formspree.io/f/xwkwyerw" method="POST" class="my-3">
+                            <div class="form-row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control name" required autocomplete="off" focus placeholder="Your Name" name="name">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" autocomplete="on" placeholder="Your Email" name="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rating">How do you find me?</label>
+                                <select id="rating" class="form-control-sm select decorated">
+                                    <option disabled selected>Rating</option>
+                                    <option>Superior</option>
+                                    <option>Good</option>
+                                    <option>Average</option>
+                                    <option>Below Average</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea type="text" class="form-control message" cols="40" rows="5" name="message" placeholder="Leave a message!"></textarea>
+                            </div>
+                            <a href="javascript:document.forms[0].submit()" class="btn-container" id="btn-cv">
+                                <div class="btn" data-title="Submit"></div>
+                            </a>
                     </div>
                 </div>
             </div>

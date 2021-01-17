@@ -837,13 +837,42 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 ">
-                        <h1>DISCLAIMER</h1>
-                        <p>This website is originally created as the assignment 'homepage' for HarvardX CS50. Do NOT use this as a valid source of information about the person in question and accuracy of information is not guaranteed nor attempted in any
-                            way. The creator holds no liabilty for the use of data and content mentioned above.</p>
+                    <div class="col-md-6">
+                        <h1>Leave a comment!</h1>
+                        <form action="https://formspree.io/f/xwkwyerw" method="POST" class="my-3">
+                            <div class="form-row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-green name" required autocomplete="off" focus placeholder="Your Name" name="name">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control form-green" autocomplete="on" placeholder="Your Email" name="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rating">How do you find me?</label>
+                                <select id="rating" class="form-control-sm form-green select">
+                                    <option disabled selected>Rating</option>
+                                    <option>Superior</option>
+                                    <option>Good</option>
+                                    <option>Average</option>
+                                    <option>Below Average</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea type="text" class="form-control form-green message" cols="40" rows="5" name="message" placeholder="Leave a message!"></textarea>
+                            </div>
+                            <a href="javascript:document.forms[0].submit()" class="btn-container" id="btn-cv">
+                                <div class="btn btn-green" data-title="Submit"></div>
+                            </a>
                     </div>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
     </footer>
     <!-- jQuery (Bootstrap JS plugins depend on it) -->
