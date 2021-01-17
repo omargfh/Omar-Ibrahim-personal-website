@@ -1586,8 +1586,12 @@ h1 {
     cursor: pointer;
 }
 
+svg.bi.bi-caret-down-fill {
+    transition: all 1s ease-in-out;
+}
+
 svg.bi.bi-caret-down-fill:hover {
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(360deg);
 }
 
 .faded::before {
