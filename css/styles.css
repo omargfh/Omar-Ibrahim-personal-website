@@ -1603,9 +1603,9 @@ svg.bi.bi-caret-down-fill:hover {
     bottom: 0;
     position: absolute;
     background: rgb(255, 255, 255);
-    background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8547794117647058) 63%, rgba(255, 255, 255, 0) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8547794117647058) 63%, rgba(255, 255, 255, 0) 100%);
-    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8547794117647058) 63%, rgba(255, 255, 255, 0) 100%);
+    background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7287289915966386) 63%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7287289915966386) 63%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7287289915966386) 63%, rgba(255, 255, 255, 0) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1);
     z-index: 100;
 }
