@@ -127,6 +127,13 @@ $(document).ready(function() {
     $('.count').scroll();
 
 
+    // Expand 
+    $('.expand').click(function() {
+        _el = $(this);
+        target = $("#" + _el.data("target"));
+        target.addClass("expanded");
+        _el.parent().addClass("hidden");
+    });
     // Projects Carousel
     $('.projects-control').click(function(event) {
         if (this.hash !== "") {

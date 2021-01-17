@@ -145,7 +145,7 @@
             </div>
         </div>
         <!-- Courses Gallery Container -->
-        <div class="container-fluid p-3 pull-120 text-green ">
+        <div id="unexpand" class="container-fluid p-3 pull-120 text-green unexpanded animate">
             <div class="row ">
                 <!-- First column -->
                 <div class="col-lg-4 no-padding ">
@@ -541,7 +541,20 @@
 
             </div>
         </div>
+        <!-- Expand -->
+        <div class="container-fluid relative">
+            <div class="row">
+                <div class="col d-flex justify-content-center align-items-center faded animate">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#02112e" class="expand bi bi-caret-down-fill animate" viewBox="0 0 16 16" data-target="unexpand">
+                    <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
     <!-- Projects -->
     <div id="section-3 " class="section projects my-0 ">
         <div class="bg-code-projects section-courses ">
