@@ -899,6 +899,11 @@ div#navbarSupportedContent {
     margin: 3px;
 }
 
+a.icon-text:hover {
+    text-decoration: none;
+    text-shadow: 1px 1px 4px rgb(119, 119, 118);
+}
+
 
 /* Hover Icons */
 
