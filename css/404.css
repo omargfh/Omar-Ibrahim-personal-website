@@ -98,12 +98,19 @@ body {
     transition-timing-function: ease-in-out;
 }
 
+
+/* Shadow effects taken from Mario Duarte from Code Pen (adjusted for SVG support) */
+
 @keyframes fall {
     0% {
         transform: scale(0.9) rotate(-5deg);
+        -webkit-filter: drop-shadow( 0 5px 15px rgba(0, 0, 0, 0.6));
+        filter: drop-shadow( 0 5px 15px rgba(0, 0, 0, 0.6));
     }
     100% {
         transform: scale(1.1) rotate(5deg);
+        -webkit-filter: drop-shadow( 0 5px 15px rgba(0, 0, 0, 0.6));
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
     }
 }
 
