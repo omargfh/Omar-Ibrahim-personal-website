@@ -1,3 +1,43 @@
+/* Excerpts from Styles.css */
+
+* {
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+@media (max-width: 991px) {
+    * h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 991px) {
+    * h1,
+    * h2 {
+        text-align: center;
+    }
+}
+
+h1 {
+    font-size: 10vw;
+}
+
+.center-mobile {
+    -webkit-box-pack: center!important;
+    justify-content: center!important;
+}
+
+.margin-5 {
+    margin: 5px 10px 5px 0px;
+}
+
+
+/* New CSS */
+
 .absolute {
     position: absolute;
     top: 50%;

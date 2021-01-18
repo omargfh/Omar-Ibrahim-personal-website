@@ -36,9 +36,7 @@ $(document).ready(function() {
             headerControl("onscroll");
         });
     } else {
-        $('.carousel-fast').carousel({
-            interval: 5000
-        });
+        $('.count').scroll();
 
         headerControl("onload", "index");
         $('.navbar-toggler').click(function() {
@@ -58,6 +56,7 @@ $(document).ready(function() {
             })
         });
     }
+
     // Particle Js
     particlesJS("particles-js", { "particles": { "number": { "value": 260, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 1, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 4, "size_min": 0.3, "sync": false } }, "line_linked": { "enable": false, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 600 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "repulse" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3 }, "repulse": { "distance": 400, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true });
 
@@ -75,6 +74,7 @@ $(document).ready(function() {
                 el.removeClass('gallery-item-hover');
             }
         });
+
         // Uncolor (depends on jQuery plugin colormatrix)
         $('.color').each(function(i, el) {
             var color = $(el);
@@ -82,13 +82,15 @@ $(document).ready(function() {
                 color.removeClass('grayscale');
             }
         });
+
         // Hides scroll botton
         var scrollbtn = $('.scroll-btn');
-        if ($(document).scrollTop() >= 385) {
-            scrollbtn.removeClass('hidden');
-        } else {
-            scrollbtn.addClass('hidden');
+        if ($(document).scrollTop() <= 385 && !scrollbtn.hasClass("notshown")) {
+            scrollbtn.addClass("notshown").fadeTo("slow", 0);
+        } else if ($(document).scrollTop() > 385 && scrollbtn.hasClass("notshown")) {
+            scrollbtn.fadeTo(0, 1).removeClass("notshown");
         }
+
         // Count.js
         $(".count").each(function(i, el) {
             _el = $(el);
@@ -124,19 +126,36 @@ $(document).ready(function() {
     $('.scroll-behavior').scroll();
     $('.resize-behvior').resize();
     $('.color').scroll();
-    $('.count').scroll();
+
 
 
     // Expand 
     $('.expand').click(function() {
         _el = $(this);
         target = $("#" + _el.data("target"));
-        target.addClass("expanded");
-        _el.parent().addClass("hidden");
+        target.hasClass("expanded") ? unexpand(_el, target) : expand(_el, target);
+
+        function expand(_el, target) {
+            target.addClass("expanded");
+            setTimeout(() => {
+                _el.css("animation", "float-rotated 6s ease-in-out infinite");
+                _el.parent().css("opacity", 0.7);
+            }, 700);
+        }
+
+        function unexpand(_el, target) {
+            target.removeClass("expanded");
+            setTimeout(() => {
+                _el.css("animation", "float 6s ease-in-out infinite")
+                _el.parent().css("opacity", 1);
+            }, 700);
+        }
     });
+
     // Projects Carousel
+    var locked = false;
     $('.projects-control').click(function(event) {
-        if (this.hash !== "") {
+        if (this.hash !== "" && locked == false) {
             event.preventDefault();
             var action = $(this).data("slide");
             var selector = "." + this.hash.replace("#", "");
@@ -155,7 +174,7 @@ $(document).ready(function() {
                         if (_el.children().is("video")) {
                             _el.children()[0].pause();
                         }
-                        animate(_el, change, action);
+                        locked = animate(_el, change, action);
                     } else {
                         // Instantly change side text
                         _el.animate({ opacity: 0 }, 500, "swing", function() {
@@ -175,9 +194,11 @@ $(document).ready(function() {
                     // Make object absolute and animated
                     _el.addClass("absolute projects-animate");
                     // Return everything to normal
+                    locked = true;
                     setTimeout(() => {
                         _el.removeClass("absolute projects-animate projects-animate-reverse");
                         _el.removeClass(active.replace(".", ""));
+                        locked = false;
                     }, 600);
                 } else {
                     // Make object absolute and animated
@@ -186,15 +207,19 @@ $(document).ready(function() {
                     setTimeout(() => {
                         change.removeClass("absolute projects-animate-reverse projects-animate");
                         _el.removeClass(active.replace(".", ""));
+                        locked = false;
                     }, 1000);
                 }
                 if (change.children().is("video")) {
+                    locked = true;
                     change.children()[0].load();
                     change.children()[0].currentTime = 1;
                     setTimeout(() => {
                         change.children()[0].play();
+                        locked = false;
                     }, 500);
                 }
+                return locked;
             }
         }
     });
