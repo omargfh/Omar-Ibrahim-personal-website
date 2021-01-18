@@ -1758,6 +1758,13 @@ option {
 /* Mobiles and Tablets only */
 
 @media (max-width: 991px) {
+    select {
+        -webkit-appearance: menulist-textfield;
+        color: #6c757d;
+        width: calc(100%);
+        height: auto;
+        margin: 0;
+    }
     * h1,
     * h2 {
         text-align: center;
