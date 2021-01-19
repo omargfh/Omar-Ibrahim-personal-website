@@ -29,13 +29,36 @@
 </head>
 
 <body>
-    <div id="pop-up" class="pop-up hidden">
-        <div id="pop-up-window" class="pop-up-window">
-            <div id="pop-up-close" class="pop-up-close">✕</div>
-            <div id="pop-up-content" class="pop-up-content">
+    <!-- Contains floating views -->
+    <div id="section-float">
+        <!-- Pop up -->
+        <div id="pop-up" class="pop-up remove">
+            <div id="pop-up-window" class="pop-up-window">
+                <div id="close-image" class="close-image">
+                    <div id="pop-up-close" class="pop-up-flair pop-up-close">✕</div>
+                    <div class="group flair">
+                        <div id="behance" class="pop-up-flair behance remove"><a href="#" target="_blank">Bē</a></div>
+                    </div>
+                </div>
+                <div id="pop-up-content" class="pop-up-content">
+                </div>
             </div>
         </div>
+        <!-- Pop up caller -->
+        <div class="pop-up-call" data-type="image">
+            <div class="show-gallery-item-on-hover"></div>
+        </div>
+        <!-- Scrolling -->
+        <div id="scroll-up" class="scroll-btn notshown" style="opacity: 0;">
+            <a href="#section-0" class="scroll">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                    </svg>
+            </a>
+        </div>
+        <!-- <div class="progress-bar"></div> -->
     </div>
+    <!-- Header -->
     <header id="section-0">
         <div class="bg bg-regular inherit-bg scroll-behavior">
         </div>
@@ -74,10 +97,109 @@
                 <img src="images/title-cw.png" alt="title of arts" id="pg-title" class="pg-title">
             </div>
         </div>
+        <div class="workflow-header workflow-header-rg" id="workflow-header">
+        </div>
     </header>
-    <div class="workflow-header workflow-header-rg" id="workflow-header">
+    <!-- Quote -->
+    <div id="section-1" class="container">
+        <div class="row d-flex justify-content-center pad-3">
+            <div class="col-md-8 col-lg-6 quote-wrapper my-3">
+                <div class="quote p-3 no-select">
+                    <img src="images/qmark.png" alt="quotation mark" class="quotation-mark">
+                    <h1>It is a far, far better thing that I do,</h1>
+                    <h1>than I have ever done;</h1>
+                    <h1>it is a far, far better rest I go to</h1>
+                    <h1>than I have ever known.</h1>
+                    <h1>Charles Dickens</h1>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Library -->
+    <div class="writing p-3">
+        <div class="main-view">
+            <div class="menu-parent">
+                <div class="empty-view"></div>
+                <ul class="menu fixed">
+                    <li class="d-flex align-items-center relative active"><i class="fas fa-feather-alt fa-2x"></i>
+                        <h4>Poetry</h4>
+                    </li>
+                    <li class="d-flex align-items-center relative"><i class="fas fa-align-left fa-2x"></i>
+                        <h4>Prose</h4>
+                    </li>
+                    <li class="d-flex align-items-center relative"><i class="fas fa-scroll fa-2x"></i>
+                        <h4>Scripts</h4>
+                    </li>
+                    <li class="d-flex align-items-center relative"><i class="fas fa-briefcase fa-2x"></i>
+                        <h4>Academic</h4>
+                    </li>
+                    <li class="d-flex align-items-center relative"><i class="fas fa-arrow-left fa-2x"></i>
+                        <h4>Go Back</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="skip-40 skip-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="category-card">
+                                <div class="image">
+                                    <img src="images/test.jpg" alt="test">
+                                </div>
+                                <div class="text">
+                                    <h3>Poetry</h3>
+                                    <p class="no-indent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+                                        facilisis.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="category-card">
+                                <div class="image">
+                                    <img src="images/test.jpg" alt="test">
+                                </div>
+                                <div class="text">
+                                    <h3>Poetry</h3>
+                                    <p class="no-indent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+                                        facilisis.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="category-card">
+                                <div class="image">
+                                    <img src="images/test.jpg" alt="test">
+                                </div>
+                                <div class="text">
+                                    <h3>Poetry</h3>
+                                    <p class="no-indent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+                                        facilisis.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="category-card">
+                                <div class="image">
+                                    <img src="images/test.jpg" alt="test">
+                                </div>
+                                <div class="text">
+                                    <h3>Poetry</h3>
+                                    <p class="no-indent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+                                        facilisis.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
     <footer id="footer">
         <div class="container-fluid bg-black footer">
             <div class="container">

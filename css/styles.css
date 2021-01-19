@@ -7,12 +7,6 @@
     padding: 0px;
 }
 
-
-/* 
-html {
-    scroll-behavior: smooth;
-} */
-
 p {
     font-size: 14px;
     font-weight: 100;
@@ -23,18 +17,88 @@ h2 {
     color: rgb(148, 114, 100);
 }
 
-thin {
+.thin {
     font-size: inherit;
     font-weight: normal!important;
 }
 
-bold {
+.bold {
     font-size: inherit;
     font-weight: bold;
 }
 
-brown {
+.brown {
     color: rgb(148, 114, 100)!important;
+}
+
+@font-face {
+    font-family: 'Myriad Pro Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Condensed'), url('../fonts/MYRIADPRO-COND.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Condensed Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Condensed Italic'), url('../fonts/MYRIADPRO-CONDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Light'), url('../fonts/MyriadPro-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Semibold'), url('../fonts/MYRIADPRO-SEMIBOLD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Semibold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Semibold Italic'), url('../fonts/MYRIADPRO-SEMIBOLDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Condensed'), url('../fonts/MYRIADPRO-BOLDCOND.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold'), url('../fonts/MYRIADPRO-BOLD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Italic'), url('../fonts/MYRIADPRO-BOLDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Condensed Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Condensed Italic'), url('../fonts/MYRIADPRO-BOLDCONDIT.woff') format('woff');
 }
 
 
@@ -97,6 +161,22 @@ brown {
 
 .push-to-front {
     z-index: 800;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
 }
 
 @media (max-width: 991px) {
@@ -642,7 +722,7 @@ div#navbarSupportedContent {
     transform: scale(1.05) rotate(0.7deg);
 }
 
-.card:hover brown,
+.card:hover .brown,
 .card:hover p {
     color: white!important;
 }
@@ -838,6 +918,350 @@ div#navbarSupportedContent {
     to {
         transform: scale(1.0);
         opacity: 1.0
+    }
+}
+
+
+/* Writing */
+
+.writing {
+    margin: 0;
+    padding: 0;
+}
+
+.writing h1,
+.writing h2,
+.writing h3,
+.writing h4,
+.writing h5,
+.writing h6,
+.writing p,
+.writing-icon {
+    color: rgba(148, 114, 100);
+    margin: 0;
+    text-align: left;
+}
+
+.writing h1 {
+    font-weight: bold;
+    font-size: 3em;
+    font-family: "Myriad Pro Bold", "PT Sans", "Helvetica", sans-serif;
+}
+
+.writing h3 {
+    font-weight: bold;
+    font-size: 1.3em;
+    font-family: "Myriad Pro Bold", "PT Sans", "Helvetica", sans-serif;
+}
+
+.writing h4 {
+    font-size: 1.5em;
+    font-weight: lighter;
+    font-family: "PT Sans", "Helvetica", sans-serif;
+    margin: -5px 0 0 0;
+}
+
+.writing h5 {
+    font-size: 1.5em;
+    font-weight: 300;
+    font-family: "Myriad Pro", "PT Sans", "Helvetica", sans-serif;
+    margin: -5px 0 0 0;
+}
+
+.writing p {
+    font-size: 0.6em;
+    font-weight: 300;
+    font-family: "Myriad Pro", "PT Sans", "Helvetica", sans-serif;
+    text-indent: 2.4em;
+}
+
+.writing p.no-indent {
+    text-indent: 0;
+}
+
+.writing .main-view {
+    width: calc(100% - 30px);
+    height: fit-content;
+    padding-bottom: 80px;
+    border-radius: 10px;
+    background: #fff8f6;
+    margin: 5px 10px;
+    transform: translateX(20px);
+    box-shadow: -6px 9px 21px 0px rgba(0, 0, 0, 0.21);
+    position: relative;
+    margin-top: -40px;
+}
+
+.writing .main-view .skip-40 {
+    width: calc(100% - 50px);
+    transform: translateX(30px);
+    margin: 10px;
+}
+
+.writing .main-view .skip-top {
+    transform: translateX(30px) translateY(60px);
+}
+
+
+/* Menu */
+
+.writing .main-view .menu-parent {
+    position: absolute;
+    left: -30px;
+    height: 100%;
+}
+
+.writing .main-view .menu.fixed {
+    position: sticky;
+    top: 120px;
+    left: 0;
+}
+
+.writing ul.menu {
+    width: 60px;
+    overflow: hidden;
+    background: white;
+    list-style: none;
+    box-shadow: -6px 9px 38px 0px rgba(0, 0, 0, 0.34);
+    border-radius: 10px;
+    transition: width 0.4s ease-in-out;
+    z-index: 400;
+}
+
+.writing ul.menu:hover {
+    width: 200px;
+}
+
+.writing ul.menu li .fas,
+.writing ul.menu li h4 {
+    color: #d5c0b8;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.writing ul.menu li h4 {
+    font-size: 1.4em;
+    font-style: italic;
+    background-origin: padding-box;
+    position: absolute;
+    left: 60px;
+    word-wrap: none;
+    break-after: avoid;
+    white-space: nowrap;
+}
+
+.writing ul.menu li:hover,
+.writing ul.menu li.active {
+    background-color: #f9eeea;
+    color: #d5c0b8;
+    cursor: pointer;
+}
+
+.writing ul.menu li.active h4 {
+    font-weight: 600;
+}
+
+.writing ul.menu li .fas.fa-scroll {
+    font-size: 32px;
+}
+
+.writing .empty-view {
+    background: transparent;
+    width: 60px;
+    height: 60px;
+}
+
+
+/* Category Card */
+
+.writing .main-view .category-card {
+    width: 100%;
+    height: 300px;
+    box-shadow: -6px 9px 21px 0px rgba(0, 0, 0, 0.21);
+    border-radius: 35px;
+    margin-bottom: 1rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.writing .main-view .category-card:hover {
+    cursor: pointer;
+    box-shadow: -6px 6px 21px 0px rgba(0, 0, 0, 0.45);
+}
+
+.writing .main-view .category-card .image {
+    width: 50%;
+    border-radius: 35px;
+    overflow: hidden;
+    float: left;
+    transition: all 0.5s ease-in-out;
+}
+
+.writing .main-view .category-card:hover .image {
+    filter: saturate(2);
+}
+
+.writing .main-view .category-card .image img {
+    height: 300px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.writing .main-view .category-card .text {
+    margin-left: calc(50% + 1rem);
+    margin-right: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.writing .main-view .category-card .text h3 {
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .writing .main-view .category-card {
+        height: fit-content
+    }
+    .writing .main-view .category-card .image {
+        float: none;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .writing .main-view .category-card .text {
+        margin: 0;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .writing .main-view .category-card {
+        height: fit-content
+    }
+    .writing .main-view .category-card .image {
+        float: none;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .writing .main-view .category-card .text {
+        margin: 0;
+        padding: 1rem;
+    }
+}
+
+
+/* Quotation */
+
+.quote-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 26%;
+}
+
+.quote {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.quote h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em;
+    margin-top: -13px;
+    text-align: left;
+    color: rgb(148, 114, 100);
+    background: rgb(162, 120, 102);
+    background: -moz-linear-gradient(-46deg, rgba(162, 120, 102, 1) 0%, rgba(129, 96, 71, 1) 100%);
+    background: -webkit-linear-gradient(-46deg, rgba(162, 120, 102, 1) 0%, rgba(129, 96, 71, 1) 100%);
+    background: linear-gradient(-46deg, rgba(162, 120, 102, 1) 0%, rgba(129, 96, 71, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#a27866", endColorstr="#816047", GradientType=1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#a27866", endColorstr="#ad886b", GradientType=1);
+    text-shadow: -6px 9px 2px rgba(0, 0, 0, 0.06);
+}
+
+.quote h1:nth-child(odd) {
+    text-indent: 1em;
+}
+
+.quote h1:last-child {
+    position: absolute;
+    right: 1rem;
+    font-weight: bold;
+}
+
+.quote h1:last-child::before {
+    content: '— ';
+    font-weight: normal;
+}
+
+.quotation-mark {
+    position: absolute;
+    top: -7px;
+    right: 1em;
+    height: 60%;
+    z-index: -1000;
+    opacity: 0.15;
+}
+
+
+/* Mobile Writing */
+
+@media (min-width: 1200px) {
+    .quote {
+        width: 90%;
+        transform: translateX(5%);
+    }
+    .quotation-mark {
+        height: 70%;
+    }
+    .quote-wrapper {
+        padding-bottom: 18%;
+    }
+}
+
+@media (min-width: 991px) {
+    .quote-wrapper {
+        padding-bottom: 20%;
+    }
+}
+
+@media (max-width: 767px) {
+    .pad-3 {
+        padding: 1rem!important;
+    }
+    .writing h1 {
+        font-size: 8vw;
+    }
+    .writing h5 {
+        font-size: 5vw;
+    }
+    .quote-wrapper {
+        padding-bottom: 35%;
+        padding-left: 10%;
+    }
+}
+
+@media (max-width: 551px) {
+    .quote h1 {
+        font-size: 5vw;
+    }
+    .quote-wrapper {
+        padding-bottom: 30vw;
+    }
+}
+
+@media (max-width: 356px) {
+    .quote h1 {
+        font-size: 4.4vw;
+    }
+    .quote-wrapper {
+        padding-bottom: 35vw;
     }
 }
 
@@ -1734,6 +2158,19 @@ select.form-green {
 
 option {
     font-weight: normal;
+}
+
+
+/* Auxiliary Bars */
+
+.progress-bar {
+    z-index: 10000;
+    width: 0%;
+    height: 5px;
+    background-color: rgb(148, 114, 100);
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 

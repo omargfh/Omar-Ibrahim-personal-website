@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+    // General variables to avoid calling the DOM
+    doc_height = $(document).height();
+    win_height = $(window).height();
+
     // Custom script for (index.html) and pages other than (index.html)
     if (window.location.pathname !== "/index.html" && window.location.pathname !== "/") {
         if (window.location.pathname === "/arts.html") {
@@ -75,7 +80,7 @@ $(document).ready(function() {
             }
         });
 
-        // Uncolor (depends on jQuery plugin colormatrix)
+        // Uncolor (depends on jQuery plugin colormatrix.js)
         $('.color').each(function(i, el) {
             var color = $(el);
             if (isElementInViewport(color)) {
@@ -90,6 +95,10 @@ $(document).ready(function() {
         } else if ($(document).scrollTop() > 385 && scrollbtn.hasClass("notshown")) {
             scrollbtn.fadeTo(0, 1).removeClass("notshown");
         }
+
+        // // Progress Bar
+        // var scrolled = $(window).scrollTop() / (doc_height - win_height);
+        // $('.progress-bar').css("width", scrolled * 100 + "%");
 
         // Count.js
         $(".count").each(function(i, el) {
@@ -121,13 +130,10 @@ $(document).ready(function() {
         });
     });
 
-    // $(window).on('load', function() {
     // Check for scroll/resize statuses to update DOM
     $('.scroll-behavior').scroll();
     $('.resize-behvior').resize();
     $('.color').scroll();
-
-
 
     // Expand 
     $('.expand').click(function() {
@@ -379,8 +385,8 @@ $(document).ready(function() {
                         $(window).resize(function(event) {
                             var newWidth = img.width;
                             var newHeight = img.height;
-                            if (img.height > 0.9 * $(window).height() && $(window).width() > 568) {
-                                newWidth = img.width * (0.9 * $(window).height() / img.height);
+                            if (img.height > 0.9 * win_height && $(window).width() > 568) {
+                                newWidth = img.width * (0.9 * win_height / img.height);
                                 popupwindow.width(newWidth);
                                 if ($(window).width() < newWidth) {
                                     popupwindow.width("90%");
@@ -443,7 +449,7 @@ function isElementInViewport(el) {
     return (
         rect.top >= 0 &&
         rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+        rect.bottom <= (win_height || document.documentElement.clientHeight) && /* or $(window).height() */
         rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
     );
 }
