@@ -170,7 +170,8 @@ $(document).ready(function() {
         });
     });
 
-    gsap.set(".card-container, .gallery-item, .quote h1, .category-card", { y: 100 });
+    gsap.set(".card-container, .gallery-item, .quote h1", { y: 100 });
+    gsap.set(".category-card", { opacity: 0 });
 
     ScrollTrigger.batch(".card-container, .gallery-item, .quote h1, .category-card", {
         interval: 0.1, // time window (in seconds) for batching to occur. 
