@@ -170,20 +170,6 @@ $(document).ready(function() {
         });
     });
 
-    ScrollTrigger.batch(".menu .fas", {
-        interval: 0.1,
-        onEnter: batch => gsap.from(batch, {
-            duration: 2,
-            scale: 0.5,
-            opacity: 0,
-            delay: 0.5,
-            stagger: 0.2,
-            ease: "elastic.inOut",
-            force3D: true
-        }),
-        once: true
-    });
-
     gsap.set(".card-container, .gallery-item, .icon-mini, .quote h1, .category-card", { y: 100 });
 
     ScrollTrigger.batch(".card-container, .gallery-item, .icon-mini, .quote h1, .category-card", {
@@ -209,15 +195,20 @@ $(document).ready(function() {
         delay: 1
     });
 
-    gsap.to(batch, {
-        duration: 2,
-        scale: 0.5,
-        opacity: 0,
-        delay: 0.5,
-        stagger: 0.2,
-        ease: "elastic",
-        force3D: true
+    ScrollTrigger.batch(".menu .fas", {
+        interval: 0.1,
+        onEnter: batch => gsap.from(batch, {
+            duration: 2,
+            scale: 0.5,
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.2,
+            ease: "elastic.inOut",
+            force3D: true
+        }),
+        once: true
     });
+
 
 
     // Expand 
