@@ -207,16 +207,6 @@ $(document).ready(function() {
 
     ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card", { y: 0 }));
 
-    if ($(window).width() > 767) {
-        ScrollTrigger.batch(".gallery-item", {
-            interval: 0.1, // time window (in seconds) for batching to occur. 
-            //batchMax: 3,   // maximum batch size (targets)
-            onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
-            // onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
-        });
-        ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".gallery-item", { y: 0 }));
-    }
     // Expand 
     $('.expand').click(function() {
         _el = $(this);
