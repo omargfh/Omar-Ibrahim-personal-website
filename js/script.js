@@ -170,9 +170,9 @@ $(document).ready(function() {
         });
     });
 
-    gsap.set(".card-container, .gallery-item, .icon-mini, .quote h1, .category-card", { y: 100 });
+    gsap.set(".card-container, .gallery-item, .quote h1, .category-card", { y: 100 });
 
-    ScrollTrigger.batch(".card-container, .gallery-item, .icon-mini, .quote h1, .category-card", {
+    ScrollTrigger.batch(".card-container, .gallery-item, .quote h1, .category-card", {
         interval: 0.1, // time window (in seconds) for batching to occur. 
         //batchMax: 3,   // maximum batch size (targets)
         onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
@@ -181,7 +181,7 @@ $(document).ready(function() {
         onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
     });
 
-    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .gallery-item, .icon-mini, .quote h1, .category-card", { y: 0 }));
+    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .gallery-item, .quote h1, .category-card", { y: 0 }));
 
     gsap.from('.card', {
         scrollTrigger: {
