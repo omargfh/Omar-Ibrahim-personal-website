@@ -109,19 +109,19 @@
 
     </header>
     <!-- Bio -->
-    <div id="section-1" class="section section-1 scroll-behavior container-fluid">
+    <div id="section-1" class="section section-1 scroll-behavior reveal reveal-from-left container-fluid">
         <div class="container my-3 p-3">
             <div class="row">
                 <div class="col-md-6">
                     <h1 id="section-1-nav" class="scroll-behavior title">Wel<span class="thin">come!</span>
                     </h1>
-                    <p>I am Omar Ibrahim, or you can just call me Adam, and I am a poet, computer science enthusiast/developer, and a graphic artists. I am also a debater/public speaker and have enjoyed a while exploring entrepreneurship and international
+                    <p class="reveal reveal-from-bottom delay">I am Omar Ibrahim, or you can just call me Adam, and I am a poet, computer science enthusiast/developer, and a graphic artists. I am also a debater/public speaker and have enjoyed a while exploring entrepreneurship and international
                         politics. I aspire to work in the field of education where I can implement computer science in the expansion of educational opportunities, especially in literature. Currently, I study a STEM-focused Honors curriculum at STEM High
                         School for Boys - 6th of October with an unweighted GPA of 4.0, highest (and only) composite ACT score of 35, and a total TOEFL score of 118.</p>
-                    <p>I aspire to pursue higher education in the United States, somewhere that allows me to reach out to unexplored domains of knowledge and supports my desires to learn and discover new fields.</p>
-                    <p id="right-down" class="resize-behavior">To the right, you can see a picture of me during the last STEM Model UN!</p>
+                    <p class=" reveal reveal-from-bottom delay">I aspire to pursue higher education in the United States, somewhere that allows me to reach out to unexplored domains of knowledge and supports my desires to learn and discover new fields.</p>
+                    <p id="right-down" class="resize-behavior reveal reveal-from-bottom delay">To the right, you can see a picture of me during the last STEM Model UN!</p>
                     <div class="container-fluid">
-                        <div class="row">
+                        <div class="row reveal reveal-from-bottom delay">
                             <div class="d-flex justify-content-start" style="padding: 0px 15px 0 0;">
                                 <a href="files/resume.pdf" target="_blank">
                                     <div class="btn-container" id="btn-cv">
@@ -162,7 +162,7 @@
     </div>
     <!-- Numbers -->
     <div id="numbers p-3" class="section inherit-bg my-0">
-        <div class="container">
+        <div class="reveal reveal-from-bottom container">
             <div class="row d-flex justify-content-center p-3 text-white">
                 <div class="col-sm-12 col-md-4 text-center p-5 border-end">
                     <h1 class="count count-float" data-step="0.1">4.0</h1>
@@ -183,13 +183,13 @@
         </div>
     </div>
     <!-- Cards -->
-    <div id="section-2" class="section section-colored container-fluid my-0 p-3">
+    <div id="section-2" class="section section-colored container-fluid my-0 p-3 reveal reveal-from-right">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-2-holder">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card visible-mobile">
+                            <div class="card">
                                 <div class="section-flex">
                                     <span class="brown">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" fill="currentColor" class="bi bi-blockquote-left" viewBox="0 0 16 16">
@@ -213,7 +213,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card visible-mobile">
+                            <div class="card">
                                 <div class="section-flex">
                                     <span class="brown">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
@@ -239,7 +239,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card visible-mobile">
+                            <div class="card">
                                 <div class="section-flex">
                                     <span class="brown">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" fill="currentColor" class="bi bi-brush" viewBox="0 0 16 16">
@@ -270,7 +270,7 @@
         </div>
     </div>
     <!-- Highlights -->
-    <div id="section-3" class="section my-3">
+    <div id="section-3" class="section my-3 reveal reveal-from-right">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 scroll-behavior" id="section-3-nav">
@@ -314,7 +314,7 @@
         </div>
     </div>
     <!-- Gallery -->
-    <div id="section-4" class="section section-colored container-fluid">
+    <div id="section-4" class="section section-colored reveal reveal-from-left container-fluid">
         <div class="container container-carousel">
             <div class="row">
                 <div class="col-md-8">
@@ -387,7 +387,7 @@
                     <h1 style="margin: 10px 0px;">Contri<span class="thin">butions</span>
                     </h1>
                     <div class="row">
-                        <div class="col-md-12 col-sm-6 col-xs-6">
+                        <div class="col-md-12 col-sm-6 col-xs-6 reveal reveal-from-top delay">
                             <div id="contributions-1" class="carousel carousel-fast slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -424,7 +424,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-sm-6 col-xs-6">
+                        <div class="col-md-12 col-sm-6 col-xs-6 reveal reveal-from-bottom delay">
                             <div id="contributions-2" class="carousel carousel-fast slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -617,6 +617,11 @@
     </footer>
     <!-- jQuery (Bootstrap JS plugins depend on it) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- GSAP.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/EasePack.min.js"></script>
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Particle.js -->

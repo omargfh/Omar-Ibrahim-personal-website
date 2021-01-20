@@ -7,6 +7,10 @@
     padding: 0px;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 p {
     font-size: 14px;
     font-weight: 100;
@@ -29,6 +33,21 @@ h2 {
 
 .brown {
     color: rgb(148, 114, 100)!important;
+}
+
+@-webkit-keyframes fadeinout {
+    0% {
+        opacity: 0
+    }
+    40% {
+        opacity: 1
+    }
+    60% {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
 }
 
 @font-face {
@@ -716,7 +735,8 @@ div#navbarSupportedContent {
     animation-fill-mode: forwards;
 }
 
-.card:hover {
+.card:hover,
+.card-animate:hover {
     box-shadow: 1px 1px 10px rgba(148, 114, 100, 1.0);
     background: url(../images/pt.png), rgb(148, 114, 100)!important;
     transform: scale(1.05) rotate(0.7deg);
@@ -774,9 +794,6 @@ div#navbarSupportedContent {
     height: 100%;
     font-size: 100px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: -webkit-linear-gradient(90deg, #ece9e6, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     color: white;
     font-weight: bold;
     text-align: center;
@@ -1152,6 +1169,13 @@ div#navbarSupportedContent {
 }
 
 
+/* Entry */
+
+.writing .main-view .entry {
+    margin: 0 5px 60px 5px;
+}
+
+
 /* Quotation */
 
 .quote-wrapper {
@@ -1174,13 +1198,6 @@ div#navbarSupportedContent {
     margin-top: -13px;
     text-align: left;
     color: rgb(148, 114, 100);
-    background: rgb(162, 120, 102);
-    background: -moz-linear-gradient(-46deg, rgba(162, 120, 102, 1) 0%, rgba(129, 96, 71, 1) 100%);
-    background: -webkit-linear-gradient(-46deg, rgba(162, 120, 102, 1) 0%, rgba(129, 96, 71, 1) 100%);
-    background: linear-gradient(-46deg, rgba(162, 120, 102, 1) 0%, rgba(129, 96, 71, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#a27866", endColorstr="#816047", GradientType=1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#a27866", endColorstr="#ad886b", GradientType=1);
     text-shadow: -6px 9px 2px rgba(0, 0, 0, 0.06);
 }

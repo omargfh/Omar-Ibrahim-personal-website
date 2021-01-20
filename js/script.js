@@ -54,7 +54,6 @@ $(document).ready(function() {
 
         $(window).on('scroll', function() {
             headerControl("onscroll", "index");
-            showElements('#section-2', 'card');
             showElements('#section-1-nav', 'section-1');
             $('.event').each(function(i, el) {
                 showElements(el, 'timeline');
@@ -134,6 +133,92 @@ $(document).ready(function() {
     $('.scroll-behavior').scroll();
     $('.resize-behvior').resize();
     $('.color').scroll();
+
+    // GreenStock Animations
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.defaults({ ease: "power3.inOut" });
+    $('.reveal').each(function(i, el) {
+        _el = $(el);
+        x = 0;
+        y = 0;
+        d = 0.25;
+        if (_el.hasClass("reveal-from-right")) {
+            x = 100;
+        } else if (_el.hasClass("reveal-from-left")) {
+            x = -100;
+        }
+        if (_el.hasClass("reveal-from-bottom")) {
+            y = 100;
+        } else if (_el.hasClass("reveal-from-top")) {
+            y = -100;
+        }
+        if (_el.hasClass("delay")) {
+            d = 0.25;
+        }
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                toggleActions: "play pause resume reset",
+                end: "bottom 60px"
+            },
+            x: x,
+            y: y,
+            duration: 1,
+            opacity: 0,
+            delay: d,
+            stagger: 0.25,
+        });
+    });
+
+    ScrollTrigger.batch(".menu .fas", {
+        interval: 0.1,
+        onEnter: batch => gsap.from(batch, {
+            duration: 2,
+            scale: 0.5,
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.2,
+            ease: "elastic.inOut",
+            force3D: true
+        }),
+        once: true
+    });
+
+    gsap.set(".card-container, .gallery-item, .icon-mini, .quote h1, .category-card", { y: 100 });
+
+    ScrollTrigger.batch(".card-container, .gallery-item, .icon-mini, .quote h1, .category-card", {
+        interval: 0.1, // time window (in seconds) for batching to occur. 
+        //batchMax: 3,   // maximum batch size (targets)
+        onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
+        onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+        onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+        onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
+    });
+
+    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .gallery-item, .icon-mini, .quote h1, .category-card", { y: 0 }));
+
+    gsap.from('.card', {
+        scrollTrigger: {
+            trigger: '.card',
+            toggleActions: "play none none none"
+        },
+        onEnter: () => {
+            $('.card').addClass("card-animate");
+            setTimeout(() => $('.card').removeClass("card-animate"), 1000);
+        },
+        delay: 1
+    });
+
+    gsap.to(batch, {
+        duration: 2,
+        scale: 0.5,
+        opacity: 0,
+        delay: 0.5,
+        stagger: 0.2,
+        ease: "elastic",
+        force3D: true
+    });
+
 
     // Expand 
     $('.expand').click(function() {
