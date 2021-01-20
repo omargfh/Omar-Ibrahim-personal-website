@@ -170,10 +170,10 @@ $(document).ready(function() {
         });
     });
 
-    gsap.set(".card-container, .gallery-item, .quote h1", { y: 100 });
+    gsap.set(".card-container, .quote h1", { y: 100 });
     gsap.set(".category-card", { opacity: 0 });
 
-    ScrollTrigger.batch(".card-container, .gallery-item, .quote h1, .category-card", {
+    ScrollTrigger.batch(".card-container, .quote h1, .category-card", {
         interval: 0.1, // time window (in seconds) for batching to occur. 
         //batchMax: 3,   // maximum batch size (targets)
         onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
@@ -182,7 +182,7 @@ $(document).ready(function() {
         onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
     });
 
-    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .gallery-item, .quote h1, .category-card", { y: 0 }));
+    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card", { y: 0 }));
 
     gsap.from('.card', {
         scrollTrigger: {
@@ -196,18 +196,15 @@ $(document).ready(function() {
         delay: 1
     });
 
-    ScrollTrigger.batch(".menu .fas", {
-        interval: 0.1,
-        onEnter: batch => gsap.from(batch, {
-            duration: 2,
-            scale: 0.5,
-            opacity: 0,
-            delay: 0.5,
-            stagger: 0.2,
-            ease: "elastic.inOut",
-            force3D: true
-        }),
-        once: true
+    gsap.from(".fa-2x", {
+        scrollTrigger: ".fas .fa-feather-alt",
+        duration: 2,
+        scale: 0.5,
+        opacity: 0,
+        delay: 0.3,
+        stagger: 0.2,
+        ease: "elastic.inOut",
+        force3D: true
     });
 
 
