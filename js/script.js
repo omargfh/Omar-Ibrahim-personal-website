@@ -182,7 +182,7 @@ $(document).ready(function() {
         delay: 1
     });
 
-    gsap.from(".fa-2x", {
+    gsap.from(".menu .fa-2x", {
         scrollTrigger: ".fas .fa-feather-alt",
         duration: 2,
         scale: 0.5,
@@ -197,8 +197,7 @@ $(document).ready(function() {
     gsap.set(".category-card", { opacity: 0 });
 
     ScrollTrigger.batch(".card-container, .quote h1, .category-card", {
-        interval: 0.1, // time window (in seconds) for batching to occur. 
-        //batchMax: 3,   // maximum batch size (targets)
+        interval: 0.1,
         onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
         onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
         onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
@@ -206,6 +205,14 @@ $(document).ready(function() {
     });
 
     ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card", { y: 0 }));
+
+    gsap.from('.quotation-mark', {
+        scrollTrigger: { trigger: '.quotation-mark', toggleActions: "play reset play reset" },
+        x: -50,
+        y: 50,
+        ease: "bounce",
+        duration: 1
+    });
 
     // Expand 
     $('.expand').click(function() {

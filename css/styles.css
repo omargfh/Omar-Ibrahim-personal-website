@@ -233,10 +233,10 @@ h2 {
 }
 
 .bg-light-onscroll {
-    background: url(../images/pt.png), rgb(91, 70, 61);
-    background: url(../images/pt.png), -moz-linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
-    background: url(../images/pt.png), -webkit-linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
-    background: url(../images/pt.png), linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
+    background: url(../images/pt.webp), rgb(91, 70, 61);
+    background: url(../images/pt.webp), -moz-linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
+    background: url(../images/pt.webp), -webkit-linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
+    background: url(../images/pt.webp), linear-gradient(275deg, rgba(91, 70, 61, 1) 0%, rgba(148, 114, 100, 1) 99%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#5b463d", endColorstr="#947264", GradientType=1);
     box-shadow: 0px 4px 11px #00000085;
     background-position-x: right;
@@ -738,7 +738,7 @@ div#navbarSupportedContent {
 .card:hover,
 .card-animate:hover {
     box-shadow: 1px 1px 10px rgba(148, 114, 100, 1.0);
-    background: url(../images/pt.png), rgb(148, 114, 100)!important;
+    background: url(../images/pt.webp), rgb(148, 114, 100)!important;
     transform: scale(1.05) rotate(0.7deg);
 }
 
@@ -1286,7 +1286,7 @@ div#navbarSupportedContent {
 /* Footer */
 
 .bg-black {
-    background: url(../images/pt.png), rgb(97, 68, 56);
+    background: url(../images/pt.webp), rgb(97, 68, 56);
     background-size: contain;
     background-position: right;
     min-height: 200px;
@@ -1548,7 +1548,7 @@ a.icon-text:hover {
 }
 
 .bg-code-projects {
-    background: url(../images/code-prj.jpg) repeat fixed center;
+    background: url(../images/code-prj.webp) repeat fixed center;
 }
 
 .bg-code-darker h1,
@@ -1590,10 +1590,10 @@ h1.text-shadow {
 }
 
 .bg-green {
-    background: url(../images/pt.png), rgb(15, 26, 52);
-    background: url(../images/pt.png), -moz-linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
-    background: url(../images/pt.png), -webkit-linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
-    background: url(../images/pt.png), linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
+    background: url(../images/pt.webp), rgb(15, 26, 52);
+    background: url(../images/pt.webp), -moz-linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
+    background: url(../images/pt.webp), -webkit-linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
+    background: url(../images/pt.webp), linear-gradient(275deg, rgba(15, 26, 52, 1) 0%, rgba(54, 70, 106, 1) 99%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#0f1a34", endColorstr="#36466a", GradientType=1);
     background-position-x: right;
     background-repeat: no-repeat;
