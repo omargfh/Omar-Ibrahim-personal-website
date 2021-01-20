@@ -170,20 +170,6 @@ $(document).ready(function() {
         });
     });
 
-    gsap.set(".card-container, .quote h1", { y: 100 });
-    gsap.set(".category-card", { opacity: 0 });
-
-    ScrollTrigger.batch(".card-container, .quote h1, .category-card", {
-        interval: 0.1, // time window (in seconds) for batching to occur. 
-        //batchMax: 3,   // maximum batch size (targets)
-        onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
-        onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-        onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
-        onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
-    });
-
-    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card", { y: 0 }));
-
     gsap.from('.card', {
         scrollTrigger: {
             trigger: '.card',
@@ -207,8 +193,30 @@ $(document).ready(function() {
         force3D: true
     });
 
+    gsap.set(".card-container, .quote h1", { y: 100 });
+    gsap.set(".category-card", { opacity: 0 });
 
+    ScrollTrigger.batch(".card-container, .quote h1, .category-card", {
+        interval: 0.1, // time window (in seconds) for batching to occur. 
+        //batchMax: 3,   // maximum batch size (targets)
+        onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
+        onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+        onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+        onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
+    });
 
+    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card", { y: 0 }));
+
+    if ($(window).width() > 767) {
+        ScrollTrigger.batch(".gallery-item", {
+            interval: 0.1, // time window (in seconds) for batching to occur. 
+            //batchMax: 3,   // maximum batch size (targets)
+            onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+            // onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
+        });
+        ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".gallery-item", { y: 0 }));
+    }
     // Expand 
     $('.expand').click(function() {
         _el = $(this);
