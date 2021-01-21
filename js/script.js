@@ -641,10 +641,11 @@ function headerControl(n, m) {
             }
         } else {
             logo[0].src = "images/logo-sm-wh.png";
-            logo.css("max-height", "45px");
+            logo.css("max-height", "45px")
+                .removeClass('logo-small')
+                .removeClass("morphed");
             navbar.removeClass('bg-light-onscroll');
             navbar.removeClass('bg-green');
-            logo.removeClass('logo-small');
         }
     }
 }
