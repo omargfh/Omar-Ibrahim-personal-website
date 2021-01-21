@@ -11,6 +11,14 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+body.overflow {
+    overflow-x: unset!important;
+}
+
 p {
     font-size: 14px;
     font-weight: 100;
@@ -962,7 +970,7 @@ div#navbarSupportedContent {
 .writing h1 {
     font-weight: bold;
     font-size: 3em;
-    font-family: "Myriad Pro Bold", "PT Sans", "Helvetica", sans-serif;
+    font-family: "PT Sans", "Helvetica", sans-serif;
 }
 
 .writing h3 {
@@ -979,16 +987,16 @@ div#navbarSupportedContent {
 }
 
 .writing h5 {
-    font-size: 1.5em;
+    font-size: 1;
     font-weight: 300;
     font-family: "Myriad Pro", "PT Sans", "Helvetica", sans-serif;
     margin: -5px 0 0 0;
 }
 
 .writing p {
-    font-size: 0.6em;
+    font-size: 0.7em;
     font-weight: 300;
-    font-family: "Myriad Pro", "PT Sans", "Helvetica", sans-serif;
+    font-family: "PT Sans", "Helvetica", sans-serif;
     text-indent: 2.4em;
 }
 
@@ -999,7 +1007,7 @@ div#navbarSupportedContent {
 .writing .main-view {
     width: calc(100% - 30px);
     height: fit-content;
-    padding-bottom: 80px;
+    padding-bottom: 10px;
     border-radius: 10px;
     background: #fff8f6;
     margin: 5px 10px;
@@ -1009,14 +1017,23 @@ div#navbarSupportedContent {
     margin-top: -40px;
 }
 
-.writing .main-view .skip-40 {
+.writing .main-view .skip-40,
+.writing .entry-card-content {
     width: calc(100% - 50px);
     transform: translateX(30px);
     margin: 10px;
 }
 
-.writing .main-view .skip-top {
-    transform: translateX(30px) translateY(60px);
+.writing .main-view .skip-top-view {
+    height: 60px;
+    width: 100%;
+    background: transparent;
+}
+
+.writing .main-view .skip-top-min-view {
+    height: 30px;
+    width: 100%;
+    background: transparent;
 }
 
 
@@ -1171,8 +1188,289 @@ div#navbarSupportedContent {
 
 /* Entry */
 
-.writing .main-view .entry {
-    margin: 0 5px 60px 5px;
+.writing .main-view .entry-card {
+    margin-bottom: 10px;
+    padding: 7px 5px 7px 0;
+    width: 100%;
+    min-height: 150px;
+    height: fit-content;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.writing .main-view .entry-card:hover {
+    background-color: white;
+    cursor: pointer;
+    box-shadow: -6px 9px 21px 0px rgba(0, 0, 0, 0.28);
+}
+
+.writing .main-view .entry-card .image {
+    width: 180px;
+    height: 150px;
+    border-radius: 10px;
+    float: left;
+    overflow: hidden;
+}
+
+.writing .main-view .entry-card .image img {
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.writing .main-view .entry-card .text {
+    float: left;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 150px;
+    width: calc(100% - 180px - 3rem - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.writing .main-view .entry-card .text h3,
+.writing .main-view .entry-card .text h5 {
+    font-family: "PT Sans", "Helvetica", sans-serif;
+}
+
+.writing .main-view .entry-card .text h5 {
+    font-size: 0.9em;
+    margin-top: 0.3rem;
+    line-height: 1.5;
+    text-align: left;
+    height: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.writing .main-view .entry-card .text h5.brief {
+    display: none;
+}
+
+.writing .main-view .entry-card .vertical-line {
+    float: right;
+    margin: 0 1rem 0 0;
+    padding: 1rem 0;
+    height: 150px;
+    width: 1px;
+    opacity: 0.46;
+    background-color: #a27866;
+}
+
+.writing .main-view .entry-card .year {
+    margin-right: 1rem;
+    float: right;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.writing .main-view .entry-card .year h1 {
+    line-height: 1;
+}
+
+.writing .main-view .entry-card .year h1:last-child {
+    font-weight: normal;
+    font-family: "PT Sans", "Helvetica", sans-serif;
+}
+
+.writing .main-view hr {
+    padding: 0 50%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .writing .main-view .entry-card .text h5 {
+        display: none;
+    }
+    .writing .main-view .entry-card .text h5.brief {
+        font-size: 0.7em;
+        display: initial;
+        text-overflow: ellipsis;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .writing .main-view .entry-card {
+        height: fit-content;
+    }
+    .writing .main-view .entry-card .text {
+        width: calc(100% - 220px);
+        height: fit-content;
+    }
+    .writing .main-view .entry-card .text h5 {
+        display: none;
+    }
+    .writing .main-view .entry-card .text h5.brief {
+        font-size: 0.7em;
+        display: initial;
+        text-overflow: ellipsis;
+        font-size: 0.7em;
+        height: fit-content;
+    }
+    .writing .main-view .entry-card .text h3 {
+        font-size: 1em;
+    }
+    .writing .main-view .entry-card .vertical-line,
+    .writing .main-view .entry-card .year {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .writing .entry-card-content {
+        transform: translateX(0%);
+        width: 100%;
+        margin: 0;
+    }
+    .writing .main-view .entry-card {
+        height: fit-content;
+        width: calc(100% - 50px);
+        transform: translateX(30px);
+        margin: 10px;
+        background-color: white;
+        padding: 0;
+        box-shadow: -6px 9px 21px 0px rgba(0, 0, 0, 0.21);
+    }
+    .writing .main-view .entry-card:hover {
+        box-shadow: -6px 6px 21px 0px rgba(0, 0, 0, 0.45);
+    }
+    .writing .main-view .entry-card .image {
+        float: none;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .writing .main-view .entry-card .image img {
+        min-width: 100%;
+        min-height: 100%;
+    }
+    .writing .main-view .entry-card:hover .image img {
+        filter: saturate(2);
+    }
+    .writing .main-view .entry-card .text {
+        width: 100%;
+        height: fit-content;
+        margin: 0;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        clear: both;
+    }
+    .writing .main-view .entry-card .text h3 {
+        font-size: 1.1em;
+    }
+    .writing .main-view .entry-card .text h5 {
+        display: none;
+    }
+    .writing .main-view .entry-card .text h5.brief {
+        font-size: 0.7em;
+        display: initial;
+        text-overflow: ellipsis;
+        font-size: 0.7em;
+        height: fit-content;
+    }
+    .writing .main-view .entry-card .vertical-line,
+    .writing .main-view .entry-card .year {
+        display: none;
+    }
+}
+
+
+/* Article */
+
+.writing .article .image {
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.writing .article .image::after {
+    content: '';
+    width: 100%;
+    height: 750px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: -moz-linear-gradient(top, rgba(255, 248, 246, 0) 1%, rgba(255, 248, 246, 0) 12%, rgba(255, 248, 246, 1) 47%, rgba(255, 248, 246, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 248, 246, 0) 1%, rgba(255, 248, 246, 0) 12%, rgba(255, 248, 246, 1) 47%, rgba(255, 248, 246, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 248, 246, 0) 1%, rgba(255, 248, 246, 0) 12%, rgba(255, 248, 246, 1) 47%, rgba(255, 248, 246, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00fff8f6', endColorstr='#fff8f6', GradientType=0);
+}
+
+.writing .article .image img {
+    width: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%) translateY(-10%);
+}
+
+.writing .article .content {
+    margin-top: -80px;
+}
+
+.writing .article p {
+    margin-bottom: 0.7rem;
+    text-align: justify;
+}
+
+.writing .article .main-text h2 {
+    font-size: 1.2em;
+    line-height: 2;
+}
+
+.writing .article .side-text {
+    margin-top: 2rem;
+}
+
+.wiritng .article .side-text p {
+    text-indent: 0;
+}
+
+.writing .main-view .side-text hr {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .writing .article .main-text h1 {
+        font-size: 2.3em;
+    }
+}
+
+@media (max-width: 767px) {
+    .writing .main-view .side-text hr {
+        display: block;
+    }
+    .writing .article .image img {
+        width: unset;
+        height: 100%;
+        margin-left: 50%;
+        transform: translateX(-50%) translateY(-10%);
+    }
+    .writing .article .image::after {
+        height: 500px;
+    }
+    .writing .article .content {
+        margin-top: -150px;
+    }
+}
+
+@media (max-width: 575px) {
+    .writing .article .main-text h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 450px) {
+    .writing .article .main-text h1 {
+        font-size: 1.2em;
+    }
+    .writing .article .main-text h2 {
+        font-size: 1em;
+    }
 }
 
 
@@ -1254,9 +1552,6 @@ div#navbarSupportedContent {
     }
     .writing h1 {
         font-size: 8vw;
-    }
-    .writing h5 {
-        font-size: 5vw;
     }
     .quote-wrapper {
         padding-bottom: 35%;

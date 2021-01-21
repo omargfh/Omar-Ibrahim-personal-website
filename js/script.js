@@ -142,6 +142,7 @@ $(document).ready(function() {
         x = 0;
         y = 0;
         d = 0.25;
+        s = "top bottom";
         if (_el.hasClass("reveal-from-right")) {
             x = 100;
         } else if (_el.hasClass("reveal-from-left")) {
@@ -155,10 +156,14 @@ $(document).ready(function() {
         if (_el.hasClass("delay")) {
             d = 0.25;
         }
+        if (_el.hasClass("start")) {
+            s = "-80px bottom";
+        }
         gsap.from(el, {
             scrollTrigger: {
                 trigger: el,
                 toggleActions: "play pause resume reset",
+                start: s,
                 end: "bottom 60px"
             },
             x: x,
@@ -196,7 +201,7 @@ $(document).ready(function() {
     gsap.set(".card-container, .quote h1", { y: 100 });
     gsap.set(".category-card", { opacity: 0 });
 
-    ScrollTrigger.batch(".card-container, .quote h1, .category-card", {
+    ScrollTrigger.batch(".card-container, .quote h1, .category-card, .entry-card", {
         interval: 0.1,
         onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
         onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
@@ -204,7 +209,14 @@ $(document).ready(function() {
         onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
     });
 
-    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card", { y: 0 }));
+    ScrollTrigger.batch(".entry-card", {
+        interval: 0.1,
+        onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+        onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+        onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
+    });
+
+    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card, .entry-card", { y: 0 }));
 
     gsap.from('.quotation-mark', {
         scrollTrigger: { trigger: '.quotation-mark', toggleActions: "play reset play reset" },
@@ -212,6 +224,20 @@ $(document).ready(function() {
         y: 50,
         ease: "bounce",
         duration: 1
+    });
+
+    gsap.from(".para-reveal", {
+        scrollTrigger: {
+            trigger: ".para-reveal.trigger",
+            toggleActions: "play pause resume reset",
+            start: "-80px bottom",
+            end: "bottom 60px"
+        },
+        opacity: 0,
+        delay: 0.25,
+        y: -100,
+        stagger: { each: 0.15, grid: [1, 3] },
+        overwrite: true
     });
 
     // Expand 
