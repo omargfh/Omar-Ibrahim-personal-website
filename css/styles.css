@@ -1413,7 +1413,7 @@ div#navbarSupportedContent {
 .writing .article .image img {
     width: 100%;
     margin-left: 50%;
-    transform: translateX(-50%) translateY(-10%);
+    transform: translateX(-50%) translateY(-20%);
 }
 
 .writing .article .content {
@@ -1432,11 +1432,18 @@ div#navbarSupportedContent {
 }
 
 .writing .article .side-text {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
-.wiritng .article .side-text p {
+.writing .article .side-text p {
     text-indent: 0;
+}
+
+.writing .article p i,
+.writing .article i {
+    font-weight: normal;
+    color: inherit;
+    color: rgba(148, 114, 100);
 }
 
 .writing .main-view .side-text hr {
@@ -1457,13 +1464,16 @@ div#navbarSupportedContent {
         width: unset;
         height: 100%;
         margin-left: 50%;
-        transform: translateX(-50%) translateY(-10%);
+        transform: translateX(-50%) translateY(-25%) scale(1.2);
     }
     .writing .article .image::after {
         height: 500px;
     }
     .writing .article .content {
         margin-top: -150px;
+    }
+    .writing .article .side-text {
+        margin-top: 0.5rem;
     }
 }
 

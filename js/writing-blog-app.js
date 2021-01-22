@@ -105,16 +105,14 @@ function fetch_article_caller(id, category) {
     slide_out("#category-ajax");
 
     function fn() {
+        rebind(home_fn);
         fetch_category("#" + category);
         slide_off("#article-ajax");
         slide_back("#category-ajax");
-        rebind(home_fn);
     }
 
     rebind(fn);
 }
-
-window.$fetch = fetch_article;
 
 // Return to categories from any page
 function goHome(from) {

@@ -199,11 +199,11 @@ $(document).ready(function() {
     });
 
     gsap.set(".card-container, .quote h1", { y: 100 });
-    gsap.set(".category-card", { opacity: 0 });
+    gsap.set(".category-card", { opacity: 0, y: 100 });
 
     ScrollTrigger.batch(".card-container, .quote h1, .category-card, .entry-card", {
         interval: 0.1,
-        onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
+        onEnter: batch => gsap.to(batch, { duration: 0.5, opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
         onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
         onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
         onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
