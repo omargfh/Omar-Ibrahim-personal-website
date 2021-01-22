@@ -25,6 +25,13 @@ p {
     color: rgba(32, 32, 32, 0.8);
 }
 
+span {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+}
+
 h2 {
     color: rgb(148, 114, 100);
 }
@@ -1006,6 +1013,7 @@ div#navbarSupportedContent {
 
 .writing .main-view {
     width: calc(100% - 30px);
+    min-height: 600px;
     height: fit-content;
     padding-bottom: 10px;
     border-radius: 10px;
@@ -1414,6 +1422,7 @@ div#navbarSupportedContent {
 
 .writing .article p {
     margin-bottom: 0.7rem;
+    font-size: 0.9rem;
     text-align: justify;
 }
 
