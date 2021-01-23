@@ -11,7 +11,37 @@ The [creative writing page](https://www.omaribrahim.live/writing.html) is a blog
 The [graphic design page](https://www.omaribrahim.live/art.html) is a gallery page with multiple section, preceded with a header. Aside from native HTML and bootstrap, a dynamic *software* section is generated using Javascript. This page introduces two custom Javascript elements, which are the jQuery Gallery (see jQuery-Gallery below) and the Ajax Pop-up (see Pop-Up below). The jQuery gallery uses three images, a small and cropped `.webp` image with dimension of *450px ✕ 450px*, a full version of the cropped picture with the smallest dimension set to *450px* while the other is calculated to keep the aspects ratio, and a full-quality image. The choice of using three pictures instead of one comes to the fact that this website is a client-based static website, and generating various variations of the picture on the client side means the client have to load over 60MB of data and wait for a lengthy process of image processing to occur. Using two small pictures, however, lightens the data load by *lazyloadin* the hover pictures. Since this process takes time, a python code [(see here)](https://github.com/omargfh/jQ-gallery-generator) was used to automate the process.
 
 # Programming Page
-The [programming page](https://www.omaribrahim.live/code.html) is a developer portfolio page, which includes a brief, a courses section, and a projects section. The courses sections consists of cards displayed in Masonry Layout, a layout in which each row does not have a specific height across adjacent elements. This is achieved using three `flexbox` elements each set to `flex-direction: column;` and housed in a Bootstrap Column `<div class="col-md-4">`. 
+The [programming page](https://www.omaribrahim.live/code.html) is a developer portfolio page, which includes a brief, a courses section, and a projects section. The courses sections consists of cards displayed in Masonry Layout, a layout in which each row does not have a specific height across adjacent elements. This is achieved using three `flexbox` elements each set to `flex-direction: column;` and housed in a Bootstrap Column `<div class="col-md-4">`. The courses section is collapsed by default, and since its height is dynamically created, the transition is creating by add a hypothetical `max-height` value and following it with a `transition: max-height 1s ease-in-out` on the man `div` in the CSS code. The second part of the page is a carousel, and since I wanted to add extra functionality to the native Bootstrap carousel, I recreated it in jQuery with control on external elements (the side captions), modified image `div` container which supports both overlay and scale transitions, and support for videos. 
+
+# Counter.js
+```$(".count").each(function(i, el) {
+            _el = $(el);
+            if (isElementInViewport(el) && !_el.hasClass("counted")) {
+                _el.addClass("counted");
+                str = el.innerHTML;
+                step = _el.data("step");
+                num = Number(str);
+                time = 1 * 1000 / num * step;
+                time = _el.data("time") ? _el.data("time") * time : 2 * time;
+                html = "";
+                for (let i = 0, c = 0; Number((i).toFixed(1)) <= num; i += step, c++) {
+                    if (_el.hasClass("count-float")) {
+                        val = str.split(".");
+                        n = val[0].length + val[1].length;
+                        html = "";
+                        if (i.toPrecision(n).length === n + 1) {
+                            html = i.toPrecision(n);
+                        } else {
+                            html = i.toPrecision(n - 1);
+                        }
+                    } else {
+                        html = i;
+                    };
+                    count(el, html, c, time);
+                }
+            }
+        });
+```
 
 # License
 [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/)
