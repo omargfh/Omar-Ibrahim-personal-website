@@ -55,7 +55,41 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/3c24f7e660.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/style-banner-extend.css">
+    <style>
+        .header-column-flex {
+            flex-direction: row;
+            transition: transform .5s ease-in-out
+        }
+        
+        .header-column-flex:hover {
+            transform: scale(1.1)
+        }
+        
+        #ch-pic {
+            position: absolute;
+            visibility: hidden
+        }
+        
+        #ch-pic:hover {
+            transform: none
+        }
+        
+        @media (min-width:576px) {
+            #ch-pic {
+                position: static;
+                visibility: visible;
+                height: 230px;
+                width: 230px
+            }
+        }
+        
+        @media (min-width:768px) {
+            #ch-pic {
+                height: 300px;
+                width: 300px
+            }
+        }
+    </style>
 </head>
 
 <body class="overflow">
@@ -146,7 +180,7 @@
         </div>
     </div>
     <!-- Library -->
-    <div class="writing p-3">
+    <div id="section-2" class="writing p-3">
         <div class="main-view">
             <div class="menu-parent">
                 <div class="empty-view"></div>
@@ -180,7 +214,7 @@
                                     </div>
                                     <div class="text ">
                                         <h3>Poetry</h3>
-                                        <p class="no-indent ">A collection of poems in different genres from epistle to spoken words and varying in length between short (&#60 100 words) and long (&#62; 500 words). Each piece represents an emotional, philosophical or social
+                                        <p class="no-indent ">A collection of poems in different genres from epistle to spoken words and varying in length between short (&#60;100 words) and long (&#62;500 words). Each piece represents an emotional, philosophical or social
                                             topic in the life of the author.
                                         </p>
                                     </div>

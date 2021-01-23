@@ -60,7 +60,6 @@ function fetch_category(hash) {
                 // Insert HTML
                 html = insertProperty(html, "content", list_of_entries);
                 insertHtml("#category-ajax", html);
-                slide_in("#category-ajax");
                 // Add Active
                 $("#" + category + "-icon").addClass("active");
             });
@@ -75,14 +74,18 @@ function fetch_category(hash) {
 function fetch_article(id, category) {
     // Adjust ID
     id--;
-    // Set hash of current page
-    setURL("#" + category + id);
     // Fetch JSON
     $.getJSON("data/" + category.toLowerCase() + ".json", function(articles) {
         showLoading("#article-ajax")
         html = "";
         $.get(article, function(_entry) {
+            // Call the entry from the JSON
             $e = articles[id];
+            // Set hash of current page
+            setURL("#" + category.toLowerCase() + "?title=" + $e.title.toLowerCase() + "&id=" + $e.order);
+            // Scroll to top
+            scroll();
+            // Build HTML
             currentArticle = insertProperty(_entry, "image", $e.image);
             currentArticle = insertProperty(currentArticle, "image", $e.image);
             currentArticle = insertProperty(currentArticle, "title", $e.title);
@@ -95,7 +98,6 @@ function fetch_article(id, category) {
             console.log(html);
             // Insert HTML
             insertHtml("#article-ajax", html);
-            slide_in("#article-ajax");
         });
     });
 }
@@ -103,14 +105,15 @@ function fetch_article(id, category) {
 function fetch_article_caller(id, category) {
     fetch_article(id, category);
     slide_out("#category-ajax");
+    slide_in("#article-ajax");
 
     function fn() {
-        rebind(home_fn);
         fetch_category("#" + category);
         slide_off("#article-ajax");
         slide_back("#category-ajax");
+        scroll();
+        rebind(home_fn);
     }
-
     rebind(fn);
 }
 
@@ -120,16 +123,12 @@ function goHome(from) {
     slide_back("#categories");
     $("#back").addClass("remove");
     $('.menu li').removeClass("active");
-    setURL(null);
+    scroll();
+    setURL("#section-2");
 }
 
 function home_fn() {
-    var $back = $("#back");
-    $back.removeClass("remove");
-    var onClick = $back[0].onclick;
-    $back.unbind('click', onClick);
-    $back.attr('onclick', null);
-    $back.on('click', function() { goHome("#category-ajax"); });
+    goHome("#category-ajax");
 }
 
 // Rebind back button
@@ -142,7 +141,7 @@ function rebind(fn) {
 }
 
 // Animation Functions
-gsap.defaults({ ease: "power3.inOut", duration: 2 });
+gsap.defaults({ ease: "power3.inOut", duration: 1 });
 
 var tl = gsap.timeline();
 
@@ -158,7 +157,8 @@ function slide_in(_el) {
     gsap.set($(_el), { display: "block", opacity: 1, x: 0 });
     tl.from($(_el), {
         x: "100%",
-        opacity: 0
+        opacity: 0,
+        display: "none",
     });
 }
 
@@ -185,6 +185,12 @@ function reset(_el, y) {
     }
 }
 
+function scroll() {
+    $('html, body').animate({
+        scrollTop: ($("#section-2").offset().top - 110)
+    }, 800);
+}
+
 $(document).ready(function() {
 
     // Listeners
@@ -192,6 +198,8 @@ $(document).ready(function() {
         hash = $(this).data("target");
         fetch_category(hash);
         slide_out('#categories');
+        slide_in("#category-ajax");
+        scroll();
     });
 
     $('.menu li').click(function() {
@@ -200,7 +208,10 @@ $(document).ready(function() {
             slide_out('#categories');
         }
         $('.menu li').removeClass("active");
+        slide_off("#article-ajax");
         fetch_category(hash);
+        slide_in("#category-ajax");
+        scroll();
     });
 
 });

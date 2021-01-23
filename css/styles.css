@@ -1004,7 +1004,7 @@ div#navbarSupportedContent {
     font-size: 0.7em;
     font-weight: 300;
     font-family: "PT Sans", "Helvetica", sans-serif;
-    text-indent: 2.4em;
+    text-indent: 1.1em;
 }
 
 .writing p.no-indent {
@@ -1093,10 +1093,12 @@ div#navbarSupportedContent {
 }
 
 .writing ul.menu li:hover,
-.writing ul.menu li.active {
+.writing ul.menu li.active,
+.writing ul.menu li a:hover {
     background-color: #f9eeea;
     color: #d5c0b8;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .writing ul.menu li.active h4 {
@@ -1224,6 +1226,7 @@ div#navbarSupportedContent {
     height: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
+    transition: all 0.5s ease-in-out;
 }
 
 .writing .main-view .entry-card .text {
@@ -1444,10 +1447,35 @@ div#navbarSupportedContent {
     font-weight: normal;
     color: inherit;
     color: rgba(148, 114, 100);
+    word-wrap: break-word;
+}
+
+.writing .article p[align=center] {
+    text-align: center;
+}
+
+.writing .article .article-image {
+    width: 50%!important;
+    max-width: 350px;
+}
+
+.writing .article b {
+    font-weight: bold;
+    color: inherit;
+    color: rgba(148, 114, 100);
+    word-wrap: break-word;
 }
 
 .writing .main-view .side-text hr {
     display: none;
+}
+
+.writing .main-view p.writing-col-2 {
+    columns: 2;
+}
+
+.writing .main-view p.writing-col-3 {
+    columns: 3;
 }
 
 @media (max-width: 991px) {
@@ -1480,6 +1508,16 @@ div#navbarSupportedContent {
 @media (max-width: 575px) {
     .writing .article .main-text h1 {
         font-size: 1.5em;
+    }
+    .writing .main-view p.writing-col-2 {
+        columns: 1;
+    }
+    .writing .main-view p.writing-col-3 {
+        columns: 1;
+    }
+    .writing .article .article-image {
+        width: 90%!important;
+        max-width: 350px;
     }
 }
 
