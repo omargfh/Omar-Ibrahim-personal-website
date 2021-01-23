@@ -46,6 +46,11 @@ h2 {
     font-weight: bold;
 }
 
+b {
+    font-size: inherit;
+    font-weight: bold;
+}
+
 .brown {
     color: rgb(148, 114, 100)!important;
 }
