@@ -3,6 +3,13 @@ function setURL(hash) {
     window.location.hash = hash;
 }
 
+// Set new title
+function setTitle(title, brief) {
+    document.title = title;
+    $('meta[name="og:title"]').attr("content", title);
+    $('meta[name="description"]').attr("content", brief);
+}
+
 // Set template variables
 var article = "ajax/article.html";
 var entry = "ajax/entry.html";
@@ -36,6 +43,7 @@ function fetch_category(hash) {
     // Fetch Entries
     var category = hash.substring(1);
     $.getJSON("data/" + category + ".json", function(articles) {
+        setTitle(category.charAt(0).toUpperCase() + category.slice(1) + " - Omar Ibrahim", $('meta[name="description"]').attr("content"));
         html = "";
         // fetch template
         $.get(entryContainer, function(_entryContainer) {
@@ -81,6 +89,7 @@ function fetch_article(id, category) {
             $e = articles[id];
             // Set hash of current page
             setURL("#" + category.toLowerCase() + "?title=" + $e.title.toLowerCase() + "&id=" + $e.order);
+            setTitle($e.title + " - Omar Ibrahim", $e.desc);
             // Scroll to top
             scroll();
             // Build HTML
@@ -122,6 +131,7 @@ function goHome(from) {
     $('.menu li').removeClass("active");
     scroll();
     setURL("#section-2");
+    setTitle("Creative Writing - Omar Ibrahim");
 }
 
 function home_fn() {
@@ -238,6 +248,7 @@ $(document).ready(function() {
                     duration: 1
                 });
                 $("#" + category + "-icon").addClass("active");
+                setTitle(category.charAt(0).toUpperCase() + category.slice(1) + " - Omar Ibrahim", $('meta[name="description"]').attr("content"));
             }, 500);
         } else {
             setTimeout(() => {
