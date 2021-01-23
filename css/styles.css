@@ -1025,8 +1025,7 @@ div#navbarSupportedContent {
     margin-top: -40px;
 }
 
-.writing .main-view .skip-40,
-.writing .entry-card-content {
+.writing .main-view .skip-40 {
     width: calc(100% - 50px);
     transform: translateX(30px);
     margin: 10px;
@@ -1291,6 +1290,10 @@ div#navbarSupportedContent {
     padding: 0 50%;
 }
 
+.writing .entry-card-content {
+    margin-left: 40px;
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
     .writing .main-view .entry-card .text h5 {
         display: none;
@@ -1338,8 +1341,8 @@ div#navbarSupportedContent {
     .writing .main-view .entry-card {
         height: fit-content;
         width: calc(100% - 50px);
-        transform: translateX(30px);
         margin: 10px;
+        margin-left: 40px;
         background-color: white;
         padding: 0;
         box-shadow: -6px 9px 21px 0px rgba(0, 0, 0, 0.21);

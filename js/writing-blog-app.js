@@ -1,5 +1,3 @@
-// Check if the URL points to a specific page
-
 // Set new URL
 function setURL(hash) {
     window.location.hash = hash;
@@ -41,7 +39,7 @@ function fetch_category(hash) {
         html = "";
         // fetch template
         $.get(entryContainer, function(_entryContainer) {
-            showLoading("#category-ajax")
+            showLoading("#category-ajax");
             html = _entryContainer;
             // Build HTML
             $.get(entry, function(_entry) {
@@ -95,7 +93,6 @@ function fetch_article(id, category) {
             currentArticle = insertProperty(currentArticle, "category", $e.category);
             currentArticle = insertProperty(currentArticle, "year", $e.year);
             html += currentArticle;
-            console.log(html);
             // Insert HTML
             insertHtml("#article-ajax", html);
         });
@@ -208,10 +205,48 @@ $(document).ready(function() {
             slide_out('#categories');
         }
         $('.menu li').removeClass("active");
-        slide_off("#article-ajax");
+        if ($("#article-ajax").css("opacity") != 0) {
+            slide_off("#article-ajax");
+        }
         fetch_category(hash);
         slide_in("#category-ajax");
         scroll();
     });
 
+    // Check if the URL points to a specific page
+    cHash = window.location.hash;
+    let reCategory = new RegExp('#([a-zA-z]+)');
+    let category = cHash.match(reCategory);
+    if (category.length >= 2) {
+        category = category[1].toLowerCase();
+    }
+    let reId = new RegExp('&id=([0-9]+)');
+    let id = cHash.match(reId);
+    var allowed_hashes = ["poetry", "prose", "scripts", "academic"];
+    if (allowed_hashes.includes(category)) {
+        if (id && id.length >= 2) {
+            id = id[1];
+            setTimeout(() => {
+                gsap.defaults({
+                    duration: 0.01
+                });
+                slide_out("#categories");
+                fetch_article_caller(id, category);
+                $("#back").removeClass("remove");
+                gsap.defaults({
+                    ease: "power3.inOut",
+                    duration: 1
+                });
+                $("#" + category + "-icon").addClass("active");
+            }, 500);
+        } else {
+            setTimeout(() => {
+                fetch_category("#" + category);
+                slide_out('#categories');
+                slide_in("#category-ajax");
+                scroll();
+                $("#" + category + "-icon").addClass("active");
+            }, 500);
+        }
+    }
 });
