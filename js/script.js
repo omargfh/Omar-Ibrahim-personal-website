@@ -1,5 +1,22 @@
 $(document).ready(function() {
 
+    // Brings sub-menus to Bootstrap 4 (by Gerhard Gotz on StackOverFlow)
+    $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+        if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
+        }
+        var $subMenu = $(this).next('.dropdown-menu');
+        $subMenu.toggleClass('show');
+
+
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+            $('.dropdown-submenu .show').removeClass('show');
+        });
+
+
+        return false;
+    });
+
     // General variables to avoid calling the DOM
     doc_height = $(document).height();
     win_height = $(window).height();
