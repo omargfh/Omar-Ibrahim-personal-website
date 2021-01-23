@@ -194,6 +194,10 @@ b {
     visibility: visible;
 }
 
+.jusifty {
+    text-align: justify!important;
+}
+
 .margin-5 {
     margin: 5px 10px 5px 0px;
 }
@@ -1197,6 +1201,9 @@ div#navbarSupportedContent {
         margin: 0;
         padding: 1rem;
     }
+    .no-margin-mobile {
+        margin-top: -30px;
+    }
 }
 
 
@@ -1689,6 +1696,24 @@ div#navbarSupportedContent {
 
 .footer p {
     display: inline;
+}
+
+li.external-links {
+    list-style: circle;
+}
+
+.footer li.external-links a {
+    font-size: 16px;
+    color: white;
+    opacity: 1;
+    display: block;
+    margin-bottom: -1rem;
+    font-weight: normal;
+}
+
+.footer li.external-links a:hover {
+    text-decoration: none;
+    opacity: 0.8;
 }
 
 .icon {
