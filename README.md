@@ -14,34 +14,48 @@ The [graphic design page](https://www.omaribrahim.live/art.html) is a gallery pa
 The [programming page](https://www.omaribrahim.live/code.html) is a developer portfolio page, which includes a brief, a courses section, and a projects section. The courses sections consists of cards displayed in Masonry Layout, a layout in which each row does not have a specific height across adjacent elements. This is achieved using three `flexbox` elements each set to `flex-direction: column;` and housed in a Bootstrap Column `<div class="col-md-4">`. The courses section is collapsed by default, and since its height is dynamically created, the transition is creating by add a hypothetical `max-height` value and following it with a `transition: max-height 1s ease-in-out` on the man `div` in the CSS code. The second part of the page is a carousel, and since I wanted to add extra functionality to the native Bootstrap carousel, I recreated it in jQuery with control on external elements (the side captions), modified image `div` container which supports both overlay and scale transitions, and support for videos. 
 
 # Counter.js
-```$(".count").each(function(i, el) {
-            _el = $(el);
-            if (isElementInViewport(el) && !_el.hasClass("counted")) {
-                _el.addClass("counted");
-                str = el.innerHTML;
-                step = _el.data("step");
-                num = Number(str);
-                time = 1 * 1000 / num * step;
-                time = _el.data("time") ? _el.data("time") * time : 2 * time;
-                html = "";
-                for (let i = 0, c = 0; Number((i).toFixed(1)) <= num; i += step, c++) {
-                    if (_el.hasClass("count-float")) {
-                        val = str.split(".");
-                        n = val[0].length + val[1].length;
-                        html = "";
-                        if (i.toPrecision(n).length === n + 1) {
-                            html = i.toPrecision(n);
-                        } else {
-                            html = i.toPrecision(n - 1);
-                        }
-                    } else {
-                        html = i;
-                    };
-                    count(el, html, c, time);
-                }
-            }
-        });
+Counter.js is a simple Javascript counter. In this project, it is invoked using `isElementInViewport();`; however, it could be invoked using a different trigger by changing the `trigger` variable below. 
+
 ```
+$(".count").each(function(i, el) {
+    var trigger = {{your trigger goes here, return true to trigger the event}}
+    _el = $(el);
+    if (trigger && !_el.hasClass("counted")) {
+        _el.addClass("counted");
+        str = el.innerHTML;
+        step = _el.data("step") ? _el.data("step") : 1;
+        num = Number(str);
+        time = 1 * 1000 / num * step;
+        time = _el.data("time") ? _el.data("time") * time : 2 * time;
+        html = "";
+        for (let i = 0, c = 0; Number((i).toFixed(1)) <= num; i += step, c++) {
+            if (_el.hasClass("count-float")) {
+                val = str.split(".");
+                n = val[0].length + val[1].length;
+                html = "";
+                if (i.toPrecision(n).length === n + 1) {
+                    html = i.toPrecision(n);
+                } else {
+                    html = i.toPrecision(n - 1);
+                }
+            } else {
+                html = i;
+            };
+            count(el, html, c, time);
+        }
+    }
+});
+
+function count(el, html, c, time) {
+    setTimeout(function() {
+        el.innerHTML = html;
+    }, time + time * c);
+}
+```
+
+This function is ideally placed inside `$(window).scroll();` parent or `window.onscroll` to constantly check for the trigger, similar to the way it functions in the website.
+
+The function provides two classes: `count` which must be included in all subject elements and `count-float` which is only needed when dealing with floating point numbers. It also requires a step value using the `data-step` HTML attribute *(uses a step of 1 by default)*. *counted* items animate at various speeds, depending on the step size and the target value, ensuring that all elements reach their final states at the same time of `2 seconds`; however, the optional HTML attribute `data-time` can be used to alter this value, where its input is in seconds. Finally, the content is provided from the DOM property `innerHTML`, so the `class="count"` must be placed on the element which **contains** the number to be counter and only the number to be counted.
 
 # License
 [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/)
