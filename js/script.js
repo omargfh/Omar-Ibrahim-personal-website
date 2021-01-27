@@ -767,6 +767,8 @@ function showNews(i = 0, postIndex = 0) {
     window.progressInterval = progressInterval;
 
     function progress() {
+
+        window.postIndex = postIndex;
         if (i === 100) {
             i = -5;
             // reset progress bar

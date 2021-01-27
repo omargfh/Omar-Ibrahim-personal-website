@@ -460,13 +460,14 @@
             <button onclick="switchCard(-1)">&gt;</button>
         </div>
     </div>
+    <!-- News -->
     <div id="section-3b" class="reveal reveal-from-bottom start">
         <div class="carousel-news">
             <div class="progress-bar progress-bar--primary hide-on-desktop">
                 <div class="progress-bar__fill"></div>
             </div>
             <header class="main-post-wrapper">
-                <h2 class="page-title my-3" style="position: absolute; mix-blend-mode: soft-light; z-index: 100; opacity: 0.5;">Latest Updates Latest Updates Latest Updates Latest Updates Latest Updates</h2>
+                <h2 class="page-title my-3" style="position: absolute; mix-blend-mode: soft-light; z-index: 100; opacity: 0.2;">Latest Updates Latest Updates Latest Updates Latest Updates Latest Updates</h2>
                 <h3 class="text-white text-shadow my-3 mx-4 news" style="position: absolute; padding: 0 15px;">Latest Updates</h3>
                 <div class="slides">
                     <article class="main-post main-post--active">
@@ -570,6 +571,8 @@
                     </h2>
                 </article>
             </div>
+            <button class="indicator-button button-left" onclick="event.preventDefault(); postIndex - 1 > 0 ? news(postIndex - 1) : news(2);">&lt;</button>
+            <button class="indicator-button button-right" onclick="event.preventDefault(); postIndex + 1 < 3 ? news(postIndex + 1) : news(0);">&gt;</button>
         </div>
     </div>
     <!-- Gallery -->
