@@ -46,6 +46,10 @@ h2 {
     font-weight: bold;
 }
 
+.text-center {
+    text-align: center;
+}
+
 b {
     font-size: inherit;
     font-weight: bold;
@@ -180,6 +184,14 @@ b {
 
 .pull-650 {
     margin-top: -400px!important;
+}
+
+.darken-img {
+    filter: brightness(0.1);
+}
+
+.scale {
+    transform: scale(1.2);
 }
 
 .no-padding {
@@ -428,6 +440,13 @@ div#navbarSupportedContent {
     z-index: -120;
 }
 
+.page-title-soft-light {
+    position: absolute;
+    mix-blend-mode: soft-light;
+    z-index: 100;
+    opacity: 0.2;
+}
+
 .page-title~h3:first-of-type,
 .title-real {
     font-size: 40px;
@@ -448,7 +467,13 @@ div#navbarSupportedContent {
     }
     .page-title~h3:first-of-type,
     .title-real {
+        text-align: center;
         font-size: 30px;
+    }
+    .flex-justify {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
