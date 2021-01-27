@@ -868,6 +868,7 @@ div#navbarSupportedContent {
     font-weight: bold;
     color: black;
     margin-bottom: 15px;
+    text-align:center!important;
 }
 
 .highlights__parent .highlights__card__text h3 {
@@ -878,6 +879,7 @@ div#navbarSupportedContent {
     color: #4b4b4b;
     height: 100px;
     overflow: hidden;
+    text-align: justify;
 }
 
 .highlights__parent .highlights__card__text h4 {
