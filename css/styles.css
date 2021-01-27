@@ -868,7 +868,7 @@ div#navbarSupportedContent {
     font-weight: bold;
     color: black;
     margin-bottom: 15px;
-    text-align:center!important;
+    text-align:left!important;
 }
 
 .highlights__parent .highlights__card__text h3 {
@@ -965,11 +965,11 @@ div#navbarSupportedContent {
         transform: scale(0.8);
     }
     .highlights__parent button {
-        font-size: 25px;
-        opacity: 0.3;
+        font-size: 20px;
+        opacity: 0.2;
     }
     .highlights__parent button:hover, .highlights__parent button:focus {
-        opacity: 0.7;
+        opacity: 0.5;
     }
 }
 
