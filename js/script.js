@@ -227,6 +227,18 @@ $(document).ready(function() {
         onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
     });
 
+    const loader = $('.page-title');
+    loader.each(function() {
+        gsap.from(this, {
+            scrollTrigger: {
+                trigger: this,
+                scrub: 1,
+            },
+            x: -3000,
+            delay: 1,
+            ease: "power3"
+        })
+    });
     // ScrollTrigger.batch(".category-card", {
     //     interval: 0.1,
     //     onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
@@ -558,45 +570,52 @@ $(document).ready(function() {
         });
     });
     // Highlights
-    $('.highlights__card').click(function(){
-    let $this = $(this)[0];
-    let $active = $highlightsCard.filter('.active');
-    let $test = $active;
-    if ($this != $active[0]){
-    let mv = -280;
-    let x = 1;
-    let $send = $($this).prev();
-    while($test.next()[0] != $this){
-      mv -= 280;
-      $test = $test.next();
-      if ($test.length != 1) {
-        mv = 280;
-        x = 1;
-        $test = $active;
-        $send = $($this).next();
-        while($test.prev()[0] != $this){
-          mv += 280;
-          $test = $test.prev();
-           if ($test.length != 1) {
-             break;
-           }
+    $('.highlights__card').click(function() {
+        let $this = $(this)[0];
+        let $active = $highlightsCard.filter('.active');
+        let $test = $active;
+        if ($this != $active[0]) {
+            let mv = -280;
+            let x = 1;
+            let $send = $($this).prev();
+            while ($test.next()[0] != $this) {
+                mv -= 280;
+                $test = $test.next();
+                if ($test.length != 1) {
+                    mv = 280;
+                    x = 1;
+                    $test = $active;
+                    $send = $($this).next();
+                    while ($test.prev()[0] != $this) {
+                        mv += 280;
+                        $test = $test.prev();
+                        if ($test.length != 1) {
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            $active.removeClass('active');
+            switchCard(x, $send, mv);
         }
-        break;
-      }
-    }
-      $active.removeClass('active');
-      switchCard(x, $send, mv);
-    }
-  });
-  let callHighlightsForward = function() {setInterval(() => {
-      if (!document.hidden){
-      switchCard(-1);
-      }
-  }, 5000);};
-  ScrollTrigger.batch('.highlights_parent', {
-      onEnter: callHighlightsForward(),
-      onLeave: clearInterval(callHighlightsForward)
-  });
+    });
+    let callHighlightsForward = function() {
+        setInterval(() => {
+            if (!document.hidden) {
+                switchCard(-1);
+            }
+        }, 6000);
+    };
+    ScrollTrigger.batch('.highlights_parent', {
+        onEnter: callHighlightsForward(),
+        onLeave: clearInterval(callHighlightsForward)
+    });
+    // News Carousel
+    showNews();
+    $('.posts-wrapper .post').click(function() {
+        selectNews($('.post').filter(this).index());
+    })
 });
 
 function isElementInViewport(el) {
@@ -713,22 +732,79 @@ function count(el, html, c, time) {
 }
 
 let highlights_tl = gsap.timeline();
-  let $highlightsCard = $('.highlights__card')
-  function switchCard(x, $currentCard = $highlightsCard.filter('.active'), mv = 280) {
+let $highlightsCard = $('.highlights__card')
+
+function switchCard(x, $currentCard = $highlightsCard.filter('.active'), mv = 280) {
     x = x * mv;
     let $cards = $('.highlights');
     $currentCard.removeClass('active');
     $alter = x < 0 ? $currentCard.next() : $currentCard.prev();
     if ($alter.length != 1) {
-      if (x < 0) {
-        $alter = $highlightsCard.first();
-        x = ($highlightsCard.length - 1) * mv;
-      }
-      else {
-        $alter = $highlightsCard.last();
-        x = ($highlightsCard.length - 1) * -mv;
-      }
+        if (x < 0) {
+            $alter = $highlightsCard.first();
+            x = ($highlightsCard.length - 1) * mv;
+        } else {
+            $alter = $highlightsCard.last();
+            x = ($highlightsCard.length - 1) * -mv;
+        }
     }
-    highlights_tl.to($cards, {x: `+=${x}`, duration: 0.7, ease: "power3.inOut"}).onComplete($alter.addClass('active'));
-  }
-  window.switchCard = switchCard;
+    highlights_tl.to($cards, { x: `+=${x}`, duration: 0.7, ease: "power3.inOut" }).onComplete($alter.addClass('active'));
+}
+window.switchCard = switchCard;
+
+// News Carousel by Juan on Codepen
+function showNews(i = 0, postIndex = 0) {
+    $('.progress-bar__fill').css({ 'width': 0 });
+    $('.post').removeClass('post--active');
+    $('.main-post').removeClass('main-post--active').addClass('main-post--not-active');
+    let mainPosts = $(".main-post");
+    let posts = $(".post");
+
+    let currentPost = posts[postIndex];
+    let currentMainPost = mainPosts[postIndex];
+
+    let progressInterval = setInterval(progress, 100); // 180
+    window.progressInterval = progressInterval;
+
+    function progress() {
+        if (i === 100) {
+            i = -5;
+            // reset progress bar
+            currentPost.querySelector(".progress-bar__fill").style.width = 0;
+            document.querySelector(
+                ".progress-bar--primary .progress-bar__fill"
+            ).style.width = 0;
+            currentPost.classList.remove("post--active");
+
+            postIndex++;
+
+            currentMainPost.classList.add("main-post--not-active");
+            currentMainPost.classList.remove("main-post--active");
+
+            // reset postIndex to loop over the slides again
+            if (postIndex === posts.length) {
+                postIndex = 0;
+            }
+
+            currentPost = posts[postIndex];
+            currentMainPost = mainPosts[postIndex];
+        } else {
+            i++;
+            currentPost.querySelector(".progress-bar__fill").style.width = `${i}%`;
+            document.querySelector(
+                ".progress-bar--primary .progress-bar__fill"
+            ).style.width = `${i}%`;
+            currentPost.classList.add("post--active");
+
+            currentMainPost.classList.add("main-post--active");
+            currentMainPost.classList.remove("main-post--not-active");
+        }
+    }
+}
+
+function selectNews(index) {
+    clearInterval(window.progressInterval);
+    showNews(0, index);
+};
+
+window.news = selectNews;
