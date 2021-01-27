@@ -557,8 +557,46 @@ $(document).ready(function() {
             });
         });
     });
-
-    // });
+    // Highlights
+    $('.highlights__card').click(function(){
+    let $this = $(this)[0];
+    let $active = $highlightsCard.filter('.active');
+    let $test = $active;
+    if ($this != $active[0]){
+    let mv = -280;
+    let x = 1;
+    let $send = $($this).prev();
+    while($test.next()[0] != $this){
+      mv -= 280;
+      $test = $test.next();
+      if ($test.length != 1) {
+        mv = 280;
+        x = 1;
+        $test = $active;
+        $send = $($this).next();
+        while($test.prev()[0] != $this){
+          mv += 280;
+          $test = $test.prev();
+           if ($test.length != 1) {
+             break;
+           }
+        }
+        break;
+      }
+    }
+      $active.removeClass('active');
+      switchCard(x, $send, mv);
+    }
+  });
+  let callHighlightsForward = function() {setInterval(() => {
+      if (!document.hidden){
+      switchCard(-1);
+      }
+  }, 5000);};
+  ScrollTrigger.batch('.highlights_parent', {
+      onEnter: callHighlightsForward(),
+      onLeave: clearInterval(callHighlightsForward)
+  });
 });
 
 function isElementInViewport(el) {
@@ -673,3 +711,24 @@ function count(el, html, c, time) {
         el.innerHTML = html;
     }, time + time * c);
 }
+
+let highlights_tl = gsap.timeline();
+  let $highlightsCard = $('.highlights__card')
+  function switchCard(x, $currentCard = $highlightsCard.filter('.active'), mv = 280) {
+    x = x * mv;
+    let $cards = $('.highlights');
+    $currentCard.removeClass('active');
+    $alter = x < 0 ? $currentCard.next() : $currentCard.prev();
+    if ($alter.length != 1) {
+      if (x < 0) {
+        $alter = $highlightsCard.first();
+        x = ($highlightsCard.length - 1) * mv;
+      }
+      else {
+        $alter = $highlightsCard.last();
+        x = ($highlightsCard.length - 1) * -mv;
+      }
+    }
+    highlights_tl.to($cards, {x: `+=${x}`, duration: 0.7, ease: "power3.inOut"}).onComplete($alter.addClass('active'));
+  }
+  window.switchCard = switchCard;
