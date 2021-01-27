@@ -2922,7 +2922,7 @@ h1 {
 
 @media (min-width: 992px) {
     .container-carousel {
-        padding: 50px;
+        padding: 1rem;
         width: 100%;
     }
     .icon-text-sm p {
