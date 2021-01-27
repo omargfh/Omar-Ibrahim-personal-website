@@ -1371,15 +1371,17 @@ p.post__published {
 
 .card:hover,
 .card-animate:hover {
-    box-shadow: 1px 1px 10px rgba(148, 114, 100, 1.0);
-    background: url(../images/pt.webp), rgb(148, 114, 100)!important;
-    transform: scale(1.05) rotate(0.7deg);
+    box-shadow: 1px 1px 10px rgba(36, 36, 36, 0.274);
+    /* background: url(../images/pt.webp), rgb(148, 114, 100)!important; */
+    transform: scale(1.1) rotate(0.0deg);
 }
 
+
+/* 
 .card:hover .brown,
 .card:hover p {
     color: white!important;
-}
+} */
 
 .card-container {
     width: 100%;

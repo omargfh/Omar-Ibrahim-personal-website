@@ -765,52 +765,55 @@ window.switchCard = switchCard;
 
 // News Carousel by Juan on Codepen
 function showNews(i = 0, postIndex = 0) {
-    $('.progress-bar__fill').css({ 'width': 0 });
-    $('.post').removeClass('post--active');
-    $('.main-post').removeClass('main-post--active').addClass('main-post--not-active');
-    let mainPosts = $(".main-post");
-    let posts = $(".post");
+    if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
 
-    let currentPost = posts[postIndex];
-    let currentMainPost = mainPosts[postIndex];
+        $('.progress-bar__fill').css({ 'width': 0 });
+        $('.post').removeClass('post--active');
+        $('.main-post').removeClass('main-post--active').addClass('main-post--not-active');
+        let mainPosts = $(".main-post");
+        let posts = $(".post");
 
-    let progressInterval = setInterval(progress, 100); // 180
-    window.progressInterval = progressInterval;
+        let currentPost = posts[postIndex];
+        let currentMainPost = mainPosts[postIndex];
 
-    function progress() {
+        let progressInterval = setInterval(progress, 100); // 180
+        window.progressInterval = progressInterval;
 
-        window.postIndex = postIndex;
-        if (i === 100) {
-            i = -5;
-            // reset progress bar
-            currentPost.querySelector(".progress-bar__fill").style.width = 0;
-            document.querySelector(
-                ".progress-bar--primary .progress-bar__fill"
-            ).style.width = 0;
-            currentPost.classList.remove("post--active");
+        function progress() {
 
-            postIndex++;
+            window.postIndex = postIndex;
+            if (i === 100) {
+                i = -5;
+                // reset progress bar
+                currentPost.querySelector(".progress-bar__fill").style.width = 0;
+                document.querySelector(
+                    ".progress-bar--primary .progress-bar__fill"
+                ).style.width = 0;
+                currentPost.classList.remove("post--active");
 
-            currentMainPost.classList.add("main-post--not-active");
-            currentMainPost.classList.remove("main-post--active");
+                postIndex++;
 
-            // reset postIndex to loop over the slides again
-            if (postIndex === posts.length) {
-                postIndex = 0;
+                currentMainPost.classList.add("main-post--not-active");
+                currentMainPost.classList.remove("main-post--active");
+
+                // reset postIndex to loop over the slides again
+                if (postIndex === posts.length) {
+                    postIndex = 0;
+                }
+
+                currentPost = posts[postIndex];
+                currentMainPost = mainPosts[postIndex];
+            } else {
+                i++;
+                currentPost.querySelector(".progress-bar__fill").style.width = `${i}%`;
+                document.querySelector(
+                    ".progress-bar--primary .progress-bar__fill"
+                ).style.width = `${i}%`;
+                currentPost.classList.add("post--active");
+
+                currentMainPost.classList.add("main-post--active");
+                currentMainPost.classList.remove("main-post--not-active");
             }
-
-            currentPost = posts[postIndex];
-            currentMainPost = mainPosts[postIndex];
-        } else {
-            i++;
-            currentPost.querySelector(".progress-bar__fill").style.width = `${i}%`;
-            document.querySelector(
-                ".progress-bar--primary .progress-bar__fill"
-            ).style.width = `${i}%`;
-            currentPost.classList.add("post--active");
-
-            currentMainPost.classList.add("main-post--active");
-            currentMainPost.classList.remove("main-post--not-active");
         }
     }
 }
