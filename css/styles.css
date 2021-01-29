@@ -1284,11 +1284,6 @@ p.post__published {
     cursor: pointer;
 }
 
-.highlights__parent .highlights__card:hover.active {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-}
-
 .highlights__parent button,
 .indicator-button {
     font-family: 'Arial';

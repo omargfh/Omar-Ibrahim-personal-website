@@ -163,124 +163,127 @@ $(document).ready(function() {
     $('.color').scroll();
 
     // GreenStock Animations
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.defaults({ ease: "power3.inOut" });
-    $('.reveal').each(function(i, el) {
-        _el = $(el);
-        x = 0;
-        y = 0;
-        d = 0.25;
-        s = "top bottom";
-        if (_el.hasClass("reveal-from-right")) {
-            x = 100;
-        } else if (_el.hasClass("reveal-from-left")) {
-            x = -100;
-        }
-        if (_el.hasClass("reveal-from-bottom")) {
-            y = 100;
-        } else if (_el.hasClass("reveal-from-top")) {
-            y = -100;
-        }
-        if (_el.hasClass("delay")) {
+    try {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.defaults({ ease: "power3.inOut" });
+        $('.reveal').each(function(i, el) {
+            _el = $(el);
+            x = 0;
+            y = 0;
             d = 0.25;
-        }
-        if (_el.hasClass("start")) {
-            s = "-80px bottom";
-        }
-        gsap.from(el, {
+            s = "top bottom";
+            if (_el.hasClass("reveal-from-right")) {
+                x = 100;
+            } else if (_el.hasClass("reveal-from-left")) {
+                x = -100;
+            }
+            if (_el.hasClass("reveal-from-bottom")) {
+                y = 100;
+            } else if (_el.hasClass("reveal-from-top")) {
+                y = -100;
+            }
+            if (_el.hasClass("delay")) {
+                d = 0.25;
+            }
+            if (_el.hasClass("start")) {
+                s = "-80px bottom";
+            }
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    toggleActions: "play pause resume reset",
+                    start: s,
+                    end: "bottom 60px"
+                },
+                x: x,
+                y: y,
+                duration: 1,
+                opacity: 0,
+                delay: d,
+                stagger: 0.25,
+            });
+        });
+
+        gsap.from('.card', {
             scrollTrigger: {
-                trigger: el,
+                trigger: '.card',
+                toggleActions: "play none none none"
+            },
+            onEnter: () => {
+                $('.card').addClass("card-animate");
+                setTimeout(() => $('.card').removeClass("card-animate"), 1000);
+            },
+            delay: 1
+        });
+
+        gsap.from(".menu .fa-2x", {
+            scrollTrigger: ".fas .fa-feather-alt",
+            duration: 2,
+            scale: 0.5,
+            opacity: 0,
+            delay: 0.3,
+            stagger: 0.2,
+            ease: "elastic.inOut",
+            force3D: true
+        });
+
+        gsap.set(".card-container, .quote h1", { y: 100 });
+        // gsap.set(".category-card", { opacity: 0, y: 100 });
+
+        ScrollTrigger.batch(".card-container, .quote h1, .entry-card", {
+            toggleActions: "play pause resume reset",
+            interval: 0.1,
+            onEnter: batch => gsap.to(batch, { duration: 0.5, opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
+            onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+            onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+            onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
+        });
+
+        const loader = $('.page-title');
+        loader.each(function() {
+            gsap.from(this, {
+                scrollTrigger: {
+                    trigger: this,
+                    scrub: 1,
+                },
+                x: -3000,
+                delay: 1,
+                ease: "power3"
+            })
+        });
+        // ScrollTrigger.batch(".category-card", {
+        //     interval: 0.1,
+        //     onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+        //     onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+        //     onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
+        // });
+
+        ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card, .entry-card", { y: 0 }));
+
+        gsap.from('.quotation-mark', {
+            scrollTrigger: { trigger: '.quotation-mark', toggleActions: "play reset play reset" },
+            x: -50,
+            y: 50,
+            ease: "bounce",
+            duration: 1
+        });
+
+        gsap.from(".para-reveal", {
+            scrollTrigger: {
+                trigger: ".para-reveal.trigger",
                 toggleActions: "play pause resume reset",
-                start: s,
+                start: "-80px bottom",
                 end: "bottom 60px"
             },
-            x: x,
-            y: y,
-            duration: 1,
             opacity: 0,
-            delay: d,
-            stagger: 0.25,
+            delay: 0.25,
+            y: -100,
+            stagger: { each: 0.15, grid: [1, 3] },
+            overwrite: true
         });
-    });
-
-    gsap.from('.card', {
-        scrollTrigger: {
-            trigger: '.card',
-            toggleActions: "play none none none"
-        },
-        onEnter: () => {
-            $('.card').addClass("card-animate");
-            setTimeout(() => $('.card').removeClass("card-animate"), 1000);
-        },
-        delay: 1
-    });
-
-    gsap.from(".menu .fa-2x", {
-        scrollTrigger: ".fas .fa-feather-alt",
-        duration: 2,
-        scale: 0.5,
-        opacity: 0,
-        delay: 0.3,
-        stagger: 0.2,
-        ease: "elastic.inOut",
-        force3D: true
-    });
-
-    gsap.set(".card-container, .quote h1", { y: 100 });
-    // gsap.set(".category-card", { opacity: 0, y: 100 });
-
-    ScrollTrigger.batch(".card-container, .quote h1, .entry-card", {
-        toggleActions: "play pause resume reset",
-        interval: 0.1,
-        onEnter: batch => gsap.to(batch, { duration: 0.5, opacity: 1, y: 0, stagger: { each: 0.15, grid: [1, 3] }, overwrite: true }),
-        onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-        onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
-        onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
-    });
-
-    const loader = $('.page-title');
-    loader.each(function() {
-        gsap.from(this, {
-            scrollTrigger: {
-                trigger: this,
-                scrub: 1,
-            },
-            x: -3000,
-            delay: 1,
-            ease: "power3"
-        })
-    });
-    // ScrollTrigger.batch(".category-card", {
-    //     interval: 0.1,
-    //     onLeave: batch => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-    //     onEnterBack: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
-    //     onLeaveBack: batch => gsap.set(batch, { opacity: 0, y: 100, overwrite: true })
-    // });
-
-    ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".card-container, .quote h1, .category-card, .entry-card", { y: 0 }));
-
-    gsap.from('.quotation-mark', {
-        scrollTrigger: { trigger: '.quotation-mark', toggleActions: "play reset play reset" },
-        x: -50,
-        y: 50,
-        ease: "bounce",
-        duration: 1
-    });
-
-    gsap.from(".para-reveal", {
-        scrollTrigger: {
-            trigger: ".para-reveal.trigger",
-            toggleActions: "play pause resume reset",
-            start: "-80px bottom",
-            end: "bottom 60px"
-        },
-        opacity: 0,
-        delay: 0.25,
-        y: -100,
-        stagger: { each: 0.15, grid: [1, 3] },
-        overwrite: true
-    });
-
+    } catch (err) {
+        console.log(err);
+    }
     // Expand 
     $('.expand').click(function() {
         _el = $(this);
@@ -612,11 +615,11 @@ $(document).ready(function() {
         }
     });
     let callHighlightsForward = function() {
-        setInterval(() => {
+        window.highlightsInterval = setInterval(() => {
             if (!document.hidden) {
                 switchCard(-1);
             }
-        }, 6000);
+        }, 8000);
     };
     ScrollTrigger.batch('.highlights_parent', {
         onEnter: callHighlightsForward(),
@@ -759,7 +762,7 @@ function switchCard(x, $currentCard = $highlightsCard.filter('.active'), mv = 28
             x = ($highlightsCard.length - 1) * -mv;
         }
     }
-    highlights_tl.to($cards, { x: `+=${x}`, duration: 0.7, ease: "power3.inOut" }).onComplete($alter.addClass('active'));
+    highlights_tl.to($cards, { x: `+=${x}`, duration: 0.7, ease: "power3.inOut", onStart: () => { $alter.addClass('active') } });
 }
 window.switchCard = switchCard;
 

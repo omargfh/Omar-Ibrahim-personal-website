@@ -227,7 +227,7 @@ $(document).ready(function() {
     cHash = window.location.hash;
     let reCategory = new RegExp('#([a-zA-z]+)');
     let category = cHash.match(reCategory);
-    if (category.length >= 2) {
+    if (category && category.length >= 2) {
         category = category[1].toLowerCase();
     }
     let reId = new RegExp('&id=([0-9]+)');
