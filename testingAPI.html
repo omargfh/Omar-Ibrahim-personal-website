@@ -24,6 +24,11 @@
 
             FB.AppEvents.logPageView();
 
+            // Check if user is logged in
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+
         };
 
         (function(d, s, id) {
@@ -38,10 +43,6 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <script>
-        // Check if user is logged in
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
         //  Handle user status
         let statusChangeCallback = response => {
                 if (response['status'] === 'connected') {
